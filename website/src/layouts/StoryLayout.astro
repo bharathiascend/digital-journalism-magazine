@@ -1,0 +1,189 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ArticleFormat from '../components/formats/ArticleFormat.astro';
+import VideoFormat from '../components/formats/VideoFormat.astro';
+import PodcastFormat from '../components/formats/PodcastFormat.astro';
+import PhotoFeatureFormat from '../components/formats/PhotoFeatureFormat.astro';
+import PollReportFormat from '../components/formats/PollReportFormat.astro';
+import { getSectionMeta, getFormatMeta, getPublishableStories, type StoryEntry } from '../utils/stories';
+
+interface Props {
+  entry: StoryEntry;
+}
+
+const { entry } = Astro.props;
+const section = getSectionMeta(entry.data.section);
+const format = getFormatMeta(entry.data.format);
+
+// Fetch related stories (excluding current story)
+const allStories = await getPublishableStories();
+const relatedStories = allStories.filter((s) => s.id !== entry.id).slice(0, 2);
+
+const author = entry.data.authors?.[0];
+const monogram = author?.name
+  ? author.name
+      .split(' ')
+      .map((n) => n[0])
+      .join('')
+      .slice(0, 2)
+      .toUpperCase()
+  : 'ED';
+---
+
+<BaseLayout
+  title={entry.data.title}
+  description={entry.data.excerpt ?? entry.data.subtitle ?? 'A considered editorial story published by THE JOURNAL.'}
+>
+  <article class="story-article shell" aria-labelledby="story-title">
+    <header class="story-header reading-width">
+      <nav class="breadcrumb-nav" aria-label="Story breadcrumbs">
+        <a class="text-link breadcrumb" href="/">← Home</a>
+        {section && (
+          <>
+            <span class="breadcrumb-separator" aria-hidden="true">/</span>
+            <a class="text-link breadcrumb" href={`/sections/${section.id}/`}>{section.label}</a>
+          </>
+        )}
+        {format && (
+          <>
+            <span class="breadcrumb-separator" aria-hidden="true">/</span>
+            <a class="text-link breadcrumb" href={`/formats/${format.id}/`}>{format.badgeLabel}</a>
+          </>
+        )}
+      </nav>
+
+      <p class="eyebrow story-kicker">
+        <span>{section?.label ?? entry.data.section}</span>
+        <span aria-hidden="true">/</span>
+        <span>{format?.badgeLabel ?? entry.data.format}</span>
+      </p>
+
+      <h1 id="story-title" class="story-headline">{entry.data.title}</h1>
+
+      {entry.data.subtitle && <p class="story-deck">{entry.data.subtitle}</p>}
+
+      <div class="story-byline">
+        <span class="author-monogram" aria-hidden="true">{monogram}</span>
+        <div class="byline-copy">
+          <p class="byline-author">
+            By <strong>{author?.name ?? 'Editorial Desk'}</strong>
+            {author?.role && <span class="author-role"> ({author.role})</span>}
+          </p>
+          <p class="card-meta">
+            {entry.data.dateLabel ? (
+              <time datetime={entry.data.publishedAt}>{entry.data.dateLabel}</time>
+            ) : (
+              <span>Date unassigned · Editorial review</span>
+            )}
+            {entry.data.isDemo && (
+              <>
+                <span aria-hidden="true">·</span>
+                <span class="demo-tag">Demonstration Record</span>
+              </>
+            )}
+          </p>
+        </div>
+      </div>
+
+      {entry.data.status === 'needs-review' && (
+        <div class="review-notice-callout" role="note" aria-label="Editorial Review Notice">
+          <div class="review-callout-header">
+            <span class="review-badge">Local Editorial Preview · Pending Approval</span>
+            <span class="source-provenance-tag">Editorial Desk · Verification Pending</span>
+          </div>
+          {entry.data.editorialReview?.missingItems && entry.data.editorialReview.missingItems.length > 0 && (
+            <div class="review-missing-list">
+              <p><strong>Editorial Action Items Before Publication:</strong></p>
+              <ul>
+                {entry.data.editorialReview.missingItems.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {entry.data.editorialReview?.notes && (
+            <p class="review-editorial-notes">
+              <strong>Editorial Guidance:</strong> {entry.data.editorialReview.notes}
+            </p>
+          )}
+        </div>
+      )}
+
+      {entry.data.isDemo && (
+        <div class="demo-notice-callout">
+          <p>
+            <strong>Demonstration Record.</strong> This story is fictional placeholder material created exclusively for layout and typography testing. It represents no real reporting or living contributors.
+          </p>
+        </div>
+      )}
+    </header>
+
+    <!-- Format-specific layout body -->
+    <div class="story-content-region">
+      {entry.data.format === 'article' && (
+        <ArticleFormat entry={entry}>
+          <slot />
+        </ArticleFormat>
+      )}
+
+      {entry.data.format === 'blog' && (
+        <ArticleFormat entry={entry}>
+          <slot />
+        </ArticleFormat>
+      )}
+
+      {entry.data.format === 'video' && (
+        <VideoFormat entry={entry}>
+          <slot />
+        </VideoFormat>
+      )}
+
+      {entry.data.format === 'podcast' && (
+        <PodcastFormat entry={entry}>
+          <slot />
+        </PodcastFormat>
+      )}
+
+      {entry.data.format === 'photo-feature' && (
+        <PhotoFeatureFormat entry={entry}>
+          <slot />
+        </PhotoFeatureFormat>
+      )}
+
+      {entry.data.format === 'poll-report' && (
+        <PollReportFormat entry={entry}>
+          <slot />
+        </PollReportFormat>
+      )}
+    </div>
+  </article>
+
+  <!-- Related stories section -->
+  {relatedStories.length > 0 && (
+    <section class="shell section-block related-section" aria-labelledby="related-title">
+      <SectionHeading id="related-title" title="Continue reading" eyebrow="From the archives" />
+      <div class="two-column-grid">
+        {relatedStories.map((relStory) => {
+          const relSection = getSectionMeta(relStory.data.section);
+          const relFormat = getFormatMeta(relStory.data.format);
+          return (
+            <ArticleCard
+              title={relStory.data.title}
+              category={relSection?.shortLabel ?? relStory.data.section}
+              format={relFormat?.badgeLabel ?? relStory.data.format}
+              description={relStory.data.excerpt ?? relStory.data.subtitle}
+              href={`/stories/${relStory.data.slug}/`}
+              author={relStory.data.authors?.[0]?.name}
+              publishedAt={relStory.data.publishedAt}
+              dateLabel={relStory.data.dateLabel}
+              variant={relStory.data.heroImage?.variant ?? 'paper'}
+              layout="compact"
+            />
+          );
+        })}
+      </div>
+    </section>
+  )}
+</BaseLayout>

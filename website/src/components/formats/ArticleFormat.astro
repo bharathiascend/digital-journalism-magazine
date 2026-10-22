@@ -1,0 +1,39 @@
+---
+import type { StoryEntry } from '../../utils/stories';
+import PlaceholderArt from '../PlaceholderArt.astro';
+
+interface Props {
+  entry: StoryEntry;
+}
+
+const { entry } = Astro.props;
+const hero = entry.data.heroImage;
+---
+
+<div class="format-article">
+  {hero && (
+    <figure class="article-hero">
+      {hero.src ? (
+        <img
+          src={hero.src}
+          alt={hero.alt || hero.caption || entry.data.title}
+          class="article-hero-img"
+          loading="eager"
+        />
+      ) : (
+        <PlaceholderArt variant={hero.variant} label={entry.data.title} />
+      )}
+      {(hero.caption || hero.credit) && (
+        <figcaption>
+          {hero.caption && <span class="caption-text">{hero.caption}</span>}
+          {hero.credit && <span class="caption-credit"> {hero.credit}</span>}
+        </figcaption>
+      )}
+    </figure>
+  )}
+
+  <div class="article-body reading-width">
+    <slot />
+    <p class="article-end">End of story <span aria-hidden="true">■</span></p>
+  </div>
+</div>

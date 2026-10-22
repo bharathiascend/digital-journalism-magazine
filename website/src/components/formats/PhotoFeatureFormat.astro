@@ -1,0 +1,55 @@
+---
+import type { StoryEntry } from '../../utils/stories';
+import PlaceholderArt from '../PlaceholderArt.astro';
+
+interface Props {
+  entry: StoryEntry;
+}
+
+const { entry } = Astro.props;
+const gallery = entry.data.photoGallery;
+---
+
+<div class="format-photo-feature">
+  <div class="article-body reading-width">
+    <slot />
+  </div>
+
+  {gallery && gallery.length > 0 && (
+    <div class="photo-feature-gallery shell">
+      <div class="gallery-stack">
+        {gallery.map((photo, index) => (
+          <figure class="gallery-figure">
+            {photo.src ? (
+              <img
+                src={photo.src}
+                alt={photo.alt || photo.caption}
+                class="gallery-photo-img"
+                loading="lazy"
+              />
+            ) : (
+              <div class="unsupplied-photo-box">
+                <PlaceholderArt variant={photo.variant ?? 'frames'} label={`Missing Plate ${index + 1}`} />
+                <p class="missing-photo-label">Unsupplied Image · Requires Contributor Submission</p>
+              </div>
+            )}
+            <figcaption class="gallery-caption">
+              <span class="caption-index">Plate {index + 1}</span>
+              <p class="caption-text">{photo.caption}</p>
+              {photo.credit && <p class="caption-credit">{photo.credit}</p>}
+              {photo.reviewNotice && (
+                <p class="photo-review-notice">
+                  <strong>Editorial Note:</strong> {photo.reviewNotice}
+                </p>
+              )}
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  )}
+
+  <div class="reading-width">
+    <p class="article-end">End of visual feature <span aria-hidden="true">■</span></p>
+  </div>
+</div>

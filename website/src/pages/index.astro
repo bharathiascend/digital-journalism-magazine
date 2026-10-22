@@ -4,62 +4,383 @@ import ArticleCard from '../components/ArticleCard.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import AdPlacement from '../components/AdPlacement.astro';
 import PlaceholderArt from '../components/PlaceholderArt.astro';
+import { getPublishableStories, getSectionMeta, getFormatMeta, type StoryEntry } from '../utils/stories';
+
+const stories = await getPublishableStories();
+const hasStories = stories.length > 0;
+
+// Lead story: first available article or first story
+const featuredStory = stories.find((s) => s.data.format === 'article') ?? stories[0];
+const otherStories = stories.filter((s) => s.id !== featuredStory?.id);
+
+// Latest stories grid (up to 3 distinct stories)
+const latestStories = otherStories.length >= 3 ? otherStories.slice(0, 3) : stories.slice(0, 3);
+
+// Subject stories
+const nationalStory = stories.find((s) => s.data.section === 'national');
+const politicsStory = stories.find((s) => s.data.section === 'politics');
+const lifestyleStory = stories.find((s) => s.data.section === 'lifestyle');
+const sportsStory = stories.find((s) => s.data.section === 'sports');
+
+// Multimedia stories
+const videoStory = stories.find((s) => s.data.format === 'video');
+const podcastStory = stories.find((s) => s.data.format === 'podcast');
+const photoStory = stories.find((s) => s.data.format === 'photo-feature');
 ---
-<BaseLayout title="Homepage design">
+
+<BaseLayout title="Homepage">
   <div class="shell">
-    <section class="lead-section" aria-labelledby="featured-title">
-      <div class="lead-copy">
-        <p class="eyebrow">Featured story <span aria-hidden="true">/</span> Demo essay</p>
-        <h1 id="featured-title"><a href="/sample-article/">Room to read.<br /><em>Space to think.</em></a></h1>
-        <p class="lead-deck">A demonstration of thoughtful pacing, clear typography, and the pleasure of an unhurried page.</p>
-        <p class="card-meta">Example Writer <span aria-hidden="true">·</span> Fictional placeholder</p>
-        <a class="text-link lead-link" href="/sample-article/">Explore the sample article <span aria-hidden="true">↗</span></a>
-      </div>
-      <figure class="lead-figure"><PlaceholderArt variant="paper" label="Featured image placeholder" /><figcaption>An original abstract composition. No source photograph is used.</figcaption></figure>
-    </section>
+    {hasStories ? (
+      <>
+        {/* 1. Featured Lead Story */}
+        {featuredStory && (
+          <section class="lead-section" aria-labelledby="featured-title">
+            <div class="lead-copy">
+              <p class="eyebrow">
+                <span>Featured story</span>
+                <span aria-hidden="true">/</span>
+                <span>{getSectionMeta(featuredStory.data.section)?.label ?? featuredStory.data.section}</span>
+              </p>
+              <h1 id="featured-title">
+                <a href={`/stories/${featuredStory.data.slug}/`}>{featuredStory.data.title}</a>
+              </h1>
+              {featuredStory.data.subtitle && <p class="lead-deck">{featuredStory.data.subtitle}</p>}
+              <p class="card-meta">
+                {featuredStory.data.authors?.[0]?.name ?? 'Editorial Desk'}
+                {featuredStory.data.dateLabel && (
+                  <>
+                    <span aria-hidden="true">·</span>
+                    <time datetime={featuredStory.data.publishedAt}>{featuredStory.data.dateLabel}</time>
+                  </>
+                )}
+                {featuredStory.data.isDemo && (
+                  <>
+                    <span aria-hidden="true">·</span>
+                    <span>Demonstration record</span>
+                  </>
+                )}
+              </p>
+              <a class="text-link lead-link" href={`/stories/${featuredStory.data.slug}/`}>
+                Read the story <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+            <figure class="lead-figure">
+              {featuredStory.data.heroImage?.src ? (
+                <img
+                  src={featuredStory.data.heroImage.src}
+                  alt={featuredStory.data.heroImage.alt || featuredStory.data.title}
+                  class="lead-hero-img"
+                  loading="eager"
+                />
+              ) : (
+                <PlaceholderArt
+                  variant={featuredStory.data.heroImage?.variant ?? 'paper'}
+                  label={featuredStory.data.title}
+                />
+              )}
+              <figcaption>
+                {featuredStory.data.heroImage?.caption ?? 'An editorial composition.'}
+              </figcaption>
+            </figure>
+          </section>
+        )}
 
-    <section class="section-block" id="latest" aria-labelledby="latest-title">
-      <SectionHeading id="latest-title" title="Latest stories" eyebrow="The reading desk" href="/sample-article/" />
-      <div class="three-column-grid">
-        <ArticleCard category="Essay" title="The art of looking a little closer" description="A fictional layout example for a short essay, with room for an introduction and a clear byline." variant="arches" />
-        <ArticleCard category="Perspective" title="A pause between the lines" description="Neutral demonstration text showing how a quieter story sits alongside a lead feature." variant="orbit" />
-        <ArticleCard category="Notebook" title="Small details, a wider frame" description="A sample card exploring the rhythm of a headline, an illustration, and a few introductory lines." variant="frames" />
-      </div>
-    </section>
+        {/* 2. Latest Stories */}
+        {latestStories.length > 0 && (
+          <section class="section-block" id="latest" aria-labelledby="latest-title">
+            <SectionHeading
+              id="latest-title"
+              title="Latest stories"
+              eyebrow="The reading desk"
+              href="/formats/article/"
+              linkLabel="View articles archive"
+            />
+            <div class="three-column-grid">
+              {latestStories.map((story) => {
+                const section = getSectionMeta(story.data.section);
+                const format = getFormatMeta(story.data.format);
+                return (
+                  <ArticleCard
+                    title={story.data.title}
+                    category={section?.shortLabel ?? story.data.section}
+                    format={format?.badgeLabel ?? story.data.format}
+                    description={story.data.excerpt ?? story.data.subtitle}
+                    href={`/stories/${story.data.slug}/`}
+                    author={story.data.authors?.[0]?.name}
+                    publishedAt={story.data.publishedAt}
+                    dateLabel={story.data.dateLabel}
+                    variant={story.data.heroImage?.variant ?? 'paper'}
+                  />
+                );
+              })}
+            </div>
+          </section>
+        )}
 
-    <section class="section-block" aria-labelledby="public-life-title">
-      <SectionHeading id="public-life-title" title="National & politics" eyebrow="Perspectives in focus" />
-      <div class="two-column-grid topic-grid">
-        <div id="national" class="topic-column"><h3 class="topic-label">National</h3><ArticleCard category="National" format="Section demo" title="A place for the larger picture" description="This is a fictional section placeholder, demonstrating space for a future national story. It reports no event." variant="arches" layout="compact" /></div>
-        <div id="politics" class="topic-column"><h3 class="topic-label">Politics</h3><ArticleCard category="Politics" format="Section demo" title="Questions with room to unfold" description="A neutral demonstration of the politics card layout. No people, policies, or real-world claims are represented." variant="paper" layout="compact" /></div>
-      </div>
-    </section>
+        {/* 3. National & Politics */}
+        {(nationalStory || politicsStory) && (
+          <section class="section-block" aria-labelledby="public-life-title">
+            <SectionHeading id="public-life-title" title="National & politics" eyebrow="Perspectives in focus" />
+            <div class="two-column-grid topic-grid">
+              {nationalStory && (
+                <div id="national" class="topic-column">
+                  <a href="/sections/national/" class="topic-link">
+                    <h3 class="topic-label">National <span aria-hidden="true">→</span></h3>
+                  </a>
+                  <ArticleCard
+                    title={nationalStory.data.title}
+                    category="National"
+                    format={getFormatMeta(nationalStory.data.format)?.badgeLabel ?? nationalStory.data.format}
+                    description={nationalStory.data.excerpt ?? nationalStory.data.subtitle}
+                    href={`/stories/${nationalStory.data.slug}/`}
+                    author={nationalStory.data.authors?.[0]?.name}
+                    publishedAt={nationalStory.data.publishedAt}
+                    dateLabel={nationalStory.data.dateLabel}
+                    variant={nationalStory.data.heroImage?.variant ?? 'arches'}
+                    layout="compact"
+                  />
+                </div>
+              )}
+              {politicsStory && (
+                <div id="politics" class="topic-column">
+                  <a href="/sections/politics/" class="topic-link">
+                    <h3 class="topic-label">Politics <span aria-hidden="true">→</span></h3>
+                  </a>
+                  <ArticleCard
+                    title={politicsStory.data.title}
+                    category="Politics"
+                    format={getFormatMeta(politicsStory.data.format)?.badgeLabel ?? politicsStory.data.format}
+                    description={politicsStory.data.excerpt ?? politicsStory.data.subtitle}
+                    href={`/stories/${politicsStory.data.slug}/`}
+                    author={politicsStory.data.authors?.[0]?.name}
+                    publishedAt={politicsStory.data.publishedAt}
+                    dateLabel={politicsStory.data.dateLabel}
+                    variant={politicsStory.data.heroImage?.variant ?? 'paper'}
+                    layout="compact"
+                  />
+                </div>
+              )}
+            </div>
+          </section>
+        )}
 
-    <section class="section-block" aria-labelledby="life-title">
-      <SectionHeading id="life-title" title="Lifestyle & sports" eyebrow="Beyond the everyday" />
-      <div class="two-column-grid topic-grid">
-        <div id="lifestyle" class="topic-column"><h3 class="topic-label">Lifestyle</h3><ArticleCard category="Lifestyle" format="Section demo" title="Everyday rhythms, thoughtfully observed" description="Fictional placeholder text for the lifestyle section. The illustration is an original abstract design." variant="frames" layout="compact" /></div>
-        <div id="sports" class="topic-column"><h3 class="topic-label">Sports</h3><ArticleCard category="Sports" format="Section demo" title="A different way to follow the movement" description="A sample sports card without invented matches, results, or athletes. Open it to review the shared article layout." variant="orbit" layout="compact" /></div>
-      </div>
-    </section>
+        {/* 4. Lifestyle & Sports */}
+        {(lifestyleStory || sportsStory) && (
+          <section class="section-block" aria-labelledby="life-title">
+            <SectionHeading id="life-title" title="Lifestyle & sports" eyebrow="Beyond the everyday" />
+            <div class="two-column-grid topic-grid">
+              {lifestyleStory && (
+                <div id="lifestyle" class="topic-column">
+                  <a href="/sections/lifestyle/" class="topic-link">
+                    <h3 class="topic-label">Lifestyle <span aria-hidden="true">→</span></h3>
+                  </a>
+                  <ArticleCard
+                    title={lifestyleStory.data.title}
+                    category="Lifestyle"
+                    format={getFormatMeta(lifestyleStory.data.format)?.badgeLabel ?? lifestyleStory.data.format}
+                    description={lifestyleStory.data.excerpt ?? lifestyleStory.data.subtitle}
+                    href={`/stories/${lifestyleStory.data.slug}/`}
+                    author={lifestyleStory.data.authors?.[0]?.name}
+                    publishedAt={lifestyleStory.data.publishedAt}
+                    dateLabel={lifestyleStory.data.dateLabel}
+                    variant={lifestyleStory.data.heroImage?.variant ?? 'frames'}
+                    layout="compact"
+                  />
+                </div>
+              )}
+              {sportsStory && (
+                <div id="sports" class="topic-column">
+                  <a href="/sections/sports/" class="topic-link">
+                    <h3 class="topic-label">Sports <span aria-hidden="true">→</span></h3>
+                  </a>
+                  <ArticleCard
+                    title={sportsStory.data.title}
+                    category="Sports"
+                    format={getFormatMeta(sportsStory.data.format)?.badgeLabel ?? sportsStory.data.format}
+                    description={sportsStory.data.excerpt ?? sportsStory.data.subtitle}
+                    href={`/stories/${sportsStory.data.slug}/`}
+                    author={sportsStory.data.authors?.[0]?.name}
+                    publishedAt={sportsStory.data.publishedAt}
+                    dateLabel={sportsStory.data.dateLabel}
+                    variant={sportsStory.data.heroImage?.variant ?? 'orbit'}
+                    layout="compact"
+                  />
+                </div>
+              )}
+            </div>
+          </section>
+        )}
 
-    <AdPlacement />
+        {/* 5. Promotional Placement */}
+        <AdPlacement
+          label="Advertisement"
+          imageSrc="/media/ads/ad-borcelle-cafe.png"
+          imageAlt="Borcelle Plant-based Cafe Promotional Creative"
+          advertiserName="Borcelle Cafe"
+        />
 
-    <section class="section-block" id="watch-listen" aria-labelledby="media-title">
-      <SectionHeading id="media-title" title="Watch & listen" eyebrow="Another way into the story" />
-      <p class="section-intro">Format demonstrations. No audio or video is loaded in this prototype.</p>
-      <div class="two-column-grid">
-        <ArticleCard category="Watch" format="Video layout demo" title="A story told one frame at a time" description="A placeholder for a future video explainer. This link opens the sample reading layout, not a media player." variant="arches" />
-        <ArticleCard category="Listen" format="Podcast layout demo" title="Making room for a conversation" description="A placeholder for a future podcast. Audio, episode credits, and transcripts will be reviewed in a later stage." variant="sound" />
-      </div>
-    </section>
+        {/* 6. Watch & Listen */}
+        {(videoStory || podcastStory) && (
+          <section class="section-block" id="watch-listen" aria-labelledby="media-title">
+            <SectionHeading
+              id="media-title"
+              title="Watch & listen"
+              eyebrow="Multimedia reporting"
+              href="/formats/video/"
+              linkLabel="View multimedia archive"
+            />
+            <p class="section-intro">Mobile-first journalism. Native 9:16 portrait video and independent podcasts.</p>
+            <div class="two-column-grid">
+              {videoStory && (
+                <ArticleCard
+                  title={videoStory.data.title}
+                  category="Watch"
+                  format="Video Explainer"
+                  description={videoStory.data.excerpt ?? videoStory.data.subtitle}
+                  href={`/stories/${videoStory.data.slug}/`}
+                  author={videoStory.data.authors?.[0]?.name}
+                  publishedAt={videoStory.data.publishedAt}
+                  dateLabel={videoStory.data.dateLabel}
+                  status={videoStory.data.status}
+                  isDemo={videoStory.data.isDemo}
+                  variant="arches"
+                />
+              )}
+              {podcastStory && (
+                <ArticleCard
+                  title={podcastStory.data.title}
+                  category="Listen"
+                  format="Podcast"
+                  description={podcastStory.data.excerpt ?? podcastStory.data.subtitle}
+                  href={`/stories/${podcastStory.data.slug}/`}
+                  author={podcastStory.data.authors?.[0]?.name}
+                  publishedAt={podcastStory.data.publishedAt}
+                  dateLabel={podcastStory.data.dateLabel}
+                  status={podcastStory.data.status}
+                  isDemo={podcastStory.data.isDemo}
+                  variant="sound"
+                />
+              )}
+            </div>
+          </section>
+        )}
 
-    <section class="section-block photo-section" id="photo-features" aria-labelledby="photo-title">
-      <SectionHeading id="photo-title" title="Photo features" eyebrow="A visual notebook" />
-      <div class="photo-feature">
-        <PlaceholderArt variant="frames" label="Photo feature placeholder" />
-        <div class="photo-copy"><p class="eyebrow">Visual essay <span aria-hidden="true">/</span> Demo</p><h3><a href="/sample-article/">The space<br />between frames</a></h3><p>A quiet canvas for images and their stories. This fictional layout uses abstract artwork to show scale and proportion.</p><p class="card-meta">Example Writer <span aria-hidden="true">·</span> Fictional placeholder</p><a class="text-link" href="/sample-article/">View the sample layout <span aria-hidden="true">↗</span></a></div>
-      </div>
-    </section>
+        {/* 7. Photo Features */}
+        {photoStory && (
+          <section class="section-block photo-section" id="photo-features" aria-labelledby="photo-title">
+            <SectionHeading
+              id="photo-title"
+              title="Photo features"
+              eyebrow="A visual notebook"
+              href="/formats/photo-feature/"
+              linkLabel="View photo archive"
+            />
+            <div class="photo-feature">
+              {photoStory.data.photoGallery?.[0]?.src ? (
+                <img
+                  src={photoStory.data.photoGallery[0].src}
+                  alt={photoStory.data.photoGallery[0].alt || photoStory.data.title}
+                  class="photo-feature-lead-img"
+                  loading="lazy"
+                />
+              ) : (
+                <PlaceholderArt
+                  variant={photoStory.data.heroImage?.variant ?? 'frames'}
+                  label={photoStory.data.title}
+                />
+              )}
+              <div class="photo-copy">
+                <p class="eyebrow">Visual essay <span aria-hidden="true">/</span> Feature</p>
+                <h3>
+                  <a href={`/stories/${photoStory.data.slug}/`}>{photoStory.data.title}</a>
+                </h3>
+                <p>{photoStory.data.excerpt ?? photoStory.data.subtitle}</p>
+                <p class="card-meta">
+                  {photoStory.data.authors?.[0]?.name ?? 'Visual Desk'}
+                  {photoStory.data.status === 'needs-review' && (
+                    <>
+                      <span aria-hidden="true">·</span>
+                      <span class="card-review-tag">Review</span>
+                    </>
+                  )}
+                  {photoStory.data.isDemo && (
+                    <>
+                      <span aria-hidden="true">·</span>
+                      <span>Demo</span>
+                    </>
+                  )}
+                </p>
+                <a class="text-link" href={`/stories/${photoStory.data.slug}/`}>
+                  View the photo feature <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
+          </section>
+        )}
+      </>
+    ) : (
+      <>
+        {/* Production Empty State: Displayed when no approved stories are released */}
+        <section class="lead-section empty-homepage-lead" aria-labelledby="featured-title">
+          <div class="lead-copy">
+            <p class="eyebrow">The Reading Desk <span aria-hidden="true">/</span> Publication Notice</p>
+            <h1 id="featured-title">Room to read.<br /><em>Space to think.</em></h1>
+            <p class="lead-deck">
+              THE JOURNAL is preparing its inaugural digital edition. Student reporting, investigative essays, opinion survey reports, and multimedia explainers are currently undergoing editorial review.
+            </p>
+            <p class="card-meta">Editorial Desk <span aria-hidden="true">·</span> Launch Edition in Preparation</p>
+          </div>
+          <figure class="lead-figure">
+            <PlaceholderArt variant="paper" label="Publication edition cover" />
+            <figcaption>Design foundation for THE JOURNAL. Source documents and reporting in editorial preparation.</figcaption>
+          </figure>
+        </section>
+
+        <section class="section-block" aria-labelledby="desks-title">
+          <SectionHeading id="desks-title" title="Reporting desks" eyebrow="Coverage areas" />
+          <div class="empty-archive-state reading-width">
+            <div class="empty-state-card">
+              <span class="status-dot" aria-hidden="true"></span>
+              <h2>Inaugural Stories in Editorial Preparation</h2>
+              <p>
+                No stories are publicly released in this production build. Reporting submissions across National, Politics, Lifestyle & Entertainment, and Sports are currently being verified against source records.
+              </p>
+              <div class="empty-state-actions">
+                <p class="card-meta">Explore the editorial coverage desks:</p>
+                <div class="desk-links">
+                  <a class="text-link" href="/sections/national/">National Desk →</a>
+                  <a class="text-link" href="/sections/politics/">Politics Desk →</a>
+                  <a class="text-link" href="/sections/lifestyle/">Lifestyle & Culture →</a>
+                  <a class="text-link" href="/sections/sports/">Sports Desk →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <AdPlacement />
+
+        <section class="section-block" aria-labelledby="multimedia-desks-title">
+          <SectionHeading id="multimedia-desks-title" title="Multimedia formats" eyebrow="Watch, listen & observe" />
+          <div class="three-column-grid">
+            <div class="topic-column">
+              <h3 class="topic-label">Video Explainers</h3>
+              <p class="card-description">Vertical video explainers breaking down policy and institutional developments.</p>
+              <a class="text-link" href="/formats/video/">Explore video desk →</a>
+            </div>
+            <div class="topic-column">
+              <h3 class="topic-label">Podcasts</h3>
+              <p class="card-description">Spoken conversations and audio journalism on collegiate culture and public issues.</p>
+              <a class="text-link" href="/formats/podcast/">Explore audio desk →</a>
+            </div>
+            <div class="topic-column">
+              <h3 class="topic-label">Photo Features</h3>
+              <p class="card-description">Visual essays and observational photography documenting communities and transit.</p>
+              <a class="text-link" href="/formats/photo-feature/">Explore visual desk →</a>
+            </div>
+          </div>
+        </section>
+      </>
+    )}
   </div>
 </BaseLayout>

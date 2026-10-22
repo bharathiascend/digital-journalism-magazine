@@ -1,0 +1,25 @@
+---
+import { render } from 'astro:content';
+import StoryLayout from '../../layouts/StoryLayout.astro';
+import { getPublishableStories, type StoryEntry } from '../../utils/stories';
+
+export async function getStaticPaths() {
+  const stories = await getPublishableStories();
+
+  return stories.map((story) => ({
+    params: { slug: story.data.slug },
+    props: { story },
+  }));
+}
+
+interface Props {
+  story: StoryEntry;
+}
+
+const { story } = Astro.props;
+const { Content } = await render(story);
+---
+
+<StoryLayout entry={story}>
+  <Content />
+</StoryLayout>

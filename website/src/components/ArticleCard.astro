@@ -11,8 +11,23 @@ interface Props {
   author?: string;
   publishedAt?: string;
   dateLabel?: string;
+  isDemo?: boolean;
+  status?: string;
 }
-const { title, category, description, href = '/sample-article/', variant = 'paper', layout = 'standard', format = 'Demo article', author = 'Example Writer', publishedAt, dateLabel } = Astro.props;
+const {
+  title,
+  category,
+  description,
+  href = '#',
+  variant = 'paper',
+  layout = 'standard',
+  format = 'Article',
+  author,
+  publishedAt,
+  dateLabel,
+  isDemo = false,
+  status,
+} = Astro.props;
 ---
 <article class:list={['article-card', `card-${layout}`]}>
   {layout !== 'text' && <PlaceholderArt variant={variant} />}
@@ -20,6 +35,31 @@ const { title, category, description, href = '/sample-article/', variant = 'pape
     <p class="eyebrow card-kicker">{category} <span aria-hidden="true">/</span> <span>{format}</span></p>
     <h3><a href={href}>{title}</a></h3>
     {description && <p class="card-description">{description}</p>}
-    <p class="card-meta">{author} <span aria-hidden="true">·</span> Fictional placeholder{publishedAt && dateLabel && <> <span aria-hidden="true">·</span> <time datetime={publishedAt}>{dateLabel}</time></>}</p>
+    <p class="card-meta">
+      {author ? <span>By {author}</span> : <span>Byline pending</span>}
+      {dateLabel ? (
+        <>
+          <span aria-hidden="true">·</span>
+          {publishedAt ? <time datetime={publishedAt}>{dateLabel}</time> : <span>{dateLabel}</span>}
+        </>
+      ) : (
+        <>
+          <span aria-hidden="true">·</span>
+          <span>Date pending</span>
+        </>
+      )}
+      {status === 'needs-review' && (
+        <>
+          <span aria-hidden="true">·</span>
+          <span class="card-review-tag">Review</span>
+        </>
+      )}
+      {isDemo && (
+        <>
+          <span aria-hidden="true">·</span>
+          <span class="demo-tag">Demo</span>
+        </>
+      )}
+    </p>
   </div>
 </article>

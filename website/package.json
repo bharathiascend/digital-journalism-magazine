@@ -7,6 +7,9 @@
   "scripts": {
     "dev": "astro dev --host 127.0.0.1",
     "build": "astro build",
+    "build:demo": "node scripts/build-demo.js",
+    "verify": "node scripts/verify-release.js",
+    "verify:demo": "node scripts/verify-release.js --demo",
     "preview": "astro preview --host 127.0.0.1"
   },
   "dependencies": {

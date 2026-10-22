@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { SECTIONS, getPublishableStories, getFormatMeta, type SectionMeta, type StoryEntry } from '../../utils/stories';
+
+export async function getStaticPaths() {
+  const allStories = await getPublishableStories();
+
+  return SECTIONS.map((section) => {
+    const sectionStories = allStories.filter((s) => s.data.section === section.id);
+    return {
+      params: { section: section.id },
+      props: {
+        section,
+        stories: sectionStories,
+      },
+    };
+  });
+}
+
+interface Props {
+  section: SectionMeta;
+  stories: StoryEntry[];
+}
+
+const { section, stories } = Astro.props;
+---
+
+<BaseLayout
+  title={`${section.label} Archive`}
+  description={section.description}
+>
+  <div class="shell archive-page">
+    <header class="archive-header reading-width">
+      <nav class="breadcrumb-nav" aria-label="Section breadcrumbs">
+        <a class="text-link breadcrumb" href="/">← Home</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span class="breadcrumb-current">Sections</span>
+      </nav>
+      <p class="eyebrow archive-kicker">Subject Archive <span aria-hidden="true">/</span> THE JOURNAL</p>
+      <h1 class="archive-title">{section.label}</h1>
+      <p class="archive-deck">{section.description}</p>
+    </header>
+
+    <main class="archive-content">
+      {stories.length > 0 ? (
+        <section aria-labelledby="section-stories-title">
+          <h2 id="section-stories-title" class="sr-only">Stories published in {section.label}</h2>
+          <div class="two-column-grid">
+          {stories.map((story) => {
+            const format = getFormatMeta(story.data.format);
+            return (
+              <ArticleCard
+                title={story.data.title}
+                category={section.shortLabel}
+                format={format?.badgeLabel ?? story.data.format}
+                description={story.data.excerpt ?? story.data.subtitle}
+                href={`/stories/${story.data.slug}/`}
+                author={story.data.authors?.[0]?.name}
+                publishedAt={story.data.publishedAt}
+                dateLabel={story.data.dateLabel}
+                variant={story.data.heroImage?.variant ?? 'paper'}
+              />
+            );
+          })}
+          </div>
+        </section>
+      ) : (
+        <div class="empty-archive-state reading-width">
+          <div class="empty-state-card">
+            <span class="status-dot" aria-hidden="true"></span>
+            <h2 class="empty-state-heading">No approved stories currently published in {section.label}</h2>
+            <p>
+              Submissions and editorial inquiries for this section are undergoing review. Only editorially approved items appear in public archives.
+            </p>
+            <div class="empty-state-actions">
+              <a class="text-link" href="/">← Return to THE JOURNAL homepage</a>
+            </div>
+          </div>
+        </div>
+      )}
+    </main>
+  </div>
+</BaseLayout>

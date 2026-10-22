@@ -1,9 +1,32 @@
 ---
-interface Props { label?: string; }
-const { label = 'Advertisement placement' } = Astro.props;
+interface Props {
+  label?: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  advertiserName?: string;
+}
+const {
+  label = 'Advertisement',
+  imageSrc,
+  imageAlt,
+  advertiserName,
+} = Astro.props;
 ---
 <aside class="ad-placement" aria-label={label}>
-  <span class="eyebrow">{label} <span aria-hidden="true">/</span> Placeholder</span>
-  <div class="ad-inner"><span class="ad-rule" aria-hidden="true"></span><p>A considered space for a future partner.</p><span class="ad-rule" aria-hidden="true"></span></div>
-  <span class="ad-note">Layout demonstration. No advertiser or offer.</span>
+  <div class="ad-header-row">
+    <span class="eyebrow">{label} <span aria-hidden="true">/</span> Promotional Feature</span>
+    {advertiserName && <span class="ad-advertiser-name">{advertiserName}</span>}
+  </div>
+  {imageSrc ? (
+    <div class="ad-artwork-frame">
+      <img src={imageSrc} alt={imageAlt || `${label} creative`} class="ad-artwork-img" loading="lazy" />
+      <p class="ad-disclosure-note">Promotional artwork submitted for review. Destination links and advertiser approvals pending.</p>
+    </div>
+  ) : (
+    <div class="ad-inner">
+      <span class="ad-rule" aria-hidden="true"></span>
+      <p>A considered space for a future partner.</p>
+      <span class="ad-rule" aria-hidden="true"></span>
+    </div>
+  )}
 </aside>

@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { FORMATS, getPublishableStories, getSectionMeta, type FormatMeta, type StoryEntry } from '../../utils/stories';
+
+export async function getStaticPaths() {
+  const allStories = await getPublishableStories();
+
+  return FORMATS.map((format) => {
+    const formatStories = allStories.filter((s) => s.data.format === format.id);
+    return {
+      params: { format: format.id },
+      props: {
+        format,
+        stories: formatStories,
+      },
+    };
+  });
+}
+
+interface Props {
+  format: FormatMeta;
+  stories: StoryEntry[];
+}
+
+const { format, stories } = Astro.props;
+---
+
+<BaseLayout
+  title={`${format.label} Archive`}
+  description={format.description}
+>
+  <div class="shell archive-page">
+    <header class="archive-header reading-width">
+      <nav class="breadcrumb-nav" aria-label="Format breadcrumbs">
+        <a class="text-link breadcrumb" href="/">← Home</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span class="breadcrumb-current">Formats</span>
+      </nav>
+      <p class="eyebrow archive-kicker">Format Archive <span aria-hidden="true">/</span> THE JOURNAL</p>
+      <h1 class="archive-title">{format.label}</h1>
+      <p class="archive-deck">{format.description}</p>
+    </header>
+
+    <main class="archive-content">
+      {stories.length > 0 ? (
+        <section aria-labelledby="format-stories-title">
+          <h2 id="format-stories-title" class="sr-only">Stories formatted as {format.label}</h2>
+          <div class="two-column-grid">
+          {stories.map((story) => {
+            const section = getSectionMeta(story.data.section);
+            return (
+              <ArticleCard
+                title={story.data.title}
+                category={section?.shortLabel ?? story.data.section}
+                format={format.badgeLabel}
+                description={story.data.excerpt ?? story.data.subtitle}
+                href={`/stories/${story.data.slug}/`}
+                author={story.data.authors?.[0]?.name}
+                publishedAt={story.data.publishedAt}
+                dateLabel={story.data.dateLabel}
+                variant={story.data.heroImage?.variant ?? 'paper'}
+              />
+            );
+          })}
+          </div>
+        </section>
+      ) : (
+        <div class="empty-archive-state reading-width">
+          <div class="empty-state-card">
+            <span class="status-dot" aria-hidden="true"></span>
+            <h2 class="empty-state-heading">No approved {format.badgeLabel.toLowerCase()} entries currently published</h2>
+            <p>
+              Multimedia assets, verified durations, transcripts, and editorial reviews are in progress. Only approved items are released into public archives.
+            </p>
+            <div class="empty-state-actions">
+              <a class="text-link" href="/">← Return to THE JOURNAL homepage</a>
+            </div>
+          </div>
+        </div>
+      )}
+    </main>
+  </div>
+</BaseLayout>

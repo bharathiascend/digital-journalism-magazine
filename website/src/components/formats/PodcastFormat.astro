@@ -1,0 +1,43 @@
+---
+import type { StoryEntry } from '../../utils/stories';
+import PlaceholderArt from '../PlaceholderArt.astro';
+
+interface Props {
+  entry: StoryEntry;
+}
+
+const { entry } = Astro.props;
+const podcast = entry.data.podcast;
+---
+
+<div class="format-podcast">
+  <div class="audio-player-card reading-width">
+    <div class="audio-card-top">
+      <div class="audio-art-thumb">
+        <PlaceholderArt variant="sound" label="Podcast episode" />
+      </div>
+      <div class="audio-meta-copy">
+        <span class="eyebrow">The Journal Podcast <span aria-hidden="true">/</span> Episode</span>
+        <h2 class="audio-player-title">{entry.data.title}</h2>
+        {podcast?.duration && <p class="card-meta">Episode duration: <strong>{podcast.duration}</strong></p>}
+      </div>
+    </div>
+
+    <!-- Native HTML5 audio controls -->
+    <div class="audio-native-bar" aria-label={`Audio player for ${entry.data.title}`}>
+      <audio controls preload="none" class="native-audio-element">
+        {podcast?.mediaUrl && <source src={podcast.mediaUrl} type="audio/mpeg" />}
+        <p>Your browser does not support native audio playback.</p>
+      </audio>
+    </div>
+
+    <p class="media-provenance-note">
+      <strong>Editorial & Audio Review:</strong> Native audio playback enabled. Episode title, host/speaker identification, and synchronized transcript await editorial review.
+    </p>
+  </div>
+
+  <div class="article-body reading-width">
+    <slot />
+    <p class="article-end">End of podcast notes <span aria-hidden="true">■</span></p>
+  </div>
+</div>

@@ -1,7 +1,14 @@
+---
+const allowDemos = !import.meta.env.PROD || import.meta.env.ASTRO_SHOW_DEMOS === 'true';
+---
 <footer class="site-footer">
   <div class="shell footer-inner">
     <div><a class="footer-brand" href="/">THE JOURNAL<span aria-hidden="true">.</span></a><p>A placeholder identity for a student magazine.</p></div>
-    <nav aria-label="Footer navigation"><a href="/">Homepage prototype</a><a href="/sample-article/">Sample article</a><a href="#top">Back to top <span aria-hidden="true">↑</span></a></nav>
+    <nav aria-label="Footer navigation">
+      <a href="/">Home</a>
+      {allowDemos && <a href="/sample-article/">Sample article</a>}
+      <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
+    </nav>
     <p class="footer-note">Design demonstration only.<br />All stories and bylines are fictional placeholders.</p>
   </div>
 </footer>

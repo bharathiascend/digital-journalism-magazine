@@ -1,0 +1,75 @@
+---
+import type { StoryEntry } from '../../utils/stories';
+
+interface Props {
+  entry: StoryEntry;
+}
+
+const { entry } = Astro.props;
+const poll = entry.data.pollData;
+---
+
+<div class="format-poll-report">
+  {poll && (
+    <div class="poll-summary-box reading-width">
+      <div class="poll-header-block">
+        <span class="eyebrow">Survey Findings <span aria-hidden="true">/</span> Question</span>
+        <h2 class="poll-question-text">“{poll.question}”</h2>
+        {poll.sampleSize && <p class="poll-sample-label">Sample Parameters: <strong>{poll.sampleSize}</strong></p>}
+      </div>
+
+      <!-- Accessible Results Table -->
+      <div class="poll-table-wrapper" role="region" aria-label="Survey results table" tabindex="0">
+        <table class="poll-results-table">
+          <caption>Survey percentage distribution and respondent counts</caption>
+          <thead>
+            <tr>
+              <th scope="col" class="th-response">Response Category</th>
+              <th scope="col" class="th-percent">Share</th>
+              {poll.results.some((r) => r.count !== undefined) && <th scope="col" class="th-count">Count</th>}
+              <th scope="col" class="th-bar">Distribution</th>
+            </tr>
+          </thead>
+          <tbody>
+            {poll.results.map((item) => (
+              <tr>
+                <th scope="row" class="td-response">{item.label}</th>
+                <td class="td-percent"><strong>{item.percentage}%</strong></td>
+                {poll.results.some((r) => r.count !== undefined) && (
+                  <td class="td-count">{item.count !== undefined ? item.count : '—'}</td>
+                )}
+                <td class="td-bar">
+                  <div class="poll-bar-track" aria-hidden="true">
+                    <div class="poll-bar-fill" style={`width: ${item.percentage}%;`}></div>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {poll.methodologyNote && (
+        <div class="poll-methodology-note">
+          <p><strong>Methodological limits:</strong> {poll.methodologyNote}</p>
+        </div>
+      )}
+
+      {poll.charts && poll.charts.length > 0 && (
+        <div class="poll-charts-grid">
+          {poll.charts.map((c) => (
+            <figure class="poll-chart-figure">
+              <img src={c.src} alt={c.caption} class="poll-chart-img" loading="lazy" />
+              <figcaption class="poll-chart-caption">{c.caption}</figcaption>
+            </figure>
+          ))}
+        </div>
+      )}
+    </div>
+  )}
+
+  <div class="article-body reading-width">
+    <slot />
+    <p class="article-end">End of report <span aria-hidden="true">■</span></p>
+  </div>
+</div>

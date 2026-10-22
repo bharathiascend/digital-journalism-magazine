@@ -1,0 +1,67 @@
+---
+import type { StoryEntry } from '../../utils/stories';
+
+interface Props {
+  entry: StoryEntry;
+}
+
+const { entry } = Astro.props;
+const video = entry.data.video;
+---
+
+<div class="format-video">
+  <!-- Portrait 9:16 video player placeholder -->
+  <div class="video-player-container">
+    <div class="video-player-frame" aria-label={`Vertical video player for ${entry.data.title}`}>
+      {video?.mediaUrl ? (
+        <div class="video-native-container">
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            poster={video.poster}
+            class="native-portrait-video"
+            aria-label={`Vertical news explainer: ${entry.data.title}`}
+          >
+            <source src={video.mediaUrl} type="video/mp4" />
+            <p>Your browser does not support HTML5 video playback.</p>
+          </video>
+        </div>
+      ) : (
+        <div class="video-aspect-box">
+          <svg class="video-backdrop" viewBox="0 0 360 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect width="360" height="640" fill="#222222" />
+            <path d="M0 480L360 320V640H0Z" fill="#2d2926" />
+            <circle cx="180" cy="300" r="85" fill="#892f35" fill-opacity="0.25" />
+            <circle cx="180" cy="300" r="48" fill="#892f35" />
+            <polygon points="172,284 196,300 172,316" fill="#f7f4ec" />
+          </svg>
+
+          <div class="video-overlay-info">
+            <span class="video-format-pill">Vertical Explainer <span aria-hidden="true">·</span> 9:16</span>
+            {video?.duration && <span class="video-duration-pill">{video.duration}</span>}
+          </div>
+
+          <div class="video-center-prompt">
+            <span class="video-play-btn" aria-hidden="true">▶</span>
+            <p class="video-sim-label">Video placeholder <span aria-hidden="true">·</span> Native player in review</p>
+          </div>
+
+          <div class="video-lower-third">
+            <p class="video-caption-sim">Preserving 9:16 portrait framing for mobile & desktop legibility.</p>
+          </div>
+        </div>
+      )}
+    </div>
+    <div class="media-accessibility-callout reading-width">
+      <p class="media-provenance-note">
+        <strong>Editorial & Accessibility Review:</strong> Native 9:16 portrait playback enabled. Speech has burned-in titles in original video stream; synchronized text transcript and timed closed-caption track (.vtt) await editorial preparation.
+      </p>
+    </div>
+  </div>
+
+  <div class="article-body reading-width">
+    <slot />
+    <p class="article-end">End of explainer <span aria-hidden="true">■</span></p>
+  </div>
+</div>

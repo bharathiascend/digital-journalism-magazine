@@ -1,10 +1,20 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import ArticleCard from '../components/ArticleCard.astro';
-import SectionHeading from '../components/SectionHeading.astro';
-import PlaceholderArt from '../components/PlaceholderArt.astro';
-// No invented publication date. An approved date can be added at content integration.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import PlaceholderArt from '../../components/PlaceholderArt.astro';
+
+export async function getStaticPaths() {
+  const allowDemos = !import.meta.env.PROD || import.meta.env.ASTRO_SHOW_DEMOS === 'true';
+  if (!allowDemos) {
+    return [];
+  }
+  return [
+    { params: { demo: undefined } }
+  ];
+}
 ---
+
 <BaseLayout title="Sample article layout" description="A clearly marked sample article for design review. Neutral demonstration text, a fictional byline, and original placeholder artwork.">
   <article class="sample-article shell" aria-labelledby="article-title">
     <header class="article-header reading-width">
