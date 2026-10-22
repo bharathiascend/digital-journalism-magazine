@@ -1,0 +1,9 @@
+---
+interface Props { label?: string; }
+const { label = 'Advertisement placement' } = Astro.props;
+---
+<aside class="ad-placement" aria-label={label}>
+  <span class="eyebrow">{label} <span aria-hidden="true">/</span> Placeholder</span>
+  <div class="ad-inner"><span class="ad-rule" aria-hidden="true"></span><p>A considered space for a future partner.</p><span class="ad-rule" aria-hidden="true"></span></div>
+  <span class="ad-note">Layout demonstration. No advertiser or offer.</span>
+</aside>

@@ -1,0 +1,62 @@
+---
+const links = [
+  { label: 'Home', href: '/' },
+  { label: 'National', href: '/#national' },
+  { label: 'Politics', href: '/#politics' },
+  { label: 'Lifestyle', href: '/#lifestyle' },
+  { label: 'Sports', href: '/#sports' },
+  { label: 'Watch & Listen', href: '/#watch-listen' },
+  { label: 'Photo Features', href: '/#photo-features' },
+];
+const isHome = Astro.url.pathname === '/';
+---
+<nav class="navigation" aria-label="Main navigation" data-navigation>
+  <div class="nav-mobile-bar">
+    <span class="eyebrow">Explore the journal</span>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" hidden>
+      <span data-menu-label>Menu</span>
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14" stroke="currentColor" stroke-width="1.5" /></svg>
+    </button>
+  </div>
+  <ul id="primary-navigation" class="nav-links">
+    {links.map(({ label, href }) => <li><a href={href} aria-current={isHome && href === '/' ? 'page' : undefined}>{label}</a></li>)}
+  </ul>
+</nav>
+<script>
+  const navigation = document.querySelector<HTMLElement>('[data-navigation]');
+  if (navigation) {
+    const button = navigation.querySelector<HTMLButtonElement>('.menu-toggle')!;
+    const list = navigation.querySelector<HTMLUListElement>('.nav-links')!;
+    const label = button.querySelector<HTMLElement>('[data-menu-label]')!;
+    const mobile = window.matchMedia('(max-width: 47.99rem)');
+    const setOpen = (open: boolean) => {
+      button.setAttribute('aria-expanded', String(open));
+      label.textContent = open ? 'Close' : 'Menu';
+      list.hidden = mobile.matches && !open;
+    };
+    const sync = () => {
+      const focusWasInList = list.contains(document.activeElement);
+      const focusWasOnButton = document.activeElement === button;
+      button.hidden = !mobile.matches;
+      setOpen(false);
+      if (mobile.matches && focusWasInList) button.focus();
+      if (!mobile.matches && focusWasOnButton) list.querySelector('a')?.focus();
+    };
+    button.addEventListener('click', () => setOpen(button.getAttribute('aria-expanded') !== 'true'));
+    navigation.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && mobile.matches && button.getAttribute('aria-expanded') === 'true') {
+        setOpen(false);
+        button.focus();
+      }
+    });
+    list.addEventListener('click', (event) => {
+      if ((event.target as HTMLElement).closest('a') && mobile.matches) {
+        // Keep focus visible while same-page anchor navigation moves the reader.
+        button.focus();
+        setOpen(false);
+      }
+    });
+    mobile.addEventListener('change', sync);
+    sync();
+  }
+</script>

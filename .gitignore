@@ -1,0 +1,12 @@
+@'
+/DIGITAL JOURNALISM WEBSITE/
+/DIGITAL JOURNALISM WEBSITE.zip
+/docs/
+**/node_modules/
+**/dist/
+**/.astro/
+**/.env
+**/.env.*
+!**/.env.example
+*.log
+'@ | Set-Content -Encoding utf8 .gitignore

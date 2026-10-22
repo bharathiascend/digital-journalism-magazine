@@ -1,0 +1,44 @@
+---
+export interface Props {
+  variant?: 'paper' | 'arches' | 'orbit' | 'frames' | 'sound';
+  label?: string;
+  class?: string;
+}
+const { variant = 'paper', label = 'Image placeholder', class: className } = Astro.props;
+---
+<div class:list={['placeholder-art', `art-${variant}`, className]}>
+  <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+    {variant === 'paper' && <>
+      <rect width="800" height="600" fill="#e5dece" />
+      <path d="M-90 600 330 0h300L210 600Z" fill="#d0c3ad" />
+      <rect x="298" y="86" width="350" height="445" fill="#892f35" transform="rotate(9 473 308)" />
+      <rect x="207" y="64" width="350" height="445" fill="#f7f4ec" transform="rotate(-9 382 286)" />
+      <g transform="rotate(-9 382 286)" fill="none" stroke="#892f35" stroke-width="2"><circle cx="382" cy="245" r="112"/><circle cx="382" cy="245" r="84"/><path d="M263 410h238M263 428h238M263 446h164" /></g>
+      <text x="382" y="286" text-anchor="middle" fill="#892f35" font-family="Georgia,serif" font-size="132" transform="rotate(-9 382 286)">J</text>
+    </>}
+    {variant === 'arches' && <>
+      <rect width="800" height="600" fill="#e3dccd"/><circle cx="630" cy="120" r="66" fill="#b58b70"/>
+      <path d="M100 600V310a220 220 0 0 1 440 0v290Z" fill="#892f35"/><path d="M220 600V320a100 100 0 0 1 200 0v280Z" fill="#f7f4ec"/>
+      <path d="M550 600V360a100 100 0 0 1 200 0v240Z" fill="#b9b4a0"/><path d="M0 520h800M0 560h800" stroke="#222" stroke-opacity=".15"/>
+    </>}
+    {variant === 'orbit' && <>
+      <rect width="800" height="600" fill="#d7dacc"/><circle cx="400" cy="300" r="190" fill="#f7f4ec"/>
+      <circle cx="400" cy="300" r="130" fill="none" stroke="#6d7768" stroke-width="2"/>
+      <ellipse cx="400" cy="300" rx="320" ry="80" transform="rotate(-30 400 300)" fill="none" stroke="#222" stroke-width="2"/>
+      <circle cx="604" cy="190" r="43" fill="#892f35"/><circle cx="260" cy="362" r="16" fill="#6d7768"/>
+    </>}
+    {variant === 'frames' && <>
+      <rect width="800" height="600" fill="#c8b49d"/><rect x="100" y="75" width="285" height="390" fill="#f7f4ec" transform="rotate(-8 242 270)"/>
+      <rect x="136" y="117" width="213" height="280" fill="#892f35" transform="rotate(-8 242 270)"/>
+      <rect x="400" y="130" width="285" height="390" fill="#f7f4ec" transform="rotate(10 542 325)"/>
+      <rect x="436" y="172" width="213" height="280" fill="#6d7768" transform="rotate(10 542 325)"/>
+      <circle cx="242" cy="240" r="62" fill="#c8b49d"/><path d="m450 410 90-140 95 140" fill="#d7dacc"/>
+    </>}
+    {variant === 'sound' && <>
+      <rect width="800" height="600" fill="#892f35"/><circle cx="400" cy="300" r="190" fill="none" stroke="#b76b6e"/>
+      <circle cx="400" cy="300" r="230" fill="none" stroke="#b76b6e"/>
+      <g stroke="#f7f4ec" stroke-width="10" stroke-linecap="round"><path d="M220 275v50M250 240v120M280 270v60M310 210v180M340 250v100M370 180v240M400 230v140M430 200v200M460 255v90M490 225v150M520 265v70M550 245v110M580 280v40"/></g>
+    </>}
+  </svg>
+  <span class="art-label">{label} <span aria-hidden="true">/</span> Original abstract artwork</span>
+</div>

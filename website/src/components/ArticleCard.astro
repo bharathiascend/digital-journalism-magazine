@@ -1,0 +1,25 @@
+---
+import PlaceholderArt from './PlaceholderArt.astro';
+interface Props {
+  title: string;
+  category: string;
+  description?: string;
+  href?: string;
+  variant?: 'paper' | 'arches' | 'orbit' | 'frames' | 'sound';
+  layout?: 'standard' | 'compact' | 'text';
+  format?: string;
+  author?: string;
+  publishedAt?: string;
+  dateLabel?: string;
+}
+const { title, category, description, href = '/sample-article/', variant = 'paper', layout = 'standard', format = 'Demo article', author = 'Example Writer', publishedAt, dateLabel } = Astro.props;
+---
+<article class:list={['article-card', `card-${layout}`]}>
+  {layout !== 'text' && <PlaceholderArt variant={variant} />}
+  <div class="card-copy">
+    <p class="eyebrow card-kicker">{category} <span aria-hidden="true">/</span> <span>{format}</span></p>
+    <h3><a href={href}>{title}</a></h3>
+    {description && <p class="card-description">{description}</p>}
+    <p class="card-meta">{author} <span aria-hidden="true">·</span> Fictional placeholder{publishedAt && dateLabel && <> <span aria-hidden="true">·</span> <time datetime={publishedAt}>{dateLabel}</time></>}</p>
+  </div>
+</article>
