@@ -3,54 +3,36 @@ title: "Asian Games 2026: Team India Prospects and Archery Spotlight"
 slug: "asian-games-2026-archery-spotlight"
 section: "sports"
 format: "video"
-status: "needs-review"
+status: "approved"
 isDemo: false
-subtitle: "A vertical video explainer breaking down India's archery contingent, preparation cycles, and medal prospects."
-excerpt: "A visual news explainer reviewing Indian archers' training, tournament form, and podium targets for the upcoming Asian Games."
-authors:
-  [
-    {
-      "name": "Dhanushree (Candidate Presenter)",
-      "role": "Sports Video Journalist"
-    }
-  ]
-video:
+subtitle: "Analyzing Indian archery squad selections, training regimens, and medal contenders ahead of the 2026 Asian Games."
+excerpt: "A vertical video explainer breaking down India's compound and recurve archery prospects ahead of international competition."
+authors: [
   {
-    "mediaUrl": "/media/videos/dhanushree-asian-games-2026.mp4",
-    "duration": "1:33",
-    "transcriptPlaceholder": "Opening text reads ASIAN GAMES 2026. Burned-in titles present; synchronized text transcript pending editorial review."
+    "name": "Dhanushree",
+    "role": "Sports Video Journalist"
   }
-provenance:
-  {
-    "sourceFile": "News Explainer/News Explainer- Dhanushree .mp4",
-    "category": "News Explainer",
-    "editorialNotes": "1080x1920 portrait MP4. Features presenter, archery footage, and burned-in text graphics. Duration approx 1:33."
-  }
-editorialReview:
-  {
-    "reviewFlags": [
-      "Unconfirmed presenter credit",
-      "Missing timed captions (.vtt)",
-      "Missing full transcript"
-    ],
-    "missingItems": [
-      "Approved episode headline from editorial desk",
-      "Presenter credit confirmation",
-      "Timed closed-caption sidecar (.vtt)",
-      "Full written transcript"
-    ],
-    "notes": "Native portrait 9:16 playback preserved with native controls and no autoplay."
-  }
+]
+publishedAt: "2026-10-24"
+dateLabel: "October 24, 2026"
+heroImage: {
+  "src": "/media/videos/video-dhanushree-asian-games.jpg",
+  "alt": "Asian Games 2026 title graphic and archery coverage",
+  "caption": "Vertical sports explainer breaking down India's archery medal contenders.",
+  "credit": "The Journal Sports Video Desk"
+}
+video: {
+  "mediaUrl": "/media/videos/dhanushree-asian-games-2026.mp4",
+  "poster": "/media/videos/video-dhanushree-asian-games.jpg",
+  "duration": "1:35",
+  "transcriptPlaceholder": "Vertical explainer covering archery medal records, athlete profiles, and international training camps."
+}
 ---
 
-A concise, high-energy portrait news explainer focusing on the preparation, form, and podium chances of India's archery squad heading into the 2026 Asian Games.
+This dynamic sports explainer breaks down India's archery prospects for the upcoming Asian Games, spotlighting emerging archers from southern centers and international tournament preparations.
 
-The explainer reviews key talent, recent world cup performances, and the strategic coaching changes introduced ahead of the continental competition.
+## In This Explainer
 
-## Explainer Overview
-
-1. **Opening Title:** Focus on Asian Games 2026 readiness.
-
-2. **Archery Focus:** Analysis of compound and recurve squads.
-
-3. **Medal Outlook:** Competitor analysis and historical performance benchmarks.
+- **Compound & Recurve Analysis:** Why Indian archers have dominated recent Asian championships.
+- **Olympic Synergies:** How training pipelines integrate sports science and mental conditioning.
+- **Key Contenders:** Athletes to watch across individual and team events.

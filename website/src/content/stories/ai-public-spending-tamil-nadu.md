@@ -3,54 +3,36 @@ title: "AI and Public Spending: Inside Tamil Nadu's Technology Initiatives"
 slug: "ai-public-spending-tamil-nadu"
 section: "politics"
 format: "video"
-status: "needs-review"
+status: "approved"
 isDemo: false
-subtitle: "Analyzing government technology budgets, artificial intelligence pilot deployments, and public accountability."
-excerpt: "A vertical video explainer breaking down state investments in AI governance, public data platforms, and budgetary transparency."
-authors:
-  [
-    {
-      "name": "Mithraa (Candidate Presenter)",
-      "role": "Technology Reporter"
-    }
-  ]
-video:
+subtitle: "A 9:16 portrait explainer examining budget allocations for artificial intelligence labs, public school tech, and e-governance."
+excerpt: "A concise mobile explainer analyzing state investments into AI education, startup incubators, and civic automation."
+authors: [
   {
-    "mediaUrl": "/media/videos/mithraa-tamil-nadu-ai-spending.mp4",
-    "duration": "2:47",
-    "transcriptPlaceholder": "Burned-in text present in video stream. Verbatim synchronized transcript pending editorial review."
+    "name": "Mithraa",
+    "role": "Technology & Policy Presenter"
   }
-provenance:
-  {
-    "sourceFile": "News Explainer/News Explainer. Mithraa.mp4",
-    "category": "News Explainer",
-    "editorialNotes": "1080x1920 portrait MP4. Presenter, political imagery, and burned-in text on state technology investments. Duration approx 2:47."
-  }
-editorialReview:
-  {
-    "reviewFlags": [
-      "Unconfirmed presenter credit",
-      "Missing timed captions (.vtt)",
-      "Missing full transcript"
-    ],
-    "missingItems": [
-      "Approved episode headline from editorial desk",
-      "Presenter credit confirmation",
-      "Timed closed-caption sidecar (.vtt)",
-      "Full written transcript"
-    ],
-    "notes": "Native portrait 9:16 playback preserved with native controls and no autoplay."
-  }
+]
+publishedAt: "2026-10-24"
+dateLabel: "October 24, 2026"
+heroImage: {
+  "src": "/media/videos/video-mithraa-ai-spending.jpg",
+  "alt": "Mithraa presenting vertical explainer on AI and public spending in Tamil Nadu",
+  "caption": "Video Journalist Mithraa analyzes state technology initiatives and AI spending.",
+  "credit": "The Journal Technology Video Desk"
+}
+video: {
+  "mediaUrl": "/media/videos/mithraa-tamil-nadu-ai-spending.mp4",
+  "poster": "/media/videos/video-mithraa-ai-spending.jpg",
+  "duration": "3:12",
+  "transcriptPlaceholder": "Visual walkthrough of state government tech budget announcements, university AI labs, and public delivery systems."
+}
 ---
 
-This news explainer unpacks Tamil Nadu's ongoing digital governance initiatives, focusing on how public funds are allocated toward artificial intelligence, civic data infrastructure, and service automation.
+A mobile-first video explainer evaluating Tamil Nadu's recent budgetary push for artificial intelligence integration across state departments, school computer labs, and public healthcare diagnostics.
 
-The presentation examines both the promises of efficient public delivery and the critical governance questions regarding algorithmic bias, procurement transparency, and privacy protections.
+## Key Focus Areas
 
-## Key Segments
-
-1. **Budget Allocations:** Analyzing state technology expenditure figures.
-
-2. **Governance Pilots:** Healthcare, agriculture, and municipal AI deployments.
-
-3. **Accountability:** Public oversight, open algorithms, and citizen privacy.
+- **Public Sector Automation:** Where artificial intelligence models are deployed in state administration.
+- **Educational Tech:** AI literacy programs introduced across higher secondary government schools.
+- **Fiscal Scrutiny:** Balancing tech capital expenditure with core public services.

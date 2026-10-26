@@ -6,7 +6,7 @@ const stories = defineCollection({
   schema: z.object({
     title: z.string(),
     slug: z.string().regex(/^[a-z0-9-]+$/),
-    section: z.enum(['national', 'politics', 'lifestyle', 'sports']),
+    section: z.enum(['national', 'politics', 'lifestyle', 'sports', 'analysis']),
     format: z.enum(['article', 'blog', 'video', 'podcast', 'photo-feature', 'poll-report']),
     status: z.enum(['draft', 'needs-review', 'approved']),
     isDemo: z.boolean().default(false),

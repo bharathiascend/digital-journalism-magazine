@@ -13,6 +13,8 @@ interface Props {
   dateLabel?: string;
   isDemo?: boolean;
   status?: string;
+  imageSrc?: string;
+  imageAlt?: string;
 }
 const {
   title,
@@ -27,10 +29,22 @@ const {
   dateLabel,
   isDemo = false,
   status,
+  imageSrc,
+  imageAlt,
 } = Astro.props;
 ---
 <article class:list={['article-card', `card-${layout}`]}>
-  {layout !== 'text' && <PlaceholderArt variant={variant} />}
+  {layout !== 'text' && (
+    imageSrc ? (
+      <div class="card-media-frame">
+        <a href={href} tabindex="-1" aria-hidden="true">
+          <img src={imageSrc} alt={imageAlt || title} class="card-media-img" loading="lazy" />
+        </a>
+      </div>
+    ) : (
+      <PlaceholderArt variant={variant} />
+    )
+  )}
   <div class="card-copy">
     <p class="eyebrow card-kicker">{category} <span aria-hidden="true">/</span> <span>{format}</span></p>
     <h3><a href={href}>{title}</a></h3>

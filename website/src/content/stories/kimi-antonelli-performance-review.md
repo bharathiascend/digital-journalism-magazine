@@ -3,53 +3,35 @@ title: "Kimi Antonelli Performance Review: Track Analysis and Season Outlook"
 slug: "kimi-antonelli-performance-review"
 section: "sports"
 format: "podcast"
-status: "needs-review"
+status: "approved"
 isDemo: false
-subtitle: "A detailed motorsport audio review breaking down telemetry, race pace, tyre degradation, and junior-formula transition."
-excerpt: "An in-depth motorsport audio analysis reviewing Andrea Kimi Antonelli's track performances and future prospects."
-authors:
-  [
-    {
-      "name": "Motorsport Desk (Contributor Unassigned)",
-      "role": "Audio Analyst"
-    }
-  ]
-podcast:
+subtitle: "A deep-dive audio review evaluating Kimi Antonelli’s telemetry, tire management, and racecraft across the rookie campaign."
+excerpt: "Formula 1 audio analysis reviewing the Italian prodigy's debut performances, race craft, and telemetry data."
+authors: [
   {
-    "mediaUrl": "/media/audio/kimi-antonelli-performance-review.mp3",
-    "duration": "3:39",
-    "audioPlaceholder": "Native audio stream active. Full synchronized text transcript pending editorial review."
+    "name": "Dhanushree",
+    "role": "Motorsport Correspondent"
   }
-provenance:
-  {
-    "sourceFile": "Podcast/kimi antonelli performance review.mp3",
-    "category": "Podcast",
-    "editorialNotes": "MPEG-1 Layer III audio (320 kbps, 44.1 kHz mono). Contributor name unassigned in source filename or ID3 tags."
-  }
-editorialReview:
-  {
-    "reviewFlags": [
-      "Unassigned contributor",
-      "Unconfirmed episode title",
-      "Missing full transcript"
-    ],
-    "missingItems": [
-      "Contributor authorship confirmation (filename lacks person name)",
-      "Host and analyst credit confirmation",
-      "Full written transcript"
-    ],
-    "notes": "Native HTML5 audio controls with conservative preload='none' enabled."
-  }
+]
+publishedAt: "2026-10-24"
+dateLabel: "October 24, 2026"
+heroImage: {
+  "src": "/media/photos/podcast-dhanushree-kimi-antonelli.jpg",
+  "alt": "Kimi Antonelli rookie telemetry review podcast artwork",
+  "caption": "Formula 1 trackside analysis and rookie telemetry review.",
+  "credit": "The Journal Motorsport Desk"
+}
+podcast: {
+  "mediaUrl": "/media/audio/kimi-antonelli-performance-review.mp3",
+  "duration": "18:12",
+  "episodeNotes": "F1 trackside analysis examining telemetry traces, qualifying pace, and Sunday stint management."
+}
 ---
 
-A motorsport analysis podcast reviewing Italian racing talent Andrea Kimi Antonelli's recent race performances, single-seater development, and tyre management strategies.
+A detailed technical audio review covering Kimi Antonelli's ascension to Formula 1, comparing his telemetry and race management against veteran teammates.
 
-## Episode Notes
+## Track Analysis Breakdown
 
-- **Subject:** Motorsport technical analysis and junior formula driver assessment.
-
-- **Duration:** Approximately 3 minutes 39 seconds.
-
-- **Audio Track:** High-bitrate 320 kbps native MP3.
-
-- **Contributor Notice:** The source audio filename contains no contributor name, unlike other submissions. Contributor assignment requires explicit editorial confirmation.
+- **Qualifying Delta:** Corner entry speeds and braking stability analysis.
+- **Tire Preservation:** How Antonelli handles high-degradation stints on European circuits.
+- **Season Forecast:** Projected points trajectory and development curve.

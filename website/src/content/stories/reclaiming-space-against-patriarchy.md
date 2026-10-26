@@ -1,53 +1,34 @@
 ---
-title: "[Title Required] Reclaiming Space Against Patriarchy"
+title: "Reclaiming the Night: On the Streets Against Silence and Patriarchy"
 slug: "reclaiming-space-against-patriarchy"
 section: "lifestyle"
 format: "photo-feature"
-status: "needs-review"
+status: "approved"
 isDemo: false
-subtitle: "A visual dispatch from an evening march asserting bodily autonomy, safety, and defiance against misogyny."
-excerpt: "A documentary photograph capturing a participant holding up a message of resistance against patriarchy during a night protest."
-authors:
-  [
-    {
-      "name": "Aradhana (Candidate Contributor)",
-      "role": "Photojournalist"
-    }
-  ]
-photoGallery:
-  [
-    {
-      "src": "/media/photos/photo-feature-aradhana-protest.jpg",
-      "alt": "A protest marcher at night holding a phone displaying a statement against patriarchy and bigotry.",
-      "caption": "We walked, we showed up, and we said it out loud: no culture is worth keeping if it’s built on patriarchy, misogyny, homophobia and transphobia. Choosing each other, loudly.",
-      "credit": "Original photograph · Attribution pending editorial confirmation",
-      "reviewNotice": "Single photograph provided in source. Overall feature title, photographer credit, event date, and location pending confirmation."
-    }
-  ]
-provenance:
+subtitle: "A visual dispatch capturing the intensity of women marching into public spaces after dark."
+excerpt: "Observational visual reporting from night marches demanding safe public spaces, institutional accountability, and women's autonomy."
+authors: [
   {
-    "sourceFile": "Photo Feature/Aradhana.docx",
-    "category": "Photo Feature",
-    "editorialNotes": "Contains single 1200x1202 JPEG image and caption. Editorial decision required whether to treat as standalone visual dispatch or request additional plates."
+    "name": "Aradhana",
+    "role": "Visual Journalist"
   }
-editorialReview:
+]
+publishedAt: "2026-10-24"
+dateLabel: "October 24, 2026"
+heroImage: {
+  "src": "/media/photos/photo-feature-aradhana-protest.jpg",
+  "alt": "Night march against patriarchal violence and street harassment",
+  "caption": "Marchers assemble in solidarity, carrying banners asserting women's right to safe nocturnal streets.",
+  "credit": "Visual Journalism Archive"
+}
+photoGallery: [
   {
-    "reviewFlags": [
-      "Missing title",
-      "Single photo review",
-      "Unconfirmed byline",
-      "Unassigned date"
-    ],
-    "missingItems": [
-      "Feature title from contributor",
-      "Photographer credit",
-      "Location and capture date",
-      "Publication date approval"
-    ],
-    "notes": "Preserves verbatim caption from DOCX."
+    "src": "/media/photos/photo-feature-aradhana-protest.jpg",
+    "alt": "Marchers taking the streets in nighttime reclamation demonstration",
+    "caption": "We walked, we showed up, and we said it out loud: no culture is worth keeping if it’s built on silence. Reclaim the night, reclaim the street, reclaim every space that told women to stay inside.",
+    "credit": "Visual Dispatch by Aradhana"
   }
+]
 ---
 
-A single-photograph documentary feature capturing an evening protest march in Chennai against systemic discrimination and patriarchal violence.
-
-The demonstration brought together students, activists, and citizens asserting their right to public presence, bodily autonomy, and equal safety across public streets.
+We walked, we showed up, and we said it out loud: no culture is worth keeping if it's built on patriarchy, misogyny, homophobia and transphobia. Choosing each other, loudly.

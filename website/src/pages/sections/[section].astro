@@ -60,6 +60,8 @@ const { section, stories } = Astro.props;
                 publishedAt={story.data.publishedAt}
                 dateLabel={story.data.dateLabel}
                 variant={story.data.heroImage?.variant ?? 'paper'}
+                imageSrc={story.data.heroImage?.src}
+                imageAlt={story.data.heroImage?.alt || story.data.title}
               />
             );
           })}

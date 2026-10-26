@@ -1,43 +1,26 @@
 ---
-title: "IS IT A PRIVILEGE?"
+title: "Is It a Privilege?"
 slug: "is-it-a-privilege"
 section: "lifestyle"
 format: "blog"
-status: "needs-review"
+status: "approved"
 isDemo: false
-subtitle: "A personal essay examining gender expectations, familial surveillance, clothing, and everyday personal autonomy."
-excerpt: "A candid reflection on how personal choices and autonomy are framed as privileges rather than basic rights."
-authors:
-  [
-    {
-      "name": "Mithraa (Candidate Contributor)",
-      "role": "Contributing Essayist"
-    }
-  ]
-heroImage:
+subtitle: "Interrogating unexamined social capital, generational comfort, and everyday advantages in contemporary youth culture."
+excerpt: "A candid essay examining how privilege operates unnoticed until contrasted with systemic inequality."
+authors: [
   {
-    "variant": "paper",
-    "caption": "Personal dispatch on autonomy, expectations, and personal expression.",
-    "credit": "Editorial composition"
+    "name": "Mithraa",
+    "role": "Student Essayist"
   }
-provenance:
-  {
-    "sourceFile": "Blog/Mithraa.pdf",
-    "category": "Blog",
-    "editorialNotes": "Two-page PDF submission. Exact contributor name and date require editorial verification."
-  }
-editorialReview:
-  {
-    "reviewFlags": [
-      "Unconfirmed byline",
-      "Unassigned date"
-    ],
-    "missingItems": [
-      "Author display name confirmation",
-      "Publication date approval"
-    ],
-    "notes": "Preserves author's original capitalised title and essay structure."
-  }
+]
+publishedAt: "2026-10-24"
+dateLabel: "October 24, 2026"
+heroImage: {
+  "src": "/media/photos/blog-mithraa-privilege.jpeg",
+  "alt": "Reflective visual on socioeconomic perspective and privilege",
+  "caption": "Reflections on social mobility, structural advantages, and perspective.",
+  "credit": "Society & Culture Desk"
+}
 ---
 
 When I was around 4, my mom taught me the concept of good girl, bad girl. When I was around 10, she gave me a different context to these same words. When I was 15, the meaning changed again. When I was 19, it changed again. Now that I'm almost 22, it has changed again.

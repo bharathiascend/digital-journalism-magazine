@@ -3,7 +3,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 export type StoryEntry = CollectionEntry<'stories'>;
 
 export interface SectionMeta {
-  id: 'national' | 'politics' | 'lifestyle' | 'sports';
+  id: 'national' | 'politics' | 'lifestyle' | 'sports' | 'analysis';
   label: string;
   description: string;
   shortLabel: string;
@@ -21,6 +21,12 @@ export const SECTIONS: SectionMeta[] = [
     label: 'Politics',
     shortLabel: 'Politics',
     description: 'Critical analysis of power, policy debates, and political movements beyond short-term election cycles.',
+  },
+  {
+    id: 'analysis',
+    label: 'News Analysis',
+    shortLabel: 'Analysis',
+    description: 'Forensic media framing analyses, government accountability deep dives, and systemic institutional critiques.',
   },
   {
     id: 'lifestyle',

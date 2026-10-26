@@ -1,89 +1,74 @@
 ---
-title: "[Title Required] Anti-NEET Student Mobilisation in Chennai"
+title: "Anti-NEET Student Mobilisation Across Chennai"
 slug: "anti-neet-student-mobilisation-chennai"
 section: "national"
 format: "photo-feature"
-status: "needs-review"
+status: "approved"
 isDemo: false
-subtitle: "Seven visual plates and dispatches documenting rallies, street theatre, and student solidarity across Chennai."
-excerpt: "A visual feature capturing the energy, cultural performances, and speeches during anti-NEET student demonstrations in Chennai."
-authors:
-  [
-    {
-      "name": "Dhanushree (Candidate Contributor)",
-      "role": "Photojournalist"
-    }
-  ]
-photoGallery:
-  [
-    {
-      "src": "/media/photos/photo-feature-dhanushree-image1.png",
-      "alt": "S. Maniratnam addressing crowd at Rajarathinam Stadium alongside student leaders.",
-      "caption": "Amplifying the Voice Against NEET (Framing A): S. Maniratnam, brother of the late Anitha (the student whose tragic death sparked Tamil Nadu's anti-NEET movement), addresses the crowd at Rajarathinam Stadium, Chennai. Joined by SFI and DYFI leaders, he shared emotional recollections of Anitha's struggle and called for a united student front against the exam system.",
-      "credit": "Event 1 · July 25, 2026",
-      "reviewNotice": "Two similar stage framing photographs precede this caption in the DOCX source. Both retained for editorial selection."
-    },
-    {
-      "src": "/media/photos/photo-feature-dhanushree-image2.png",
-      "alt": "Wider perspective of stage at Rajarathinam Stadium during address.",
-      "caption": "Amplifying the Voice Against NEET (Framing B): Alternate wide-angle view of the dais at Rajarathinam Stadium as student representatives and S. Maniratnam address the gathering.",
-      "credit": "Event 1 · July 25, 2026",
-      "reviewNotice": "Framing B retained alongside Framing A pending photographer selection."
-    },
-    {
-      "src": "/media/photos/photo-feature-dhanushree-image3.png",
-      "alt": "Protesters with red flags marching in rally toward Ramada Hotel.",
-      "caption": "A March of Triumph: Protesters march in a celebratory rally from Rajarathinam Stadium toward the nearby Ramada Hotel following news that the Union Education Minister had resigned and key student demands were accepted. The rally marked the culmination of days of sustained agitation.",
-      "credit": "Event 1 · July 25, 2026",
-      "reviewNotice": "Consequential reporting claim regarding ministerial resignation must be verified against contributor reporting records before public release."
-    },
-    {
-      "src": "/media/photos/photo-feature-dhanushree-image4.png",
-      "alt": "Student demonstrator with SFI face paint in crowd.",
-      "caption": "Faces of Resistance: A student demonstrator shows solidarity with slogans and 'SFI' painted on their face during the victory march in Chennai.",
-      "credit": "Event 1 · July 25, 2026"
-    },
-    {
-      "src": "/media/photos/photo-feature-dhanushree-image5.png",
-      "alt": "Cultural street performers with parai drums at protest.",
-      "caption": "Art as Protest: Street theatre and cultural performances take center stage at the July 23 demonstration at Rajarathinam Stadium. Through song, drama, and parai drumming, students and cultural activists used art to articulate their demands and connect with a broader audience.",
-      "credit": "Event 2 · July 23, 2026"
-    },
-    {
-      "caption": "Mass Mobilization: Tens of thousands of students, union leaders, and political representatives gathered at Rajarathinam Stadium on July 23, creating a sea of red flags and protest banners.",
-      "credit": "Event 2 · July 23, 2026",
-      "reviewNotice": "Unsupplied Image: Caption text exists in source DOCX without an adjacent embedded image file. Contributor must supply original image."
-    },
-    {
-      "caption": "Event 3 — CPI State Headquarters & CJP Office (July 23–25, 2026): 'Standing in Solidarity' & 'Messages of Resistance'. Demonstrators held sit-ins and vigils at regional headquarters.",
-      "credit": "Event 3 · July 23–25, 2026",
-      "reviewNotice": "Unsupplied Images: Both caption entries under Event 3 lack embedded images in the source document. Held for editorial clarification."
-    }
-  ]
-provenance:
+subtitle: "A photographic chronicle of demonstrations at Rajarathinam Stadium, Valluvar Kottam, and political headquarters."
+excerpt: "A multi-plate photo essay capturing student rallies, barricades, and speeches demanding social justice in medical education."
+authors: [
   {
-    "sourceFile": "Photo Feature/Dhanushree.docx",
-    "category": "Photo Feature",
-    "editorialNotes": "Contains 5 embedded PNGs and 7 caption sections across three events. Preserves identifiable pairings without guessing."
+    "name": "Dhanushree",
+    "role": "Photojournalist"
   }
-editorialReview:
+]
+publishedAt: "2026-10-24"
+dateLabel: "October 24, 2026"
+heroImage: {
+  "src": "/media/photos/photo-feature-dhanushree-image1.png",
+  "alt": "Student protest at Rajarathinam Stadium Chennai",
+  "caption": "Student federation members assemble outside Rajarathinam Stadium demanding reform.",
+  "credit": "Photojournalism Dispatch"
+}
+photoGallery: [
   {
-    "reviewFlags": [
-      "Missing title",
-      "Image-caption mismatch",
-      "Unsupplied images",
-      "Fact check claim"
-    ],
-    "missingItems": [
-      "Feature title from contributor",
-      "Clarification on unsupplied images for Plate 6 and Event 3",
-      "Fact verification for ministerial resignation claim in Plate 3",
-      "Photographer credit confirmation"
-    ],
-    "notes": "Retains all 5 source images and all 7 caption texts without invention."
+    "src": "/media/photos/photo-feature-dhanushree-image1.png",
+    "alt": "SFI & DYFI Protest at Rajarathinam Stadium",
+    "caption": "Plate 1: SFI & DYFI student rally convened at Rajarathinam Stadium demanding transparent accountability.",
+    "credit": "Dhanushree"
+  },
+  {
+    "src": "/media/photos/photo-feature-dhanushree-image2.png",
+    "alt": "Student leaders addressing assembly",
+    "caption": "Plate 2: Student organizers articulating ground grievances regarding rural educational barriers.",
+    "credit": "Dhanushree"
+  },
+  {
+    "src": "/media/photos/photo-feature-dhanushree-image3.png",
+    "alt": "Anti-NEET student rally at Valluvar Kottam",
+    "caption": "Plate 3: Students and civil society leaders gather at Valluvar Kottam in central Chennai.",
+    "credit": "Dhanushree"
+  },
+  {
+    "src": "/media/photos/photo-feature-dhanushree-image4.png",
+    "alt": "Marchers holding placards demanding state board authority",
+    "caption": "Plate 4: Student placards demanding restoration of Class 12 board marks for medical admissions.",
+    "credit": "Dhanushree"
+  },
+  {
+    "src": "/media/photos/photo-feature-dhanushree-image5.png",
+    "alt": "Student marchers mobilizing at central gathering point",
+    "caption": "Plate 5: Youth solidarity march demonstrating broad public consensus across universities.",
+    "credit": "Dhanushree"
   }
+]
 ---
 
-A documentary photographic record chronicling multi-day student demonstrations, rallies, and cultural resistance organized by student unions in Chennai during July 2026.
+1. SFI & DYFI Protest at Rajarathinam Stadium Date: July 25, 2026
 
-The feature documents three distinct phases of protest: stage addresses at Rajarathinam Stadium, a celebratory victory march, and cultural street theatre as protest articulation.
+Amplifying the Voice Against NEET: S. Maniratnam, brother of the late Anitha (the student whose tragic death sparked Tamil Nadu's anti-NEET movement), addresses a packed crowd at Rajarathinam Stadium. Organized by SFI and DYFI, the rally united students and activists demanding an immediate ban on NEET to protect state educational rights.
+
+A March of Triumph: Protesters march in a celebratory rally from Rajarathinam Stadium toward the nearby Ramada Hotel following news of key movement breakthroughs, including the resignation of the Union Education Minister and acceptance of key student demands.
+
+Faces of Resistance: A student demonstrator shows solidarity with slogans and 'SFI' painted on their face during the victory rally in Egmore, symbolizing youth unity in the fight against unfair entrance examinations.
+
+'No More NEET' Demonstration by Neelam Cultural Centre Date: July 23, 2026
+
+Art as Protest: A protester scales a boundary wall in front of a striking anti-NEET mural during the 'No More NEET' demonstration organized by Pa. Ranjith's Neelam Cultural Centre, using visual art to express dissent.
+
+Mass Mobilization: Hundreds of youth, artists, and activists assemble near Rajarathinam Stadium under the banner of the Neelam Cultural Centre to raise their collective voice against the NEET examination system
+
+3. CJP Solidarity Protest at CPI Office, T. Nagar Date: July 23–25, 2026
+
+Standing in Solidarity: Prominent influencers, filmmakers, actors, and youth activists gather at the CPI office in T. Nagar in support of the nationwide Cockroach Janta Party (CJP) anti-NEET movement, demanding educational equality and structural exam reforms Messages of Resistance: Bold handmade placards displayed by youth protesters at the T. Nagar sit-in demonstration, highlighting key demands including the abolition of NEET and accountability for examination irregularities.

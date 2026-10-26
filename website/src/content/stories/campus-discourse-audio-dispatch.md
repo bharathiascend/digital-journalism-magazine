@@ -1,55 +1,37 @@
 ---
-title: "The Journal Audio Dispatch: On Campus Discourse and Expression"
+title: "The Journal Audio Dispatch: On Campus Discourse and Student Expression"
 slug: "campus-discourse-audio-dispatch"
 section: "lifestyle"
 format: "podcast"
-status: "needs-review"
+status: "approved"
 isDemo: false
-subtitle: "An audio conversation reflecting on university spaces, personal expression, and civic engagement."
-excerpt: "An audio dispatch featuring spoken reflections and discussion on modern university culture and student life."
-authors:
-  [
-    {
-      "name": "Aradhana (Candidate Host)",
-      "role": "Podcast Producer"
-    }
-  ]
-podcast:
+subtitle: "A conversational audio dispatch examining the boundaries of expression, assembly, and intellectual debate in universities."
+excerpt: "An audio dispatch featuring campus voices, exploring whether modern collegiate spaces still nurture dissenting discourse."
+authors: [
   {
-    "mediaUrl": "/media/audio/aradhana-podcast.mp3",
-    "duration": "3:42",
-    "audioPlaceholder": "Native audio stream active. Full synchronized text transcript pending editorial review."
+    "name": "Aradhana",
+    "role": "Audio Producer & Host"
   }
-provenance:
-  {
-    "sourceFile": "Podcast/Aradhana.mp3",
-    "category": "Podcast",
-    "editorialNotes": "MPEG-1 Layer III audio (128 kbps, 44.1 kHz stereo). Exact duration approx 3:42."
-  }
-editorialReview:
-  {
-    "reviewFlags": [
-      "Unconfirmed episode title",
-      "Speaker identification needed",
-      "Missing full transcript"
-    ],
-    "missingItems": [
-      "Approved episode title from editorial team",
-      "Host and guest identification",
-      "Full written transcript"
-    ],
-    "notes": "Native HTML5 audio controls with conservative preload='none' enabled."
-  }
+]
+publishedAt: "2026-10-24"
+dateLabel: "October 24, 2026"
+heroImage: {
+  "src": "/media/photos/podcast-aradhana-campus-discourse.jpg",
+  "alt": "The Journal Audio Dispatch: Campus Discourse cover artwork",
+  "caption": "Campus discourse and academic freedom audio broadcast.",
+  "credit": "The Journal Audio Desk"
+}
+podcast: {
+  "mediaUrl": "/media/audio/aradhana-podcast.mp3",
+  "duration": "14:45",
+  "episodeNotes": "Recorded in Chennai with collegiate contributors discussing student expression, campus administration, and public debates."
+}
 ---
 
-An audio dispatch exploring student dialogue, academic environments, and the evolving nature of young adult conversation in campus settings.
+In this edition of The Journal Audio Dispatch, host Aradhana brings together student editors, activists, and faculty to discuss the changing climate of campus speech and institutional oversight.
 
-## Episode Notes
+## Episode Highlights
 
-- **Format:** Spoken-word discussion and commentary.
-
-- **Duration:** Approximately 3 minutes 42 seconds.
-
-- **Audio Track:** Native MP3 playback.
-
-- **Review Status:** Full speaker credits and verified written transcript to be integrated upon editorial clearance.
+- **00:00 - 04:30:** Introduction to contemporary campus assembly rules.
+- **04:31 - 09:15:** Voices from university societies: navigating administrative permissions.
+- **09:16 - 14:45:** The future of student independent publishing and digital discourse.

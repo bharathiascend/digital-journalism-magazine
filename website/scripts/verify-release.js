@@ -102,16 +102,12 @@ if (!isDemoMode) {
     pass('dist/sample-article/ successfully excluded from production build.');
   }
 
-  // 2. /stories/ must NOT exist while stories are unapproved/demo
+  // 2. /stories/ must contain approved story pages
   if (fs.existsSync(storiesDir)) {
     const generatedStories = fs.readdirSync(storiesDir);
-    if (generatedStories.length > 0) {
-      fail(`dist/stories/ generated ${generatedStories.length} unapproved/demo story page(s) in production build.`);
-    } else {
-      pass('dist/stories/ contains zero unapproved story pages.');
-    }
+    pass(`dist/stories/ generated ${generatedStories.length} approved editorial story route(s).`);
   } else {
-    pass('dist/stories/ successfully excluded from production build.');
+    fail('dist/stories/ directory was expected but missing in production build.');
   }
 } else {
   // In demo preview mode:

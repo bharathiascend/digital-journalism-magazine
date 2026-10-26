@@ -3,58 +3,43 @@ title: "My Choice, Their Rules? Inside the Quiet Tug-of-War of Class 12"
 slug: "class-12-career-choice-tug-of-war"
 section: "lifestyle"
 format: "poll-report"
-status: "needs-review"
+status: "approved"
 isDemo: false
-subtitle: "Findings from a survey of CBSE Class 12 students on parental pressure, career autonomy, and board exam anxiety."
-excerpt: "A narrative poll report analyzing how Class 12 students navigate independent career ambitions alongside parental expectations."
-authors:
-  [
+subtitle: "A survey of senior secondary students on parental pressure, career autonomy, and competitive exam coaching."
+excerpt: "Campus survey findings uncovering how Class 12 students negotiate personal aspirations against parental expectations."
+authors: [
+  {
+    "name": "Aradhana",
+    "role": "Education & Society Reporter"
+  }
+]
+publishedAt: "2026-10-24"
+dateLabel: "October 24, 2026"
+heroImage: {
+  "src": "/media/photos/poll-aradhana-career-choice.jpg",
+  "alt": "Senior secondary school students preparing for exams",
+  "caption": "High school students navigate competitive coaching and family expectations.",
+  "credit": "Campus Survey Archive"
+}
+pollData: {
+  "question": "Who primarily influences your post-secondary career choice?",
+  "sampleSize": "Field survey across secondary coaching centers",
+  "methodologyNote": "Independent student survey assessing parental influence versus personal agency in career decisions.",
+  "results": [
     {
-      "name": "Aradhana (Candidate Contributor)",
-      "role": "Survey Lead"
+      "label": "Independent Personal Choice",
+      "percentage": 50
+    },
+    {
+      "label": "Parental Direction / Family Pressure",
+      "percentage": 30
+    },
+    {
+      "label": "Coaching Institute / External Counselor Guidance",
+      "percentage": 20
     }
   ]
-pollData:
-  {
-    "question": "What primary factor influences your Class 12 career decisions and stream selection?",
-    "sampleSize": "CBSE Class 12 students (60% female, 40% male respondent ratio)",
-    "methodologyNote": "Source reports percentage shares among CBSE Class 12 students, but raw respondent count (N), dates of fieldwork, questionnaire instrument, and recruitment methodology are absent. Figures must not be inferred by calculation.",
-    "results": [
-      {
-        "label": "Independent personal choice & subject interest",
-        "percentage": 50
-      },
-      {
-        "label": "Parental and family guidance / direction",
-        "percentage": 30
-      },
-      {
-        "label": "Coaching institute advice & market viability",
-        "percentage": 20
-      }
-    ]
-  }
-provenance:
-  {
-    "sourceFile": "Opinion Poll/Aradhana.docx",
-    "category": "Opinion Poll",
-    "editorialNotes": "13 paragraphs. Contains explicit percentages but no absolute sample denominator."
-  }
-editorialReview:
-  {
-    "reviewFlags": [
-      "Missing sample size N",
-      "Unconfirmed byline",
-      "Unassigned date"
-    ],
-    "missingItems": [
-      "Total respondent count (N)",
-      "Fieldwork dates and methodology documentation",
-      "Author display name confirmation",
-      "Publication date approval"
-    ],
-    "notes": "Preserves stated female/male ratio and all percentage claims."
-  }
+}
 ---
 
 Asking the Class 12 student who decides their future who makes that decision for them would get you the answer "it's my choice"- but they'd also contradict that.

@@ -1,12 +1,29 @@
-@'
+# Build & Dependencies
+node_modules/
+dist/
+.astro/
+
+# Environment & Logs
+.env
+.env.*
+!.env.example
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# OS / Editor Files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Source raw archives
 /DIGITAL JOURNALISM WEBSITE/
 /DIGITAL JOURNALISM WEBSITE.zip
 /docs/
-**/node_modules/
-**/dist/
-**/.astro/
-**/.env
-**/.env.*
-!**/.env.example
-*.log
-'@ | Set-Content -Encoding utf8 .gitignore

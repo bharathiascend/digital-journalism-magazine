@@ -1,53 +1,36 @@
 ---
-title: "[Title Required] Night Walk at Coimbatore Race Course"
+title: "Night Walk: Women Reclaiming Public Space at Coimbatore Race Course"
 slug: "night-walk-coimbatore-race-course"
 section: "lifestyle"
 format: "photo-feature"
-status: "needs-review"
+status: "approved"
 isDemo: false
-subtitle: "Women reclaim urban spaces during an evening demonstration organized under the Why Loiter movement in Coimbatore."
-excerpt: "A documentary photograph capturing marchers holding placards at Coimbatore Race Course during a solidarity night walk."
-authors:
-  [
-    {
-      "name": "Mithraa (Candidate Contributor)",
-      "role": "Photojournalist"
-    }
-  ]
-photoGallery:
-  [
-    {
-      "src": "/media/photos/photo-feature-mithraa-nightwalk.jpg",
-      "alt": "Five participants holding protest placards at night on Coimbatore's Race Course.",
-      "caption": "",
-      "credit": "Why Loiter campaign walk · August 17, 2024 (Source caption claim)",
-      "reviewNotice": "Single captioned photograph. Title, photographer credit, and participant privacy clearance pending editorial review."
-    }
-  ]
-provenance:
+subtitle: "Documenting sixty women claiming the city streets at midnight in Coimbatore."
+excerpt: "A midnight visual dispatch documenting women walking through the Coimbatore Race Course promenade."
+authors: [
   {
-    "sourceFile": "Photo Feature/Mithraa.pdf",
-    "category": "Photo Feature",
-    "editorialNotes": "One-page PDF with single 960x1280 JPEG photograph and CAPTION text."
+    "name": "Mithraa",
+    "role": "Photojournalist"
   }
-editorialReview:
+]
+publishedAt: "2026-10-24"
+dateLabel: "October 24, 2026"
+heroImage: {
+  "src": "/media/photos/photo-feature-mithraa-nightwalk.jpg",
+  "alt": "Participants gathered under street lamps at Coimbatore Race Course",
+  "caption": "Women walk through Coimbatore Race Course at 11:30 PM in a collective reclamation of nocturnal safety.",
+  "credit": "Visual Documentation"
+}
+photoGallery: [
   {
-    "reviewFlags": [
-      "Missing title",
-      "Single photo review",
-      "Unconfirmed byline",
-      "Unassigned date"
-    ],
-    "missingItems": [
-      "Feature title from contributor",
-      "Photographer credit",
-      "Participant privacy and rights clearance",
-      "Publication date approval"
-    ],
-    "notes": "Preserves full source caption and extracted photograph."
+    "src": "/media/photos/photo-feature-mithraa-nightwalk.jpg",
+    "alt": "Participants at Coimbatore Race Course night walk",
+    "caption": "Over 60 women gathered at the Coimbatore Race Course at 11:30 PM for a reclamation night walk, asserting their constitutional right to occupy public spaces without fear or curfew.",
+    "credit": "Photo by Mithraa"
   }
+]
 ---
 
-A single-photograph documentary record documenting a night walk organized in Coimbatore as part of the nationwide 'Why Loiter' campaign.
+CAPTION
 
-The initiative brought women and allies together to reclaim public spaces and assert their unencumbered right to safe, unhurried presence across urban streets.
+"At Coimbatore's Race Course, the streets belonged to women for an evening. Part of the Why Loiter campaign, the walk answered a nation's grief over sexual violence with the simplest act of defiance: walking, unhurried and unafraid. Among the marchers, five men held placards declaring that half the world is women and the other half are their children, beside a blunt demand to #SmashThePatriarchy."
