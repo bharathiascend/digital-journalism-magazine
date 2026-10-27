@@ -21,6 +21,7 @@ heroImage:
   caption: Campus discourse and academic freedom audio broadcast.
   credit: The Journal Audio Desk
 podcast:
+  mediaUrl: /media/audio/aradhana-podcast.mp3
   duration: 14:45
   episodeNotes: Recorded in Chennai with collegiate contributors discussing
     student expression, campus administration, and public debates.
