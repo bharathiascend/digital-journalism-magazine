@@ -12,7 +12,12 @@ const stories = defineCollection({
     isDemo: z.boolean().default(false),
     subtitle: z.string().optional(),
     excerpt: z.string().optional(),
-    publishedAt: z.string().optional(),
+    publishedAt: z.union([
+  z.string(),
+  z.date().transform((date) =>
+    date.toISOString().slice(0, 10)
+  ),
+]).optional(),
     dateLabel: z.string().optional(),
     authors: z
       .array(
