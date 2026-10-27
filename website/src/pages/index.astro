@@ -9,13 +9,10 @@ import { getPublishableStories, getSectionMeta, getFormatMeta, type StoryEntry }
 const stories = await getPublishableStories();
 const hasStories = stories.length > 0;
 
-// Lead story: flagship investigative or political piece
+// Lead story: flagship investigative piece
 const featuredStory = stories.find((s) => s.data.slug === 'why-tamil-nadu-refuses-to-yield-on-neet') ?? stories[0];
 
-// Filter other stories
-const otherStories = stories.filter((s) => s.id !== featuredStory?.id);
-
-// Latest top stories (one from each primary contributor across distinct desks)
+// The Reading Desk: top dispatches from contributors
 const latestStories = [
   stories.find((s) => s.data.slug === 'fast-for-justice-hunger-strikes'),
   stories.find((s) => s.data.slug === 'dalit-vegan-food-culture'),
@@ -23,7 +20,18 @@ const latestStories = [
 ].filter((s): s is StoryEntry => Boolean(s));
 
 // News Analysis investigations (all 3)
-const analysisStories = stories.filter((s) => s.data.section === 'analysis');
+const analysisStories = [
+  stories.find((s) => s.data.slug === 'from-tn-fact-checking-unit-to-integrity-desk'),
+  stories.find((s) => s.data.slug === 'one-neet-protest-two-media-narratives'),
+  stories.find((s) => s.data.slug === 'when-the-cell-becomes-the-story'),
+].filter((s): s is StoryEntry => Boolean(s));
+
+// Student Blog submissions (all 3 authentic blogs)
+const blogStories = [
+  stories.find((s) => s.data.slug === 'never-ending-reincarnations-artist'),
+  stories.find((s) => s.data.slug === 'finding-marakkave-ninaikiren'),
+  stories.find((s) => s.data.slug === 'is-it-a-privilege'),
+].filter((s): s is StoryEntry => Boolean(s));
 
 // Subject desks
 const nationalStory = stories.find((s) => s.data.slug === 'el-nino-india-climate-vulnerability');
@@ -37,10 +45,18 @@ const podcastStories = stories.filter((s) => s.data.format === 'podcast');
 
 // Visual Journalism & Polls
 const photoFeatureStory = stories.find((s) => s.data.slug === 'anti-neet-student-mobilisation-chennai') ?? stories.find((s) => s.data.format === 'photo-feature');
-const pollStories = stories.filter((s) => s.data.format === 'poll-report');
+const pollStories = [
+  stories.find((s) => s.data.slug === 'class-12-career-choice-tug-of-war'),
+  stories.find((s) => s.data.slug === 'dorothy-audience-opinion-report'),
+  stories.find((s) => s.data.slug === 'exit-polls-young-urban-indians'),
+].filter((s): s is StoryEntry => Boolean(s));
+
+function storyAudioPoster(story: StoryEntry): string | undefined {
+  return story.data.heroImage?.src;
+}
 ---
 
-<BaseLayout title="THE JOURNAL · Independent Student Digital Magazine">
+<BaseLayout title="Independent Student Digital Magazine">
   <div class="shell">
     {hasStories ? (
       <>
@@ -49,7 +65,7 @@ const pollStories = stories.filter((s) => s.data.format === 'poll-report');
           <span class="edition-ribbon-left">Vol. IV, No. 1 <span aria-hidden="true">·</span> October 2026</span>
           <div class="edition-ribbon-right">
             <span>Chennai <span aria-hidden="true">&amp;</span> National Dispatches</span>
-            <span>30 Verified Investigations</span>
+            <span>30 Verified Student Investigations</span>
           </div>
         </div>
 
@@ -164,15 +180,46 @@ const pollStories = stories.filter((s) => s.data.format === 'poll-report');
           </section>
         )}
 
-        {/* 4. Promotional Placement 1: Borcelle Cafe */}
+        {/* 4. Promotional Placement 1: Borcelle Cafe (Sponsor Spotlight) */}
         <AdPlacement
           label="Sponsor Spotlight"
           imageSrc="/media/ads/ad-borcelle-cafe.png"
           imageAlt="Borcelle Plant-based Cafe Promotional Creative"
           advertiserName="Borcelle Cafe"
+          tagline="Artisanal Plant-Based Brews & Wholesome Vegan Dining · Student Haven"
         />
 
-        {/* 5. Public Life: National & Politics */}
+        {/* 5. Student Essays & Blog Desk */}
+        {blogStories.length > 0 && (
+          <section class="section-block blog-desk-block" id="blogs" aria-labelledby="blog-title">
+            <SectionHeading
+              id="blog-title"
+              title="Essays & Dispatches"
+              eyebrow="Student Blog Desk"
+              href="/formats/blog/"
+              linkLabel="View all blogs & essays"
+            />
+            <p class="section-intro">Reflective cultural commentary, literary essays, and personal meditations from student journalists.</p>
+            <div class="three-column-grid">
+              {blogStories.map((story) => (
+                <ArticleCard
+                  title={story.data.title}
+                  category="Culture"
+                  format="Student Blog"
+                  description={story.data.excerpt ?? story.data.subtitle}
+                  href={`/stories/${story.data.slug}/`}
+                  author={story.data.authors?.[0]?.name}
+                  publishedAt={story.data.publishedAt}
+                  dateLabel={story.data.dateLabel}
+                  imageSrc={story.data.heroImage?.src}
+                  imageAlt={story.data.heroImage?.alt || story.data.title}
+                />
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* 6. Public Life: National & Politics */}
         {(nationalStory || politicsStory) && (
           <section class="section-block" aria-labelledby="public-life-title">
             <SectionHeading id="public-life-title" title="National & Politics" eyebrow="Power, policy & environment" />
@@ -185,7 +232,7 @@ const pollStories = stories.filter((s) => s.data.format === 'poll-report');
                   <ArticleCard
                     title={nationalStory.data.title}
                     category="National"
-                    format={getFormatMeta(nationalStory.data.format)?.badgeLabel ?? nationalStory.data.format}
+                    format="Article"
                     description={nationalStory.data.excerpt ?? nationalStory.data.subtitle}
                     href={`/stories/${nationalStory.data.slug}/`}
                     author={nationalStory.data.authors?.[0]?.name}
@@ -205,7 +252,7 @@ const pollStories = stories.filter((s) => s.data.format === 'poll-report');
                   <ArticleCard
                     title={politicsStory.data.title}
                     category="Politics"
-                    format={getFormatMeta(politicsStory.data.format)?.badgeLabel ?? politicsStory.data.format}
+                    format="Article"
                     description={politicsStory.data.excerpt ?? politicsStory.data.subtitle}
                     href={`/stories/${politicsStory.data.slug}/`}
                     author={politicsStory.data.authors?.[0]?.name}
@@ -221,15 +268,16 @@ const pollStories = stories.filter((s) => s.data.format === 'poll-report');
           </section>
         )}
 
-        {/* 6. Promotional Placement 2: Rhythm Media Solutions */}
+        {/* 7. Promotional Placement 2: Rhythm Media Solutions (Media Partner) */}
         <AdPlacement
           label="Media Partner"
           imageSrc="/media/ads/ad-rhythm-media.jpg"
           imageAlt="Rhythm Media Solutions - Strategy, Creative, and Distribution"
           advertiserName="Rhythm Media Solutions"
+          tagline="Digital Strategy, Creative Content, and Multi-Platform Distribution"
         />
 
-        {/* 7. Culture & Movement: Lifestyle & Sports */}
+        {/* 8. Culture & Movement: Lifestyle & Sports */}
         {(lifestyleStory || sportsStory) && (
           <section class="section-block" aria-labelledby="life-title">
             <SectionHeading id="life-title" title="Lifestyle & Sports" eyebrow="Culture, cinema & athletics" />
@@ -242,7 +290,7 @@ const pollStories = stories.filter((s) => s.data.format === 'poll-report');
                   <ArticleCard
                     title={lifestyleStory.data.title}
                     category="Lifestyle"
-                    format={getFormatMeta(lifestyleStory.data.format)?.badgeLabel ?? lifestyleStory.data.format}
+                    format="Article"
                     description={lifestyleStory.data.excerpt ?? lifestyleStory.data.subtitle}
                     href={`/stories/${lifestyleStory.data.slug}/`}
                     author={lifestyleStory.data.authors?.[0]?.name}
@@ -262,7 +310,7 @@ const pollStories = stories.filter((s) => s.data.format === 'poll-report');
                   <ArticleCard
                     title={sportsStory.data.title}
                     category="Sports"
-                    format={getFormatMeta(sportsStory.data.format)?.badgeLabel ?? sportsStory.data.format}
+                    format="Article"
                     description={sportsStory.data.excerpt ?? sportsStory.data.subtitle}
                     href={`/stories/${sportsStory.data.slug}/`}
                     author={sportsStory.data.authors?.[0]?.name}
@@ -278,7 +326,7 @@ const pollStories = stories.filter((s) => s.data.format === 'poll-report');
           </section>
         )}
 
-        {/* 8. Photo Features & Visual Journalism */}
+        {/* 9. Visual Journalism: Photo Features */}
         {photoFeatureStory && (
           <section class="section-block photo-section" id="photo-features" aria-labelledby="photo-title">
             <SectionHeading
@@ -321,7 +369,63 @@ const pollStories = stories.filter((s) => s.data.format === 'poll-report');
           </section>
         )}
 
-        {/* 9. Watch & Listen: Video & Podcasts */}
+        {/* 10. Campus Culture & Events Banner Showcase (All 3 Banners) */}
+        <section class="section-block banner-showcase-section" id="banners" aria-labelledby="banners-heading">
+          <SectionHeading
+            id="banners-heading"
+            title="Campus Culture & Events"
+            eyebrow="Promotional Creative Showcase"
+          />
+          <p class="section-intro">Student-designed promotional banners for campus gatherings, nightlife events, and festive seasonal showcases.</p>
+          <div class="banner-showcase-grid">
+            <div class="banner-item">
+              <div class="banner-frame">
+                <img
+                  src="/media/banners/banner-fomo-klub.png"
+                  alt="FOMO Klub Student Night Event Creative"
+                  class="banner-artwork-img"
+                  loading="eager"
+                />
+              </div>
+              <div class="banner-meta">
+                <span class="banner-contributor">By Aradhana</span>
+                <span class="banner-desc">FOMO Klub · Campus Gathering &amp; Student Nightlife Creative</span>
+              </div>
+            </div>
+
+            <div class="banner-item">
+              <div class="banner-frame">
+                <img
+                  src="/media/banners/banner-serene-halloween.jpg"
+                  alt="Serene Halloween Student Festival Creative"
+                  class="banner-artwork-img"
+                  loading="eager"
+                />
+              </div>
+              <div class="banner-meta">
+                <span class="banner-contributor">By Dhanushree</span>
+                <span class="banner-desc">Serene Halloween · Autumn Campus Festival &amp; Costume Gathering</span>
+              </div>
+            </div>
+
+            <div class="banner-item">
+              <div class="banner-frame">
+                <img
+                  src="/media/banners/banner-women-apparels.jpg"
+                  alt="Women Apparels Festive Showcase Banner"
+                  class="banner-artwork-img"
+                  loading="eager"
+                />
+              </div>
+              <div class="banner-meta">
+                <span class="banner-contributor">By Mithraa</span>
+                <span class="banner-desc">Women Apparels · Festive Campaign &amp; Student Fashion Showcase</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 11. Watch & Listen: Video & Podcasts */}
         {(videoStories.length > 0 || podcastStories.length > 0) && (
           <section class="section-block" id="watch-listen" aria-labelledby="media-title">
             <SectionHeading
@@ -351,13 +455,13 @@ const pollStories = stories.filter((s) => s.data.format === 'poll-report');
                 <ArticleCard
                   title={podcastStories[0].data.title}
                   category="Listen"
-                  format="The Journal Podcast"
+                  format="Glasnost Podcast"
                   description={podcastStories[0].data.excerpt ?? podcastStories[0].data.subtitle}
                   href={`/stories/${podcastStories[0].data.slug}/`}
                   author={podcastStories[0].data.authors?.[0]?.name}
                   publishedAt={podcastStories[0].data.publishedAt}
                   dateLabel={podcastStories[0].data.dateLabel}
-                  imageSrc={podcastStories[0].data.heroImage?.src}
+                  imageSrc={storyAudioPoster(podcastStories[0])}
                   imageAlt={podcastStories[0].data.heroImage?.alt || podcastStories[0].data.title}
                 />
               )}
@@ -365,21 +469,7 @@ const pollStories = stories.filter((s) => s.data.format === 'poll-report');
           </section>
         )}
 
-        {/* 10. Campus Culture Banner Showcase */}
-        <section class="promotional-banner-strip reading-width" aria-label="Campus Event Feature">
-          <span class="eyebrow">Campus Life &amp; Events <span aria-hidden="true">/</span> Promotional Feature</span>
-          <div class="banner-frame">
-            <img
-              src="/media/banners/banner-fomo-klub.png"
-              alt="FOMO Klub Student Night Event Creative"
-              class="banner-artwork-img"
-              loading="lazy"
-            />
-          </div>
-          <p class="ad-disclosure-note">Promotional event banner creative for student gatherings and campus nightlife.</p>
-        </section>
-
-        {/* 10. Public Sentiment: Opinion Polls */}
+        {/* 12. Public Sentiment: Opinion Polls */}
         {pollStories.length > 0 && (
           <section class="section-block" id="opinion-polls" aria-labelledby="polls-title">
             <SectionHeading
@@ -408,12 +498,13 @@ const pollStories = stories.filter((s) => s.data.format === 'poll-report');
           </section>
         )}
 
-        {/* 11. Promotional Placement 3: Vetri CA Academy */}
+        {/* 13. Promotional Placement 3: Vetri CA Academy (Promotional Feature) */}
         <AdPlacement
-          label="Educational Partner"
+          label="Promotional Feature"
           imageSrc="/media/ads/ad-vetri-ca.jpg"
           imageAlt="Vetri CA Academy Educational Creative"
           advertiserName="Vetri CA Academy"
+          tagline="Premier Coaching for CA Foundation, Intermediate & Final Examinations"
         />
       </>
     ) : (

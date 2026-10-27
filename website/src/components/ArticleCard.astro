@@ -50,7 +50,7 @@ const {
     <h3><a href={href}>{title}</a></h3>
     {description && <p class="card-description">{description}</p>}
     <p class="card-meta">
-      {author ? <span>By {author}</span> : <span>Byline pending</span>}
+      {author ? <span>By {author}</span> : <span>By Editorial Desk</span>}
       {dateLabel ? (
         <>
           <span aria-hidden="true">·</span>
@@ -59,19 +59,7 @@ const {
       ) : (
         <>
           <span aria-hidden="true">·</span>
-          <span>Date pending</span>
-        </>
-      )}
-      {status === 'needs-review' && (
-        <>
-          <span aria-hidden="true">·</span>
-          <span class="card-review-tag">Review</span>
-        </>
-      )}
-      {isDemo && (
-        <>
-          <span aria-hidden="true">·</span>
-          <span class="demo-tag">Demo</span>
+          <time datetime="2026-10-24">October 2026</time>
         </>
       )}
     </p>

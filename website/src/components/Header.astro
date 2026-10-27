@@ -1,12 +1,19 @@
 ---
 import Navigation from './Navigation.astro';
+import GlasnostLogo from './GlasnostLogo.astro';
 ---
 <header class="site-header">
   <div class="shell">
-    <div class="masthead-meta"><span>Independent perspectives. Student voices.</span><span>Design edition <span aria-hidden="true">/</span> Prototype 01</span></div>
+    <div class="masthead-meta">
+      <span>Independent Perspectives <span aria-hidden="true">·</span> Student Voices</span>
+      <span>Chennai &amp; National Dispatches <span aria-hidden="true">·</span> Est. 2026</span>
+    </div>
     <div class="masthead-block">
-      <a class="masthead" href="/" aria-label="The Journal, placeholder publication name. Home.">THE JOURNAL<span class="masthead-dot" aria-hidden="true">.</span></a>
-      <p class="masthead-description">A student digital magazine <span aria-hidden="true">·</span> <span>Placeholder publication name</span></p>
+      <a class="masthead" href="/" aria-label="Glasnost Digital Magazine Homepage">
+        <GlasnostLogo size={42} class="masthead-logo-svg" />
+        <span class="masthead-title-text">GLASNOST</span><span class="masthead-dot" aria-hidden="true">.</span>
+      </a>
+      <p class="masthead-description">An Independent Journal of Student Reporting, Civic Inquiry &amp; Cultural Commentary</p>
     </div>
     <Navigation />
   </div>

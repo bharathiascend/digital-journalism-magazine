@@ -1,1 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="#892f35"/><text x="32" y="47" text-anchor="middle" font-family="Georgia,serif" font-size="48" fill="#f7f4ec">J</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="8" fill="#892f35"/>
+  <path d="M18 16 h28 v6 h-22 v14 h14 v6 h-14 v16 h22 v6 h-28 z" fill="#f7f4ec" style="display:none"/>
+  <!-- Refined classical serif G with open press quill motif -->
+  <circle cx="32" cy="32" r="28" fill="#892f35" stroke="#f7f4ec" stroke-width="1.5" stroke-dasharray="2 2"/>
+  <text x="32" y="47" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-weight="700" font-size="44" fill="#f7f4ec">G</text>
+  <circle cx="48" cy="45" r="3.5" fill="#e0a96d"/>
+</svg>

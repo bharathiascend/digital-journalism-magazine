@@ -5,7 +5,7 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 interface Props { title: string; description?: string; }
-const { title, description = 'A digital journalism magazine featuring original student reporting, investigative stories, and multimedia broadcasts.' } = Astro.props;
+const { title, description = 'Glasnost · An independent student digital magazine featuring original reporting, investigative inquiries, and multimedia broadcasts.' } = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
@@ -15,13 +15,12 @@ const { title, description = 'A digital journalism magazine featuring original s
     <meta name="description" content={description} />
     <meta name="robots" content="noindex, nofollow, noarchive" />
     <meta name="theme-color" content="#F7F4EC" />
-    <title>{title} — THE JOURNAL</title>
+    <title>{title} — GLASNOST</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   </head>
   <body id="top">
     <a class="skip-link" href="#main-content">Skip to content</a>
     <Header />
-    <div class="prototype-notice shell"><span class="status-dot" aria-hidden="true"></span><p><strong>Digital Journalism Magazine.</strong> Original student reporting, investigative analysis, and multimedia broadcasts.</p></div>
     <main id="main-content" tabindex="-1"><slot /></main>
     <Footer />
   </body>

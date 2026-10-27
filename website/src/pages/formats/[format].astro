@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
+import AdPlacement from '../../components/AdPlacement.astro';
 import { FORMATS, getPublishableStories, getSectionMeta, type FormatMeta, type StoryEntry } from '../../utils/stories';
 
 export async function getStaticPaths() {
@@ -24,6 +25,48 @@ interface Props {
 }
 
 const { format, stories } = Astro.props;
+
+// Contextual partner creative per format
+const formatAdMap: Record<string, { label: string; advertiser: string; src: string; tagline: string }> = {
+  blog: {
+    label: 'Sponsor Spotlight',
+    advertiser: 'Borcelle Cafe',
+    src: '/media/ads/ad-borcelle-cafe.png',
+    tagline: 'Artisanal Plant-Based Brews & Wholesome Vegan Dining · Student Haven',
+  },
+  podcast: {
+    label: 'Media Partner',
+    advertiser: 'Rhythm Media Solutions',
+    src: '/media/ads/ad-rhythm-media.jpg',
+    tagline: 'Digital Audio Strategy, Podcasting Infrastructure & Broadcast Distribution',
+  },
+  video: {
+    label: 'Promotional Feature',
+    advertiser: 'Vetri CA Academy',
+    src: '/media/ads/ad-vetri-ca.jpg',
+    tagline: 'Premier Coaching & Media Education Partnerships',
+  },
+  'photo-feature': {
+    label: 'Media Partner',
+    advertiser: 'Rhythm Media Solutions',
+    src: '/media/ads/ad-rhythm-media.jpg',
+    tagline: 'Visual Storytelling, Commercial Photography & Brand Distribution',
+  },
+  'poll-report': {
+    label: 'Promotional Feature',
+    advertiser: 'Vetri CA Academy',
+    src: '/media/ads/ad-vetri-ca.jpg',
+    tagline: 'Quantitative Rigor, Professional Standards & Academic Guidance',
+  },
+  article: {
+    label: 'Sponsor Spotlight',
+    advertiser: 'Borcelle Cafe',
+    src: '/media/ads/ad-borcelle-cafe.png',
+    tagline: 'A Considered Space for Student Thinkers, Writers & Readers',
+  },
+};
+
+const formatAd = formatAdMap[format.id];
 ---
 
 <BaseLayout
@@ -37,7 +80,7 @@ const { format, stories } = Astro.props;
         <span class="breadcrumb-separator" aria-hidden="true">/</span>
         <span class="breadcrumb-current">Formats</span>
       </nav>
-      <p class="eyebrow archive-kicker">Format Archive <span aria-hidden="true">/</span> THE JOURNAL</p>
+      <p class="eyebrow archive-kicker">Format Desk <span aria-hidden="true">/</span> GLASNOST</p>
       <h1 class="archive-title">{format.label}</h1>
       <p class="archive-deck">{format.description}</p>
     </header>
@@ -46,7 +89,7 @@ const { format, stories } = Astro.props;
       {stories.length > 0 ? (
         <section aria-labelledby="format-stories-title">
           <h2 id="format-stories-title" class="sr-only">Stories formatted as {format.label}</h2>
-          <div class="two-column-grid">
+          <div class="three-column-grid">
           {stories.map((story) => {
             const section = getSectionMeta(story.data.section);
             return (
@@ -71,15 +114,22 @@ const { format, stories } = Astro.props;
         <div class="empty-archive-state reading-width">
           <div class="empty-state-card">
             <span class="status-dot" aria-hidden="true"></span>
-            <h2 class="empty-state-heading">No approved {format.badgeLabel.toLowerCase()} entries currently published</h2>
-            <p>
-              Multimedia assets, verified durations, transcripts, and editorial reviews are in progress. Only approved items are released into public archives.
-            </p>
+            <h2 class="empty-state-heading">No entries currently published in {format.label}</h2>
             <div class="empty-state-actions">
-              <a class="text-link" href="/">← Return to THE JOURNAL homepage</a>
+              <a class="text-link" href="/">← Return to GLASNOST homepage</a>
             </div>
           </div>
         </div>
+      )}
+
+      {formatAd && (
+        <AdPlacement
+          label={formatAd.label}
+          advertiserName={formatAd.advertiser}
+          imageSrc={formatAd.src}
+          imageAlt={formatAd.advertiser}
+          tagline={formatAd.tagline}
+        />
       )}
     </main>
   </div>

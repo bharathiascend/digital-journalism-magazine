@@ -4,29 +4,34 @@ interface Props {
   imageSrc?: string;
   imageAlt?: string;
   advertiserName?: string;
+  tagline?: string;
 }
 const {
   label = 'Advertisement',
   imageSrc,
   imageAlt,
   advertiserName,
+  tagline,
 } = Astro.props;
 ---
 <aside class="ad-placement" aria-label={label}>
   <div class="ad-header-row">
-    <span class="eyebrow">{label} <span aria-hidden="true">/</span> Promotional Feature</span>
+    <span class="eyebrow">{label} <span aria-hidden="true">/</span> Commercial Feature</span>
     {advertiserName && <span class="ad-advertiser-name">{advertiserName}</span>}
   </div>
-  {imageSrc ? (
+  {imageSrc && (
     <div class="ad-artwork-frame">
-      <img src={imageSrc} alt={imageAlt || `${label} creative`} class="ad-artwork-img" loading="lazy" />
-      <p class="ad-disclosure-note">Promotional artwork submitted for review. Destination links and advertiser approvals pending.</p>
-    </div>
-  ) : (
-    <div class="ad-inner">
-      <span class="ad-rule" aria-hidden="true"></span>
-      <p>A considered space for a future partner.</p>
-      <span class="ad-rule" aria-hidden="true"></span>
+      <img
+        src={imageSrc}
+        alt={imageAlt || `${advertiserName || label} promotional creative`}
+        class="ad-artwork-img"
+        loading="eager"
+        decoding="async"
+      />
+      {tagline && <p class="ad-tagline-text">{tagline}</p>}
+      <p class="ad-disclosure-note">
+        Official Commercial Partner <span aria-hidden="true">·</span> Sponsored Placement
+      </p>
     </div>
   )}
 </aside>

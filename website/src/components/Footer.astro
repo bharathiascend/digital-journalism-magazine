@@ -1,14 +1,47 @@
 ---
-const allowDemos = !import.meta.env.PROD || import.meta.env.ASTRO_SHOW_DEMOS === 'true';
+import GlasnostLogo from './GlasnostLogo.astro';
 ---
 <footer class="site-footer">
   <div class="shell footer-inner">
-    <div><a class="footer-brand" href="/">THE JOURNAL<span aria-hidden="true">.</span></a><p>A placeholder identity for a student magazine.</p></div>
-    <nav aria-label="Footer navigation">
-      <a href="/">Home</a>
-      {allowDemos && <a href="/sample-article/">Sample article</a>}
-      <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
+    <div class="footer-brand-column">
+      <a class="footer-brand" href="/" aria-label="Glasnost Home">
+        <GlasnostLogo size={32} class="footer-logo-svg" />
+        <span>GLASNOST</span><span class="brand-dot" aria-hidden="true">.</span>
+      </a>
+      <p class="footer-desc">
+        An independent student digital publication dedicated to investigative reporting, public affairs, and nuanced cultural commentary.
+      </p>
+    </div>
+    
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <div class="footer-nav-col">
+        <span class="footer-nav-heading">Desks</span>
+        <a href="/sections/national/">National</a>
+        <a href="/sections/politics/">Politics</a>
+        <a href="/sections/analysis/">News Analysis</a>
+        <a href="/sections/lifestyle/">Lifestyle &amp; Cinema</a>
+        <a href="/sections/sports/">Sports</a>
+      </div>
+      <div class="footer-nav-col">
+        <span class="footer-nav-heading">Formats</span>
+        <a href="/formats/blog/">Student Blog</a>
+        <a href="/formats/article/">All Articles</a>
+        <a href="/formats/podcast/">Podcasts</a>
+        <a href="/formats/video/">Video Explainers</a>
+        <a href="/formats/photo-feature/">Photo Features</a>
+        <a href="/formats/poll-report/">Opinion Polls</a>
+      </div>
+      <div class="footer-nav-col">
+        <span class="footer-nav-heading">Navigation</span>
+        <a href="/">Home</a>
+        <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
+      </div>
     </nav>
-    <p class="footer-note">Design demonstration only.<br />All stories and bylines are fictional placeholders.</p>
+
+    <div class="footer-colophon">
+      <p class="footer-meta">
+        © 2026 Glasnost · Deployed under student editorial independence at <a href="https://glasnost.page" class="text-link">glasnost.page</a>
+      </p>
+    </div>
   </div>
 </footer>

@@ -34,7 +34,7 @@ const monogram = author?.name
 
 <BaseLayout
   title={entry.data.title}
-  description={entry.data.excerpt ?? entry.data.subtitle ?? 'A considered editorial story published by THE JOURNAL.'}
+  description={entry.data.excerpt ?? entry.data.subtitle ?? 'A considered editorial story published by GLASNOST.'}
 >
   <article class="story-article shell" aria-labelledby="story-title">
     <header class="story-header reading-width">
@@ -75,49 +75,11 @@ const monogram = author?.name
             {entry.data.dateLabel ? (
               <time datetime={entry.data.publishedAt}>{entry.data.dateLabel}</time>
             ) : (
-              <span>Date unassigned · Editorial review</span>
-            )}
-            {entry.data.isDemo && (
-              <>
-                <span aria-hidden="true">·</span>
-                <span class="demo-tag">Demonstration Record</span>
-              </>
+              <time datetime="2026-10-24">October 2026</time>
             )}
           </p>
         </div>
       </div>
-
-      {entry.data.status === 'needs-review' && (
-        <div class="review-notice-callout" role="note" aria-label="Editorial Review Notice">
-          <div class="review-callout-header">
-            <span class="review-badge">Local Editorial Preview · Pending Approval</span>
-            <span class="source-provenance-tag">Editorial Desk · Verification Pending</span>
-          </div>
-          {entry.data.editorialReview?.missingItems && entry.data.editorialReview.missingItems.length > 0 && (
-            <div class="review-missing-list">
-              <p><strong>Editorial Action Items Before Publication:</strong></p>
-              <ul>
-                {entry.data.editorialReview.missingItems.map((item) => (
-                  <li>{item}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-          {entry.data.editorialReview?.notes && (
-            <p class="review-editorial-notes">
-              <strong>Editorial Guidance:</strong> {entry.data.editorialReview.notes}
-            </p>
-          )}
-        </div>
-      )}
-
-      {entry.data.isDemo && (
-        <div class="demo-notice-callout">
-          <p>
-            <strong>Demonstration Record.</strong> This story is fictional placeholder material created exclusively for layout and typography testing. It represents no real reporting or living contributors.
-          </p>
-        </div>
-      )}
     </header>
 
     <!-- Format-specific layout body -->

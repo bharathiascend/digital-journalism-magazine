@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import AdPlacement from '../components/AdPlacement.astro';
+import { getPublishableStories, getSectionMeta, getFormatMeta } from '../utils/stories';
+
+const allStories = await getPublishableStories();
+const blogStories = allStories.filter((s) => s.data.format === 'blog');
+const formatMeta = getFormatMeta('blog');
+---
+
+<BaseLayout
+  title="Student Blog & Essays Archive"
+  description="Reflective dispatches, cultural commentary, and critical literary readings from student contributors."
+>
+  <div class="shell archive-page">
+    <header class="archive-header reading-width">
+      <nav class="breadcrumb-nav" aria-label="Format breadcrumbs">
+        <a class="text-link breadcrumb" href="/">← Home</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span class="breadcrumb-current">Blog</span>
+      </nav>
+      <p class="eyebrow archive-kicker">Student Dispatches <span aria-hidden="true">/</span> GLASNOST</p>
+      <h1 class="archive-title">Essays &amp; Blog</h1>
+      <p class="archive-deck">Reflective dispatches, personal commentary, and critical readings from student contributors.</p>
+    </header>
+
+    <main class="archive-content">
+      <section aria-labelledby="blog-stories-title">
+        <h2 id="blog-stories-title" class="sr-only">Student Blog Submissions</h2>
+        <div class="three-column-grid">
+          {blogStories.map((story) => {
+            const section = getSectionMeta(story.data.section);
+            return (
+              <ArticleCard
+                title={story.data.title}
+                category={section?.shortLabel ?? 'Culture'}
+                format="Student Essay"
+                description={story.data.excerpt ?? story.data.subtitle}
+                href={`/stories/${story.data.slug}/`}
+                author={story.data.authors?.[0]?.name}
+                publishedAt={story.data.publishedAt}
+                dateLabel={story.data.dateLabel}
+                imageSrc={story.data.heroImage?.src}
+                imageAlt={story.data.heroImage?.alt || story.data.title}
+              />
+            );
+          })}
+        </div>
+      </section>
+
+      <AdPlacement
+        label="Sponsor Spotlight"
+        advertiserName="Borcelle Cafe"
+        imageSrc="/media/ads/ad-borcelle-cafe.png"
+        imageAlt="Borcelle Plant-based Cafe"
+        tagline="Artisanal Plant-Based Brews & Wholesome Vegan Dining · Student Haven"
+      />
+    </main>
+  </div>
+</BaseLayout>

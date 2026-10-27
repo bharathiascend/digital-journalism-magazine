@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import AdPlacement from '../components/AdPlacement.astro';
+import { getPublishableStories, getSectionMeta } from '../utils/stories';
+
+const allStories = await getPublishableStories();
+const videoStories = allStories.filter((s) => s.data.format === 'video');
+---
+
+<BaseLayout
+  title="Video Explainers"
+  description="Mobile-first vertical video explainers breaking down complex developments with clarity."
+>
+  <div class="shell archive-page">
+    <header class="archive-header reading-width">
+      <nav class="breadcrumb-nav" aria-label="Video breadcrumbs">
+        <a class="text-link breadcrumb" href="/">← Home</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span class="breadcrumb-current">Videos</span>
+      </nav>
+      <p class="eyebrow archive-kicker">Broadcast Desk <span aria-hidden="true">/</span> GLASNOST</p>
+      <h1 class="archive-title">Video Explainers</h1>
+      <p class="archive-deck">Mobile-first vertical video explainers breaking down complex developments with clarity.</p>
+    </header>
+
+    <main class="archive-content">
+      <section aria-labelledby="video-stories-title">
+        <h2 id="video-stories-title" class="sr-only">Published Video Explainers</h2>
+        <div class="three-column-grid">
+          {videoStories.map((story) => {
+            const section = getSectionMeta(story.data.section);
+            return (
+              <ArticleCard
+                title={story.data.title}
+                category={section?.shortLabel ?? 'Video'}
+                format="Video Explainer"
+                description={story.data.excerpt ?? story.data.subtitle}
+                href={`/stories/${story.data.slug}/`}
+                author={story.data.authors?.[0]?.name}
+                publishedAt={story.data.publishedAt}
+                dateLabel={story.data.dateLabel}
+                imageSrc={story.data.heroImage?.src}
+                imageAlt={story.data.heroImage?.alt || story.data.title}
+              />
+            );
+          })}
+        </div>
+      </section>
+
+      <AdPlacement
+        label="Promotional Feature"
+        advertiserName="Vetri CA Academy"
+        imageSrc="/media/ads/ad-vetri-ca.jpg"
+        imageAlt="Vetri CA Academy"
+        tagline="Premier Coaching & Professional Education Partnerships"
+      />
+    </main>
+  </div>
+</BaseLayout>
