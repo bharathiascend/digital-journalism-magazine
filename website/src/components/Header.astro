@@ -1,19 +1,26 @@
 ---
 import Navigation from './Navigation.astro';
 import GlasnostLogo from './GlasnostLogo.astro';
+import appearance from '../data/appearance.json';
 ---
 <header class="site-header">
   <div class="shell">
     <div class="masthead-meta">
-      <span>Independent Perspectives <span aria-hidden="true">·</span> Student Voices</span>
-      <span>Chennai &amp; National Dispatches <span aria-hidden="true">·</span> Est. 2026</span>
+      <span>{appearance.metaBannerLeft}</span>
+      <span>{appearance.metaBannerRight}</span>
     </div>
     <div class="masthead-block">
-      <a class="masthead" href="/" aria-label="Glasnost — See Through The News">
-        <GlasnostLogo variant="full" class="masthead-logo-artwork" />
+      <a class="masthead" href="/" aria-label={`${appearance.siteTitle} — See Through The News`}>
+        <GlasnostLogo
+          variant="full"
+          src={appearance.logoImage}
+          alt={appearance.logoAlt}
+          class="masthead-logo-artwork"
+        />
       </a>
-      <p class="masthead-description">An Independent Journal of Student Reporting, Civic Inquiry &amp; Cultural Commentary</p>
+      <p class="masthead-description">{appearance.tagline}</p>
     </div>
     <Navigation />
   </div>
 </header>
+

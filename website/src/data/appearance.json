@@ -1,0 +1,16 @@
+{
+  "siteTitle": "GLASNOST",
+  "tagline": "An Independent Journal of Student Reporting, Civic Inquiry & Cultural Commentary",
+  "metaBannerLeft": "Independent Perspectives · Student Voices",
+  "metaBannerRight": "Chennai & National Dispatches · Est. 2026",
+  "editionVolume": "Vol. IV, No. 1 · October 2026",
+  "logoImage": "/media/branding/glasnost-logo.png",
+  "logoAlt": "Glasnost — See Through The News",
+  "colorTheme": "cream-crimson",
+  "headlineFont": "playfair",
+  "heroLayout": "split",
+  "readingDeskLayout": "grid-3",
+  "showEditionRibbon": true,
+  "showCampusBanners": true,
+  "showAdPlacements": true
+}

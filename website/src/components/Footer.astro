@@ -1,17 +1,19 @@
 ---
 import GlasnostLogo from './GlasnostLogo.astro';
+import appearance from '../data/appearance.json';
 ---
 <footer class="site-footer">
   <div class="shell footer-inner">
     <div class="footer-brand-column">
-      <a class="footer-brand" href="/" aria-label="Glasnost Home">
+      <a class="footer-brand" href="/" aria-label={`${appearance.siteTitle} Home`}>
         <GlasnostLogo variant="mark" size={32} class="footer-logo-svg" />
-        <span>GLASNOST</span><span class="brand-dot" aria-hidden="true">.</span>
+        <span>{appearance.siteTitle}</span><span class="brand-dot" aria-hidden="true">.</span>
       </a>
       <p class="footer-desc">
-        An independent student digital publication dedicated to investigative reporting, public affairs, and nuanced cultural commentary.
+        {appearance.tagline}
       </p>
     </div>
+
     
     <nav class="footer-nav" aria-label="Footer navigation">
       <div class="footer-nav-col">

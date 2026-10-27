@@ -26,6 +26,101 @@
   --site-width: 76rem;
   --reading-width: 44rem;
 }
+
+/* ============================================================
+   APPEARANCE PRESETS: COLOR THEMES
+   ============================================================ */
+
+/* Signature Archival Cream & Crimson (Default) */
+html[data-theme='cream-crimson'] {
+  --color-background: #f7f4ec;
+  --color-text: #222222;
+  --color-accent: #892f35;
+  --color-border: #d9d2c6;
+  --color-muted: #737373;
+  --color-secondary: #625f59;
+  --color-surface: #efebe1;
+}
+
+/* Modern Newsprint (Crisp Monochrome with Navy Accent) */
+html[data-theme='modern-newsprint'] {
+  --color-background: #f8fafc;
+  --color-text: #0f172a;
+  --color-accent: #1e40af;
+  --color-border: #cbd5e1;
+  --color-muted: #64748b;
+  --color-secondary: #475569;
+  --color-surface: #f1f5f9;
+}
+html[data-theme='modern-newsprint'] .analysis-section-block {
+  background: #f1f5f9;
+}
+
+/* Oxford Broadsheet (Antique Parchment with Deep Forest Ink) */
+html[data-theme='oxford-green'] {
+  --color-background: #fcfbf7;
+  --color-text: #1c1917;
+  --color-accent: #166534;
+  --color-border: #e7e5e4;
+  --color-muted: #78716c;
+  --color-secondary: #57534e;
+  --color-surface: #f4f0e6;
+}
+html[data-theme='oxford-green'] .analysis-section-block {
+  background: #f2eee3;
+}
+
+/* Midnight Press (Evening Dark Mode Edition) */
+html[data-theme='midnight-press'] {
+  --color-background: #17171a;
+  --color-text: #f4f4f5;
+  --color-accent: #f43f5e;
+  --color-border: #2e2e33;
+  --color-muted: #71717a;
+  --color-secondary: #a1a1aa;
+  --color-surface: #212126;
+}
+html[data-theme='midnight-press'] .analysis-section-block {
+  background: #1c1c20;
+}
+html[data-theme='midnight-press'] .ad-artwork-frame {
+  background: #212126;
+  border-color: #2e2e33;
+}
+html[data-theme='midnight-press'] .ad-tagline-text {
+  color: #f4f4f5;
+}
+html[data-theme='midnight-press'] .poll-chart-figure {
+  background: #212126;
+  border-color: #2e2e33;
+}
+html[data-theme='midnight-press'] .poll-bar-track {
+  background: #3f3f46;
+}
+html[data-theme='midnight-press'] .skip-link {
+  background: #f4f4f5;
+  color: #17171a;
+}
+html[data-theme='midnight-press'] a:hover {
+  color: #fb7185;
+}
+
+/* ============================================================
+   APPEARANCE PRESETS: HEADLINE TYPOGRAPHY
+   ============================================================ */
+html[data-font='playfair'] {
+  --font-editorial: 'Playfair Display Variable', Georgia, serif;
+}
+html[data-font='georgia'] {
+  --font-editorial: Georgia, 'Times New Roman', serif;
+}
+html[data-font='modern-sans'] {
+  --font-editorial: 'Inter Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+html[data-font='garamond'] {
+  --font-editorial: 'Garamond', 'Baskerville', 'Playfair Display Variable', serif;
+}
+
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-padding-top: 1.5rem; }
 body { margin: 0; background: var(--color-background); color: var(--color-text); font-family: var(--font-ui); font-size: var(--text-base); -webkit-font-smoothing: antialiased; }
@@ -471,4 +566,57 @@ figcaption { margin-top: .65rem; font: .7rem/1.6 var(--font-ui); color: var(--co
   line-height: 1.5;
   color: var(--color-text);
 }
+
+/* ============================================================
+   HOMEPAGE LAYOUT VARIATIONS
+   ============================================================ */
+
+/* Lead Hero Layout: Stacked (Headline Top, Full Banner Below) */
+.lead-section.lead-stacked {
+  display: flex;
+  flex-direction: column;
+  max-width: 60rem;
+  margin-inline: auto;
+  text-align: center;
+}
+.lead-section.lead-stacked .lead-copy {
+  align-items: center;
+}
+.lead-section.lead-stacked .lead-deck {
+  max-width: 38rem;
+  margin-inline: auto;
+}
+.lead-section.lead-stacked .lead-figure {
+  margin-top: 1.5rem;
+  width: 100%;
+}
+.lead-section.lead-stacked .lead-hero-img {
+  max-height: 520px;
+}
+
+/* Lead Hero Layout: Reversed (Photo Left, Copy Right on desktop) */
+@media (min-width: 48rem) {
+  .lead-section.lead-reversed {
+    grid-template-columns: 1.1fr 1fr;
+  }
+  .lead-section.lead-reversed .lead-figure {
+    order: -1;
+  }
+}
+
+/* Reading Desk Layout: 2-Column Featured Cards */
+@media (min-width: 48rem) {
+  .three-column-grid.layout-grid-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.25rem;
+  }
+}
+
+/* Reading Desk Layout: Editorial Headline List Stream */
+.three-column-grid.layout-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
 

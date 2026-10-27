@@ -5,6 +5,8 @@ interface Props {
   width?: number;
   height?: number;
   class?: string;
+  src?: string;
+  alt?: string;
 }
 
 const {
@@ -13,13 +15,20 @@ const {
   width,
   height,
   class: className = '',
+  src,
+  alt,
 } = Astro.props;
+
+const defaultFullSrc = '/media/branding/glasnost-logo.png';
+const defaultMarkSrc = '/media/branding/glasnost-mark.png';
+const defaultFullAlt = 'Glasnost — See Through The News';
+const defaultMarkAlt = 'Glasnost official emblem';
 ---
 
 {variant === 'mark' ? (
   <img
-    src="/media/branding/glasnost-mark.png"
-    alt="Glasnost official emblem"
+    src={src || defaultMarkSrc}
+    alt={alt || defaultMarkAlt}
     width={width ?? size}
     height={height ?? size}
     class:list={['glasnost-mark-img', className]}
@@ -28,8 +37,8 @@ const {
   />
 ) : (
   <img
-    src="/media/branding/glasnost-logo.png"
-    alt="Glasnost — See Through The News"
+    src={src || defaultFullSrc}
+    alt={alt || defaultFullAlt}
     width={width ?? 520}
     height={height ?? 148}
     class:list={['glasnost-full-logo-img', className]}
@@ -37,3 +46,4 @@ const {
     decoding="async"
   />
 )}
+

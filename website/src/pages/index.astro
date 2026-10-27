@@ -5,6 +5,7 @@ import SectionHeading from '../components/SectionHeading.astro';
 import AdPlacement from '../components/AdPlacement.astro';
 import PlaceholderArt from '../components/PlaceholderArt.astro';
 import { getPublishableStories, getSectionMeta, getFormatMeta, type StoryEntry } from '../utils/stories';
+import appearance from '../data/appearance.json';
 
 const stories = await getPublishableStories();
 const hasStories = stories.length > 0;
@@ -61,16 +62,18 @@ function storyAudioPoster(story: StoryEntry): string | undefined {
     {hasStories ? (
       <>
         {/* Edition Ribbon */}
-        <div class="edition-ribbon" aria-label="Edition details">
-          <span class="edition-ribbon-left">Vol. IV, No. 1 <span aria-hidden="true">·</span> October 2026</span>
-          <div class="edition-ribbon-right">
-            <span>Chennai <span aria-hidden="true">&amp;</span> National Dispatches</span>
+        {appearance.showEditionRibbon && (
+          <div class="edition-ribbon" aria-label="Edition details">
+            <span class="edition-ribbon-left">{appearance.editionVolume}</span>
+            <div class="edition-ribbon-right">
+              <span>{appearance.metaBannerRight}</span>
+            </div>
           </div>
-        </div>
+        )}
 
         {/* 1. Featured Lead Story */}
         {featuredStory && (
-          <section class="lead-section" aria-labelledby="featured-title">
+          <section class:list={['lead-section', `lead-${appearance.heroLayout}`]} aria-labelledby="featured-title">
             <div class="lead-copy">
               <p class="eyebrow">
                 <span>Lead Investigation</span>
@@ -126,7 +129,7 @@ function storyAudioPoster(story: StoryEntry): string | undefined {
               href="/formats/article/"
               linkLabel="View all articles"
             />
-            <div class="three-column-grid">
+            <div class:list={['three-column-grid', `layout-${appearance.readingDeskLayout}`]}>
               {latestStories.map((story) => {
                 const section = getSectionMeta(story.data.section);
                 const format = getFormatMeta(story.data.format);
@@ -142,6 +145,7 @@ function storyAudioPoster(story: StoryEntry): string | undefined {
                     dateLabel={story.data.dateLabel}
                     imageSrc={story.data.heroImage?.src}
                     imageAlt={story.data.heroImage?.alt || story.data.title}
+                    layout={appearance.readingDeskLayout === 'list' ? 'compact' : 'standard'}
                   />
                 );
               })}
@@ -180,13 +184,15 @@ function storyAudioPoster(story: StoryEntry): string | undefined {
         )}
 
         {/* 4. Promotional Placement 1: Borcelle Cafe (Sponsor Spotlight) */}
-        <AdPlacement
-          label="Sponsor Spotlight"
-          imageSrc="/media/ads/ad-borcelle-cafe.png"
-          imageAlt="Borcelle Plant-based Cafe Promotional Creative"
-          advertiserName="Borcelle Cafe"
-          tagline="Artisanal Plant-Based Brews & Wholesome Vegan Dining · Student Haven"
-        />
+        {appearance.showAdPlacements && (
+          <AdPlacement
+            label="Sponsor Spotlight"
+            imageSrc="/media/ads/ad-borcelle-cafe.png"
+            imageAlt="Borcelle Plant-based Cafe Promotional Creative"
+            advertiserName="Borcelle Cafe"
+            tagline="Artisanal Plant-Based Brews & Wholesome Vegan Dining · Student Haven"
+          />
+        )}
 
         {/* 5. Student Essays & Blog Desk */}
         {blogStories.length > 0 && (
@@ -268,13 +274,15 @@ function storyAudioPoster(story: StoryEntry): string | undefined {
         )}
 
         {/* 7. Promotional Placement 2: Rhythm Media Solutions (Media Partner) */}
-        <AdPlacement
-          label="Media Partner"
-          imageSrc="/media/ads/ad-rhythm-media.jpg"
-          imageAlt="Rhythm Media Solutions - Strategy, Creative, and Distribution"
-          advertiserName="Rhythm Media Solutions"
-          tagline="Digital Strategy, Creative Content, and Multi-Platform Distribution"
-        />
+        {appearance.showAdPlacements && (
+          <AdPlacement
+            label="Media Partner"
+            imageSrc="/media/ads/ad-rhythm-media.jpg"
+            imageAlt="Rhythm Media Solutions - Strategy, Creative, and Distribution"
+            advertiserName="Rhythm Media Solutions"
+            tagline="Digital Strategy, Creative Content, and Multi-Platform Distribution"
+          />
+        )}
 
         {/* 8. Culture & Movement: Lifestyle & Sports */}
         {(lifestyleStory || sportsStory) && (
@@ -369,60 +377,62 @@ function storyAudioPoster(story: StoryEntry): string | undefined {
         )}
 
         {/* 10. Campus Culture & Events Banner Showcase (All 3 Banners) */}
-        <section class="section-block banner-showcase-section" id="banners" aria-labelledby="banners-heading">
-          <SectionHeading
-            id="banners-heading"
-            title="Campus Culture & Events"
-            eyebrow="Promotional Creative Showcase"
-          />
-          <p class="section-intro">Student-designed promotional banners for campus gatherings, nightlife events, and festive seasonal showcases.</p>
-          <div class="banner-showcase-grid">
-            <div class="banner-item">
-              <div class="banner-frame">
-                <img
-                  src="/media/banners/banner-fomo-klub.png"
-                  alt="FOMO Klub Student Night Event Creative"
-                  class="banner-artwork-img"
-                  loading="eager"
-                />
+        {appearance.showCampusBanners && (
+          <section class="section-block banner-showcase-section" id="banners" aria-labelledby="banners-heading">
+            <SectionHeading
+              id="banners-heading"
+              title="Campus Culture & Events"
+              eyebrow="Promotional Creative Showcase"
+            />
+            <p class="section-intro">Student-designed promotional banners for campus gatherings, nightlife events, and festive seasonal showcases.</p>
+            <div class="banner-showcase-grid">
+              <div class="banner-item">
+                <div class="banner-frame">
+                  <img
+                    src="/media/banners/banner-fomo-klub.png"
+                    alt="FOMO Klub Student Night Event Creative"
+                    class="banner-artwork-img"
+                    loading="eager"
+                  />
+                </div>
+                <div class="banner-meta">
+                  <span class="banner-contributor">By Aradhana</span>
+                  <span class="banner-desc">FOMO Klub · Campus Gathering &amp; Student Nightlife Creative</span>
+                </div>
               </div>
-              <div class="banner-meta">
-                <span class="banner-contributor">By Aradhana</span>
-                <span class="banner-desc">FOMO Klub · Campus Gathering &amp; Student Nightlife Creative</span>
-              </div>
-            </div>
 
-            <div class="banner-item">
-              <div class="banner-frame">
-                <img
-                  src="/media/banners/banner-serene-halloween.jpg"
-                  alt="Serene Halloween Student Festival Creative"
-                  class="banner-artwork-img"
-                  loading="eager"
-                />
+              <div class="banner-item">
+                <div class="banner-frame">
+                  <img
+                    src="/media/banners/banner-serene-halloween.jpg"
+                    alt="Serene Halloween Student Festival Creative"
+                    class="banner-artwork-img"
+                    loading="eager"
+                  />
+                </div>
+                <div class="banner-meta">
+                  <span class="banner-contributor">By Dhanushree</span>
+                  <span class="banner-desc">Serene Halloween · Autumn Campus Festival &amp; Costume Gathering</span>
+                </div>
               </div>
-              <div class="banner-meta">
-                <span class="banner-contributor">By Dhanushree</span>
-                <span class="banner-desc">Serene Halloween · Autumn Campus Festival &amp; Costume Gathering</span>
-              </div>
-            </div>
 
-            <div class="banner-item">
-              <div class="banner-frame">
-                <img
-                  src="/media/banners/banner-women-apparels.jpg"
-                  alt="Women Apparels Festive Showcase Banner"
-                  class="banner-artwork-img"
-                  loading="eager"
-                />
-              </div>
-              <div class="banner-meta">
-                <span class="banner-contributor">By Mithraa</span>
-                <span class="banner-desc">Women Apparels · Festive Campaign &amp; Student Fashion Showcase</span>
+              <div class="banner-item">
+                <div class="banner-frame">
+                  <img
+                    src="/media/banners/banner-women-apparels.jpg"
+                    alt="Women Apparels Festive Showcase Banner"
+                    class="banner-artwork-img"
+                    loading="eager"
+                  />
+                </div>
+                <div class="banner-meta">
+                  <span class="banner-contributor">By Mithraa</span>
+                  <span class="banner-desc">Women Apparels · Festive Campaign &amp; Student Fashion Showcase</span>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* 11. Watch & Listen: Video & Podcasts */}
         {(videoStories.length > 0 || podcastStories.length > 0) && (
@@ -498,13 +508,15 @@ function storyAudioPoster(story: StoryEntry): string | undefined {
         )}
 
         {/* 13. Promotional Placement 3: Vetri CA Academy (Promotional Feature) */}
-        <AdPlacement
-          label="Promotional Feature"
-          imageSrc="/media/ads/ad-vetri-ca.jpg"
-          imageAlt="Vetri CA Academy Educational Creative"
-          advertiserName="Vetri CA Academy"
-          tagline="Premier Coaching for CA Foundation, Intermediate & Final Examinations"
-        />
+        {appearance.showAdPlacements && (
+          <AdPlacement
+            label="Promotional Feature"
+            imageSrc="/media/ads/ad-vetri-ca.jpg"
+            imageAlt="Vetri CA Academy Educational Creative"
+            advertiserName="Vetri CA Academy"
+            tagline="Premier Coaching for CA Foundation, Intermediate & Final Examinations"
+          />
+        )}
       </>
     ) : (
       <div class="empty-archive-state reading-width">

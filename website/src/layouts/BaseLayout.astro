@@ -4,18 +4,22 @@ import '@fontsource-variable/inter';
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import appearance from '../data/appearance.json';
+
 interface Props { title: string; description?: string; }
 const { title, description = 'Glasnost · An independent student digital magazine featuring original reporting, investigative inquiries, and multimedia broadcasts.' } = Astro.props;
+
+const themeColor = appearance.colorTheme === 'midnight-press' ? '#17171a' : '#F7F4EC';
 ---
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme={appearance.colorTheme} data-font={appearance.headlineFont}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="robots" content="noindex, nofollow, noarchive" />
-    <meta name="theme-color" content="#F7F4EC" />
-    <title>{title} — GLASNOST</title>
+    <meta name="theme-color" content={themeColor} />
+    <title>{title} — {appearance.siteTitle}</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   </head>
   <body id="top">
@@ -25,3 +29,4 @@ const { title, description = 'Glasnost · An independent student digital magazin
     <Footer />
   </body>
 </html>
+

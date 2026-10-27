@@ -373,3 +373,132 @@ content:
           format: markdown
           switcher: true
           path: photos
+
+  # Site Appearance & Editorial Design Controls
+  - name: appearance
+    label: Site Appearance & Branding
+    type: file
+    path: website/src/data/appearance.json
+    format: json
+    fields:
+      - name: siteTitle
+        label: Publication Name
+        type: string
+        required: true
+        description: Master publication title displayed across the masthead, footer and browser tabs (default 'GLASNOST').
+
+      - name: tagline
+        label: Masthead Tagline
+        type: string
+        required: true
+        description: Primary editorial subtitle displayed beneath the main logo.
+
+      - name: metaBannerLeft
+        label: Top Left Meta Banner
+        type: string
+        description: Header metadata note on the left (e.g. 'Independent Perspectives · Student Voices').
+
+      - name: metaBannerRight
+        label: Top Right Meta Banner
+        type: string
+        description: Header metadata note on the right (e.g. 'Chennai & National Dispatches · Est. 2026').
+
+      - name: editionVolume
+        label: Edition & Volume Ribbon
+        type: string
+        description: Issue edition and date label displayed above the lead story (e.g. 'Vol. IV, No. 1 · October 2026').
+
+      - name: logoImage
+        label: Masthead Logo Image
+        type: image
+        options:
+          path: branding
+        description: Master logo artwork displayed in the masthead header (default /media/branding/glasnost-logo.png).
+
+      - name: logoAlt
+        label: Logo Alt Text
+        type: string
+        description: Accessible description of the masthead logo for screen readers.
+
+      - name: colorTheme
+        label: Color Palette Theme
+        type: select
+        required: true
+        default: cream-crimson
+        description: Visual color scheme across the entire publication.
+        options:
+          values:
+            - name: cream-crimson
+              label: Archival Cream & Crimson (GLASNOST Signature Default)
+            - name: modern-newsprint
+              label: Modern Newsprint (Crisp Monochrome with Navy Accent)
+            - name: oxford-green
+              label: Oxford Broadsheet (Antique Parchment with Deep Forest Ink)
+            - name: midnight-press
+              label: Midnight Press (Evening Dark Mode Edition)
+
+      - name: headlineFont
+        label: Headline Typography Voice
+        type: select
+        required: true
+        default: playfair
+        description: Typographic family applied to headlines, mastheads, section banners, and story titles.
+        options:
+          values:
+            - name: playfair
+              label: Playfair Display (Classical Editorial Serif - Default)
+            - name: georgia
+              label: Traditional Broadsheet (Georgia & Times Serif)
+            - name: modern-sans
+              label: Modernist Sans (Inter & Contemporary Clean Sans)
+            - name: garamond
+              label: Literary Garamond (Academic Bookish Serif)
+
+      - name: heroLayout
+        label: Lead Story Layout (Hero)
+        type: select
+        required: true
+        default: split
+        description: Layout arrangement for the flagship investigative lead story on the homepage.
+        options:
+          values:
+            - name: split
+              label: Side-by-Side (Classic Editorial — Copy Left, Hero Photo Right)
+            - name: stacked
+              label: Full-Width Stacked (Immersive Headline Top, Wide Banner Photo Below)
+            - name: reversed
+              label: Reversed Mirror (Hero Photo Left, Headline Copy Right)
+
+      - name: readingDeskLayout
+        label: Reading Desk Layout (Latest Stories)
+        type: select
+        required: true
+        default: grid-3
+        description: Presentation format for recent dispatches on the homepage.
+        options:
+          values:
+            - name: grid-3
+              label: 3-Column Card Grid (Classic Broadsheet Tri-Fold - Default)
+            - name: grid-2
+              label: 2-Column Featured Cards (Larger Photos & Prominent Decks)
+            - name: list
+              label: Editorial Headline List (High-Density Stream with Compact Thumbnails)
+
+      - name: showEditionRibbon
+        label: Show Edition Ribbon
+        type: boolean
+        default: true
+        description: Display the volume/issue date banner above the lead story.
+
+      - name: showCampusBanners
+        label: Show Campus Culture & Events Showcase
+        type: boolean
+        default: true
+        description: Display student-designed promotional creative banners (FOMO Klub, Serene Halloween, Women Apparels).
+
+      - name: showAdPlacements
+        label: Show Student Commercial Showcases
+        type: boolean
+        default: true
+        description: Display student commercial advertising features (Borcelle Cafe, Rhythm Media, Vetri CA).
+
