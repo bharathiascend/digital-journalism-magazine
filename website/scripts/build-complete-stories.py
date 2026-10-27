@@ -456,7 +456,6 @@ stories_specs = [
         "format": "poll-report",
         "author": "Dhanushree",
         "authorRole": "Cinema Audience Researcher",
-        "subtitle": "A theater-exit survey examining audience reception vs social media polarized discourse.",
         "excerpt": "Exit poll data from 50+ theatergoers comparing real-world emotional impact against polarized online reactions.",
         "heroImage": {
             "src": "/media/photos/poll-dhanushree-dorothy-cinema.jpg",

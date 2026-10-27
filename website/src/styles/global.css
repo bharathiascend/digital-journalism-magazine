@@ -59,11 +59,12 @@ em { font-weight: 500; }
 .site-header { border-top: 4px solid var(--color-accent); }
 .masthead-meta { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .85rem; border-bottom: 1px solid var(--color-border); color: var(--color-secondary); font-size: .65rem; letter-spacing: .06em; }
 .masthead-meta span + span { text-align: right; text-transform: uppercase; }
-.masthead-block { text-align: center; padding-block: 1.25rem 1.5rem; }
-.masthead { display: inline-flex; align-items: center; justify-content: center; gap: clamp(0.75rem, 2vw, 1.4rem); font-family: var(--font-editorial); font-size: clamp(2.8rem, 8vw, 6.7rem); font-weight: 700; line-height: 1; letter-spacing: -.065em; text-decoration: none; }
-.masthead-logo-svg { width: clamp(2.4rem, 6vw, 4.4rem); height: clamp(2.4rem, 6vw, 4.4rem); flex-shrink: 0; }
+.masthead-block { text-align: center; padding-block: 1.5rem 1.6rem; }
+.masthead { display: inline-flex; align-items: center; justify-content: center; text-decoration: none; }
+.masthead-logo-artwork { width: clamp(280px, 44vw, 480px); height: auto; max-height: 136px; object-fit: contain; display: block; transition: transform .25s ease, opacity .2s ease; }
+.masthead-logo-artwork:hover { transform: scale(1.02); opacity: .95; }
 .masthead-dot, .footer-brand span.brand-dot { color: var(--color-accent); }
-.masthead-description { margin-top: .8rem; color: var(--color-secondary); font-size: var(--text-xs); letter-spacing: .035em; }
+.masthead-description { margin-top: .75rem; color: var(--color-secondary); font-size: var(--text-xs); letter-spacing: .035em; }
 .masthead-description > span:first-child { margin-inline: .4rem; }
 .navigation { border-top: 1px solid var(--color-text); border-bottom: 1px solid var(--color-text); }
 .nav-mobile-bar { display: flex; justify-content: space-between; align-items: center; min-height: 50px; }
@@ -140,7 +141,7 @@ figcaption { margin-top: .65rem; font: .7rem/1.6 var(--font-ui); color: var(--co
 .site-footer { margin-top: var(--space-5); border-top: 3px solid var(--color-text); padding-block: var(--space-4) var(--space-5); background: var(--color-surface); }
 .footer-inner { display: grid; gap: 2rem; }
 .footer-brand { display: inline-flex; align-items: center; gap: .75rem; font-family: var(--font-editorial); font-weight: 700; font-size: 1.85rem; letter-spacing: -.05em; text-decoration: none; }
-.footer-logo-svg { width: 2rem; height: 2rem; flex-shrink: 0; }
+.footer-logo-svg { width: 2rem; height: 2rem; object-fit: contain; flex-shrink: 0; }
 .footer-desc { margin-top: .75rem; color: var(--color-secondary); font-size: .8125rem; line-height: 1.6; max-width: 26rem; }
 .footer-nav { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 1.5rem; }
 .footer-nav-col { display: flex; flex-direction: column; gap: .4rem; }

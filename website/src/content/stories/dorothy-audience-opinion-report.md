@@ -5,7 +5,6 @@ section: "lifestyle"
 format: "poll-report"
 status: "approved"
 isDemo: false
-subtitle: "A theater-exit survey examining audience reception vs social media polarized discourse."
 excerpt: "Exit poll data from 50+ theatergoers comparing real-world emotional impact against polarized online reactions."
 authors: [
   {

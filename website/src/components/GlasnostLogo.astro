@@ -1,50 +1,39 @@
 ---
 interface Props {
+  variant?: 'full' | 'mark';
   size?: number;
+  width?: number;
+  height?: number;
   class?: string;
 }
-const { size = 36, class: className = '' } = Astro.props;
----
-<svg
-  class:list={['glasnost-logo-mark', className]}
-  width={size}
-  height={size}
-  viewBox="0 0 48 48"
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg"
-  aria-hidden="true"
->
-  <!-- Background circular crest -->
-  <circle cx="24" cy="24" r="23" fill="#892F35" stroke="#222222" stroke-width="1.5" />
-  <circle cx="24" cy="24" r="20.5" stroke="#F7F4EC" stroke-width="0.75" stroke-dasharray="2 1.5" opacity="0.8" />
-  
-  <!-- Stylized Broadsheet & Radiant Quill / Torch of Truth -->
-  <!-- Newspaper pages motif -->
-  <path
-    d="M13 15C13 14.4477 13.4477 14 14 14H23V34H14C13.4477 34 13 33.5523 13 33V15Z"
-    fill="#F7F4EC"
-  />
-  <path
-    d="M25 14H34C34.5523 14 35 14.4477 35 15V33C35 33.5523 34.5523 34 34 34H25V14Z"
-    fill="#F7F4EC"
-  />
-  <!-- Broadsheet text rules -->
-  <line x1="16" y1="18" x2="20" y2="18" stroke="#892F35" stroke-width="1.2" stroke-linecap="round" />
-  <line x1="16" y1="22" x2="21" y2="22" stroke="#892F35" stroke-width="1.2" stroke-linecap="round" />
-  <line x1="16" y1="26" x2="21" y2="26" stroke="#892F35" stroke-width="1.2" stroke-linecap="round" />
-  <line x1="16" y1="30" x2="19" y2="30" stroke="#892F35" stroke-width="1.2" stroke-linecap="round" />
-  
-  <line x1="27" y1="18" x2="32" y2="18" stroke="#892F35" stroke-width="1.2" stroke-linecap="round" />
-  <line x1="27" y1="22" x2="32" y2="22" stroke="#892F35" stroke-width="1.2" stroke-linecap="round" />
-  <line x1="27" y1="26" x2="32" y2="26" stroke="#892F35" stroke-width="1.2" stroke-linecap="round" />
-  <line x1="27" y1="30" x2="30" y2="30" stroke="#892F35" stroke-width="1.2" stroke-linecap="round" />
 
-  <!-- Central crease shadow -->
-  <line x1="24" y1="13.5" x2="24" y2="34.5" stroke="#D8CFC0" stroke-width="1" />
-  
-  <!-- Radiant truth sunburst at top -->
-  <circle cx="24" cy="9.5" r="1.5" fill="#E6A15C" />
-  <line x1="24" y1="6" x2="24" y2="7.5" stroke="#E6A15C" stroke-width="1" stroke-linecap="round" />
-  <line x1="21.5" y1="7" x2="22.5" y2="8" stroke="#E6A15C" stroke-width="1" stroke-linecap="round" />
-  <line x1="26.5" y1="7" x2="25.5" y2="8" stroke="#E6A15C" stroke-width="1" stroke-linecap="round" />
-</svg>
+const {
+  variant = 'full',
+  size = 40,
+  width,
+  height,
+  class: className = '',
+} = Astro.props;
+---
+
+{variant === 'mark' ? (
+  <img
+    src="/media/branding/glasnost-mark.png"
+    alt="Glasnost official emblem"
+    width={width ?? size}
+    height={height ?? size}
+    class:list={['glasnost-mark-img', className]}
+    loading="eager"
+    decoding="async"
+  />
+) : (
+  <img
+    src="/media/branding/glasnost-logo.png"
+    alt="Glasnost — See Through The News"
+    width={width ?? 520}
+    height={height ?? 148}
+    class:list={['glasnost-full-logo-img', className]}
+    loading="eager"
+    decoding="async"
+  />
+)}
