@@ -3,7 +3,7 @@ title: GLASNOST CMS Workflow Test
 slug: cms-workflow-test
 section: national
 format: article
-status: draft
+status: approved
 isDemo: true
 subtitle: This is a demonstration article created to test the GLASNOST publishing system.
 excerpt: Testing article creation, editorial categories, draft management and
