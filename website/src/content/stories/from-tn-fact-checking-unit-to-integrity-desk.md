@@ -10,7 +10,7 @@ subtitle: A forensic examination of the transition from DMK’s fact check unit 
   the Vijay-led government’s Information Integrity Desk.
 excerpt: Analyzing how government fact-checking machinery in Tamil Nadu has
   shifted its scope, leadership, and political focus following the 2026 regime
-  hello.
+  change.
 publishedAt: 2026-10-25
 dateLabel: October 25, 2026
 authors:
