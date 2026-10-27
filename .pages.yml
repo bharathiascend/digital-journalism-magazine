@@ -1,0 +1,375 @@
+# Pages CMS Configuration (pagescms.org)
+# Publication: GLASNOST (glasnost.page)
+# Digital Journalism Newsroom Architecture
+
+media:
+  input: website/public/media
+  output: /media
+
+settings:
+  content: true
+  commit:
+    templates:
+      create: "content(stories): create {path} via Pages CMS"
+      update: "content(stories): update {path} via Pages CMS"
+      delete: "content(stories): delete {path} via Pages CMS"
+
+content:
+  - name: stories
+    label: Stories & Dispatches
+    type: collection
+    path: website/src/content/stories
+    format: yaml-frontmatter
+    subfolders: false
+    filename:
+      template: "{fields.slug}.md"
+      field: create
+    view:
+      fields: [title, section, format, status, publishedAt]
+      primary: title
+      sort: [publishedAt, title, section, status]
+      search: [title, slug, excerpt]
+      default:
+        sort: publishedAt
+        order: desc
+    fields:
+      # Core Editorial Metadata
+      - name: title
+        label: Headline / Title
+        type: string
+        required: true
+        description: Primary article headline displayed across all index and story pages.
+
+      - name: slug
+        label: URL Slug
+        type: string
+        required: true
+        description: Lowercase alphanumeric identifier with hyphens (e.g. 'old-guard-new-noise'). Must match filename.
+
+      - name: section
+        label: Editorial Desk / Section
+        type: select
+        required: true
+        description: Primary journalistic desk classification.
+        options:
+          placeholder: Select an editorial desk
+          values:
+            - name: national
+              label: National
+            - name: politics
+              label: Politics
+            - name: analysis
+              label: News Analysis
+            - name: lifestyle
+              label: Lifestyle & Entertainment
+            - name: sports
+              label: Sports
+
+      - name: format
+        label: Content Format
+        type: select
+        required: true
+        description: Narrative presentation format determining layout and media player components.
+        options:
+          placeholder: Select content format
+          values:
+            - name: article
+              label: Article & Essay (Standard broadsheet long-form)
+            - name: blog
+              label: Essay & Blog (Personal critical dispatches)
+            - name: video
+              label: Video Explainer (Mobile vertical video broadcast)
+            - name: podcast
+              label: Podcast (Audio dispatch with episode player)
+            - name: photo-feature
+              label: Photo Feature (Visual photojournalism essay)
+            - name: poll-report
+              label: Opinion Poll Report (Empirical survey data & distributions)
+
+      - name: status
+        label: Editorial Workflow Status
+        type: select
+        required: true
+        default: draft
+        description: Safety gate - Only 'approved' stories are built into the public website. 'draft' and 'needs-review' stories remain strictly private.
+        options:
+          values:
+            - name: draft
+              label: Draft (Work in progress — hidden from live site)
+            - name: needs-review
+              label: Needs Review (Pending editorial check — hidden from live site)
+            - name: approved
+              label: Approved (Publicly visible on production site)
+
+      - name: isDemo
+        label: Demo / Test Fixture
+        type: boolean
+        default: false
+        description: Enable only for synthetic test records. When true, strictly excluded from production deployment.
+
+      - name: subtitle
+        label: Subtitle / Standfirst
+        type: string
+        description: Secondary headline displayed directly beneath the main title.
+
+      - name: excerpt
+        label: Excerpt / Deck
+        type: text
+        description: Concise summary (1-2 sentences) used on article cards, search listings, and social previews.
+
+      - name: publishedAt
+        label: Publication Date (ISO)
+        type: date
+        description: Standard ISO publication date (YYYY-MM-DD) for machine-readable time elements.
+
+      - name: dateLabel
+        label: Formatted Display Date
+        type: string
+        description: Human-readable date label displayed to readers (e.g. 'October 24, 2026').
+
+      # Authors & Bylines
+      - name: authors
+        label: Authors & Bylines
+        type: object
+        list: true
+        description: List of reporters, correspondents, and producers contributing to this piece.
+        fields:
+          - name: name
+            label: Contributor Name
+            type: string
+            required: true
+          - name: role
+            label: Editorial Role / Beat
+            type: string
+            default: Writer
+            description: Contributor's beat or role (e.g. 'Civic Affairs Reporter', 'Photojournalist', 'Audio Producer').
+
+      # Hero & Lead Image
+      - name: heroImage
+        label: Lead Image / Hero Artwork
+        type: object
+        description: Main visual artwork displayed at the head of the story and on featured cards.
+        fields:
+          - name: src
+            label: Image Asset
+            type: image
+            options:
+              path: photos
+            description: Selected from website/public/media/photos (output as /media/photos/...).
+          - name: alt
+            label: Alt Text
+            type: string
+            description: Accessible image description for screen readers and accessibility audit.
+          - name: variant
+            label: Aesthetic Frame Variant
+            type: select
+            default: paper
+            options:
+              values:
+                - name: paper
+                  label: Paper (Classical broadsheet frame)
+                - name: arches
+                  label: Arches (Curved architectural frame)
+                - name: orbit
+                  label: Orbit (Circular accent frame)
+                - name: frames
+                  label: Frames (Double-line gallery frame)
+                - name: sound
+                  label: Sound (Audio waveform frame)
+          - name: caption
+            label: Caption
+            type: string
+            description: Descriptive journalistic caption for the hero image.
+          - name: credit
+            label: Photo Credit
+            type: string
+            description: Photographer or photo desk credit.
+
+      # Format-Specific: Video Explainer Metadata
+      - name: video
+        label: Video Explainer Metadata
+        type: object
+        description: Complete this section when format is set to 'video'.
+        fields:
+          - name: mediaUrl
+            label: Video File URL
+            type: file
+            options:
+              path: videos
+            description: Direct path to MP4 video (e.g. /media/videos/...).
+          - name: poster
+            label: Video Poster Frame
+            type: image
+            options:
+              path: videos
+            description: Stills frame image shown before playback.
+          - name: duration
+            label: Duration
+            type: string
+            description: Video runtime formatted as mm:ss (e.g. '3:12').
+          - name: transcriptPlaceholder
+            label: Visual Walkthrough / Transcript Summary
+            type: text
+            description: Concise breakdown of visual sections and topics covered in the video.
+
+      # Format-Specific: Podcast Dispatch Metadata
+      - name: podcast
+        label: Podcast Dispatch Metadata
+        type: object
+        description: Complete this section when format is set to 'podcast'.
+        fields:
+          - name: mediaUrl
+            label: Audio File URL
+            type: file
+            options:
+              path: audio
+            description: Direct path to MP3 audio dispatch (e.g. /media/audio/...).
+          - name: duration
+            label: Duration
+            type: string
+            description: Audio runtime formatted as mm:ss (e.g. '14:45').
+          - name: episodeNotes
+            label: Episode Notes & Discussion Summary
+            type: text
+            description: Editorial background, recording context, and interview notes.
+          - name: audioPlaceholder
+            label: Audio Summary Placeholder
+            type: string
+            description: Short summary of the broadcast for audio preview cards.
+
+      # Format-Specific: Photo Feature Gallery
+      - name: photoGallery
+        label: Photo Feature Gallery
+        type: object
+        list: true
+        description: Curated photo essay sequence when format is set to 'photo-feature'.
+        fields:
+          - name: src
+            label: Photograph Asset
+            type: image
+            options:
+              path: photos
+          - name: alt
+            label: Alt Text
+            type: string
+          - name: variant
+            label: Presentation Frame Variant
+            type: select
+            options:
+              values:
+                - name: paper
+                  label: Paper
+                - name: arches
+                  label: Arches
+                - name: orbit
+                  label: Orbit
+                - name: frames
+                  label: Frames
+                - name: sound
+                  label: Sound
+          - name: caption
+            label: Caption
+            type: text
+            required: true
+            description: Ground-level context and observational notes.
+          - name: credit
+            label: Credit
+            type: string
+          - name: reviewNotice
+            label: Editorial Notice
+            type: string
+
+      # Format-Specific: Opinion Poll & Survey Data
+      - name: pollData
+        label: Opinion Poll & Survey Data
+        type: object
+        description: Empirical survey data and distribution figures when format is set to 'poll-report'.
+        fields:
+          - name: question
+            label: Central Survey Question
+            type: string
+            required: true
+          - name: sampleSize
+            label: Sample Size & Scope
+            type: string
+            description: Description of the survey cohort (e.g. '50 theater-exit respondents').
+          - name: methodologyNote
+            label: Methodology Note
+            type: text
+            description: Fieldwork methodology and sampling technique.
+          - name: results
+            label: Results Breakdown
+            type: object
+            list: true
+            fields:
+              - name: label
+                label: Response Category
+                type: string
+                required: true
+              - name: percentage
+                label: Percentage
+                type: number
+                required: true
+                description: Numerical percentage value without percent sign (e.g. 68).
+              - name: count
+                label: Response Count
+                type: number
+                description: Optional raw count of respondents.
+          - name: charts
+            label: Supplementary Data Charts
+            type: object
+            list: true
+            fields:
+              - name: src
+                label: Chart Graphic
+                type: image
+                options:
+                  path: charts
+              - name: caption
+                label: Chart Caption
+                type: string
+                required: true
+
+      # Internal Provenance & Editorial Traceability
+      - name: provenance
+        label: Internal Provenance & Archive Notes
+        type: object
+        description: Historical record of source files and migration provenance (excluded from live HTML).
+        fields:
+          - name: sourceFile
+            label: Original Source File
+            type: string
+          - name: category
+            label: Archive Dossier Category
+            type: string
+          - name: editorialNotes
+            label: Internal Editorial Notes
+            type: text
+
+      # Internal Editorial QA Review
+      - name: editorialReview
+        label: Editorial Desk QA Review
+        type: object
+        description: Editorial checklist and QA review status.
+        fields:
+          - name: reviewFlags
+            label: Review Flags
+            type: string
+            list: true
+          - name: missingItems
+            label: Missing Items Checklist
+            type: string
+            list: true
+          - name: notes
+            label: QA Notes
+            type: text
+
+      # Markdown Article Body
+      - name: body
+        label: Article Content (Body)
+        type: rich-text
+        description: Main journalistic story text with Notion-style formatting, headings, pullquotes, and links.
+        options:
+          format: markdown
+          switcher: true
+          path: photos
