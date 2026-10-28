@@ -27,6 +27,7 @@ heroImage:
 photoGallery:
   - src: /media/photos/photo-feature-dhanushree-image1.png
     alt: SFI & DYFI Protest at Rajarathinam Stadium
+    variant: frames
     caption: "Amplifying the Voice Against NEET: S. Maniratnam, brother of the late
       Anitha (the student whose tragic death sparked Tamil Nadu's anti-NEET
       movement), addresses a packed crowd at Rajarathinam Stadium. Organized by
