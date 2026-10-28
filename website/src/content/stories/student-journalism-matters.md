@@ -11,6 +11,7 @@ authors:
   - name: Mithraa
     role: "reporter "
 heroImage:
+  src: /media/journalism.jpeg
   variant: paper
 ---
 # Why Student Journalism Matters
