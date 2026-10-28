@@ -12,10 +12,9 @@ authors:
     role: reporter
 heroImage:
   src: /media/photos/poll-dhanushree-dorothy-cinema.jpg
-  alt: Moviegoers entering and leaving cinema halls
+  alt: Dorothy
   variant: paper
-  caption: Cinema audience members interviewed immediately following the screening.
-  credit: Audience Research Desk
+  credit: the wire
 pollData:
   question: Did the central character's choices resonate with your personal moral
     perspective?
