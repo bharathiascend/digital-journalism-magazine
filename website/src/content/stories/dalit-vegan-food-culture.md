@@ -1,28 +1,27 @@
 ---
-title: "A Dalit Vegan in a Country Where Food's Never Just Food"
-slug: "dalit-vegan-food-culture"
-section: "lifestyle"
-format: "article"
-status: "approved"
+title: A Dalit Vegan in a Country Where Food's Never Just Food
+slug: dalit-vegan-food-culture
+section: lifestyle
+format: article
+status: approved
 isDemo: false
-subtitle: "Navigating dietary politics, caste identity, and culinary heritage in urban contemporary India."
-excerpt: "An inquiry into how food choices intersect with caste history, family traditions, and ethical eating in modern India."
-authors: [
-  {
-    "name": "Aradhana",
-    "role": "Food & Culture Correspondent"
-  }
-]
-publishedAt: "2026-10-24"
-dateLabel: "October 24, 2026"
-heroImage: {
-  "src": "/media/photos/lifestyle-aradhana-dalit-vegan.jpg",
-  "alt": "Traditional culinary spices, lentils, and cookware",
-  "caption": "Regional cooking vessels and plant-based culinary traditions in southern India.",
-  "credit": "Culinary Documentation"
-}
+subtitle: Navigating dietary politics, caste identity, and culinary heritage in
+  urban contemporary India.
+excerpt: An inquiry into how food choices intersect with caste history, family
+  traditions, and ethical eating in modern India.
+publishedAt: 2026-10-24
+dateLabel: October 24, 2026
+authors:
+  - name: Aradhana
+    role: reporter
+heroImage:
+  src: /media/photos/lifestyle-aradhana-dalit-vegan.jpg
+  alt: Traditional culinary spices, lentils, and cookware
+  variant: paper
+  caption: Regional cooking vessels and plant-based culinary traditions in
+    southern India.
+  credit: Culinary Documentation
 ---
-
 For one Dalit vegan the decision to stop consuming animal products did not begin with caste, politics or activism. It began with something more ordinary: his health. "When I went vegan initially it was more for health reasons " he says. The ethical questions came later. Once he began thinking about animal exploitation however veganism became more than a choice. It became something he had to negotiate in his life which was including in spaces where he expected people to be more receptive to questions of exploitation and justice.
 
 His lifestyle itself does not resemble the caricature sometimes attached to veganism. His meals are remarkably familiar: roti, sabji, rice and dal. There is no reinvention of Indian food on his plate. While strength training he uses millet-based atta of regular wheat flour to increase his protein intake and make meeting his nutritional goals easier.
