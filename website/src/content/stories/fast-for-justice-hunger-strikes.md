@@ -27,6 +27,3 @@ CPI(ML) general secretary Dipankar Bhattacharya came out in support, framing it 
 The last time a hunger strike really shook the country was 2011, when Anna Hazare's fast against corruption forced Parliament to actually sit down and debate the Lokpal bill. It also launched a handful of political careers that are still around today. So yes, a fast can still move the needle, when it catches the public's imagination the right way. But it's gotten harder to predict. Governments have learned to simply wait these things out. And going viral doesn't guarantee anything changes on paper. 
 
 Even Wangchuk's own history proves the point his 2019 fast for Ladakh got attention, sympathy, and headlines. Full statehood never came. So what makes this one different? Scale, mostly. It's not just students this time. It's students, a well-known activist, and opposition leaders, all standing behind the same demand at the same time. Whether that ends with Pradhan actually stepping down, or with the government simply outlasting the cameras, one question keeps coming back around in India: how much does a fast really cost a government that's decided not to look?
-
-![Sonam Wangchuk addressing supporters during the fast](/media/photos/national-dhanushree-sonam-wangchuk-2.jpg)
-*Ladakh community members gathered in solidarity with the ecological fast.*
