@@ -27,8 +27,11 @@ heroImage:
 photoGallery:
   - src: /media/photos/photo-feature-dhanushree-image1.png
     alt: SFI & DYFI Protest at Rajarathinam Stadium
-    caption: "Plate 1: SFI & DYFI student rally convened at Rajarathinam Stadium
-      demanding transparent accountability."
+    caption: "Amplifying the Voice Against NEET: S. Maniratnam, brother of the late
+      Anitha (the student whose tragic death sparked Tamil Nadu's anti-NEET
+      movement), addresses a packed crowd at Rajarathinam Stadium. Organized by
+      SFI and DYFI, the rally united students and activists demanding an
+      immediate ban on NEET to protect state educational rights."
     credit: Dhanushree
   - src: /media/phot.jpeg
     alt: " CJP Solidarity Protest at CPI Office, T. Nagar "
