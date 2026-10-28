@@ -14,7 +14,7 @@ publishedAt: 2026-08-26
 dateLabel: august 26, 2026
 authors:
   - name: Dhanushree
-    role: Cinema & Arts Critic
+    role: "reporter "
 heroImage:
   src: /media/photos/lifestyle-dhanushree-natchathiram.jpg
   alt: Promotional artwork from Pa. Ranjith's Natchathiram Nagargiradhu
