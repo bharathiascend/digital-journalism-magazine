@@ -5,7 +5,11 @@ section: lifestyle
 format: blog
 status: approved
 isDemo: false
-publishedAt: 2026-10-27
+publishedAt: 2026-10-08
+dateLabel: october 08,2026
+authors:
+  - name: Mithraa
+    role: "reporter "
 heroImage:
   variant: paper
 ---
