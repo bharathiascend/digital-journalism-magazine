@@ -26,5 +26,3 @@ video:
   transcriptPlaceholder: Vertical explainer covering archery medal records,
     athlete profiles, and international training camps.
 ---
-..
-
