@@ -1,50 +1,30 @@
 ---
-title: "My Choice, Their Rules? Inside the Quiet Tug-of-War of Class 12"
-slug: "class-12-career-choice-tug-of-war"
-section: "lifestyle"
-format: "poll-report"
-status: "approved"
+title: My Choice, Their Rules? Inside the Quiet Tug-of-War of Class 12
+slug: class-12-career-choice-tug-of-war
+section: lifestyle
+format: poll-report
+status: approved
 isDemo: false
-subtitle: "A survey of senior secondary students on parental pressure, career autonomy, and competitive exam coaching."
-excerpt: "Campus survey findings uncovering how Class 12 students negotiate personal aspirations against parental expectations."
-authors: [
-  {
-    "name": "Aradhana",
-    "role": "Education & Society Reporter"
-  }
-]
-publishedAt: "2026-10-24"
-dateLabel: "October 24, 2026"
-heroImage: {
-  "src": "/media/photos/poll-aradhana-career-choice.jpg",
-  "alt": "Senior secondary school students preparing for exams",
-  "caption": "High school students navigate competitive coaching and family expectations.",
-  "credit": "Campus Survey Archive"
-}
-pollData: {
-  "question": "Who primarily influences your post-secondary career choice?",
-  "sampleSize": "Field survey across secondary coaching centers",
-  "methodologyNote": "Independent student survey assessing parental influence versus personal agency in career decisions.",
-  "results": [
-    {
-      "label": "Independent Personal Choice",
-      "percentage": 50
-    },
-    {
-      "label": "Parental Direction / Family Pressure",
-      "percentage": 30
-    },
-    {
-      "label": "Coaching Institute / External Counselor Guidance",
-      "percentage": 20
-    }
-  ]
-}
+publishedAt: 2026-10-04
+dateLabel: October 04, 2026
+authors:
+  - name: Aradhana
+heroImage:
+  src: /media/photos/poll-aradhana-career-choice.jpg
+  variant: paper
+  caption: High school students navigate competitive coaching and family expectations.
+  credit: The Hindu
+pollData:
+  question: "Opinion Poll conducted on 12th grade students "
+  results:
+    - label: Independent Personal Choice
+      percentage: 21
+    - label: Parental Direction / Family Pressure
+      percentage: 30
+    - label: Coaching Institute / External Counselor Guidance
+      percentage: 20
 ---
-
-Asking the Class 12 student who decides their future who makes that decision for them would get you the answer "it's my choice"- but they'd also contradict that.
-
-Somewhere between the syllabus and the coaching centre, the Class 12 student is expected to answer a question that adults take ages to figure out: what do you want to do with your life?
+    Asking the Class 12 student who decides their future who makes that decision for them would get you the answer "it's my choice"- but they'd also contradict that. Somewhere between the syllabus and the coaching centre, the Class 12 student is expected to answer a question that adults take ages to figure out: what do you want to do with your life?
 
 In a poll of CBSE Class 12 students, the first statement stood out as a confident answer. Asked what influenced their career choice the most, the largest group, 40%, said themselves, their interests and ambitions, followed by parents, then friends and classmates. Teachers and school came in last with only 10%. The institution designed to help them make career choices is the last one on their list.
 
