@@ -1,28 +1,27 @@
 ---
-title: "Lando Norris and McLaren Command 2026 Hungarian Grand Prix"
-slug: "hungarian-grand-prix-race-report"
-section: "sports"
-format: "article"
-status: "approved"
+title: Lando Norris and McLaren Command 2026 Hungarian Grand Prix
+slug: hungarian-grand-prix-race-report
+section: sports
+format: article
+status: approved
 isDemo: false
-subtitle: "Bouncing back from an early-race Turn 2 scare, Norris delivers McLaren’s first triumph of the season at the Hungaroring."
-excerpt: "A tactical race report on how Lando Norris recovered from Oscar Piastri's early overtake to dominate the Hungarian Grand Prix."
-authors: [
-  {
-    "name": "Dhanushree",
-    "role": "Motorsport Correspondent"
-  }
-]
-publishedAt: "2026-10-24"
-dateLabel: "October 24, 2026"
-heroImage: {
-  "src": "/media/photos/sports-dhanushree-hungarian-gp.jpg",
-  "alt": "McLaren Formula 1 cars competing on the racing circuit",
-  "caption": "Lando Norris navigates the tight, twisty Hungaroring circuit to secure a decisive victory.",
-  "credit": "Motorsport Archive"
-}
+subtitle: Bouncing back from an early-race Turn 2 scare, Norris delivers
+  McLaren’s first triumph of the season at the Hungaroring.
+excerpt: A tactical race report on how Lando Norris recovered from Oscar
+  Piastri's early overtake to dominate the Hungarian Grand Prix.
+publishedAt: 2026-10-24
+dateLabel: October 24, 2026
+authors:
+  - name: Dhanushree
+    role: reporter
+heroImage:
+  src: /media/photos/sports-dhanushree-hungarian-gp.jpg
+  alt: McLaren Formula 1 cars competing on the racing circuit
+  variant: paper
+  caption: Lando Norris navigates the tight, twisty Hungaroring circuit to secure
+    a decisive victory.
+  credit: Motorsport Archive
 ---
-
 Lando Norris secured his and McLaren's first win of the 2026 season with a brilliant drive at the Hungarian Grand Prix, bouncing back from an early race scare to dominate the field.
 
 Norris started on pole, but teammate Oscar Piastri snatched the lead with a clever cut-back move at Turn 2 on the opening lap. The two McLarens ran first and second for much of the first half, engaging in a tense intra-team battle while managing tire strategies.
