@@ -66,7 +66,9 @@ const monogram = author?.name
 
       <h1 id="story-title" class="story-headline">{entry.data.title}</h1>
 
-      {entry.data.subtitle && <p class="story-deck">{entry.data.subtitle}</p>}
+      {entry.data.subtitle && entry.data.format !== 'podcast' && entry.data.format !== 'video' && (
+        <p class="story-deck">{entry.data.subtitle}</p>
+      )}
 
       <div class="story-byline">
         <span class="author-monogram" aria-hidden="true">{monogram}</span>

@@ -28,13 +28,3 @@ video: {
   "transcriptPlaceholder": "On-screen graphics and commentary breakdown of private university policy and student representation in Tamil Nadu."
 }
 ---
-
-This mobile-first vertical news explainer examines the rapid growth of private universities across Tamil Nadu, analyzing state regulatory oversight, fee structuring, and the implications for student bodies.
-
-The presenter walks viewers through legislative provisions, student governance mechanisms, and comparative data on higher education access.
-
-## Key Discussion Points in Video
-
-1. **Institutional Growth:** Tracking the expansion of self-financed and deemed university campuses over the past five years.
-2. **Regulatory Framework:** State versus central jurisdiction in student grievance redressal and fee caps.
-3. **Student Perspective:** Ground reports on infrastructure, placement promises, and campus democracy.

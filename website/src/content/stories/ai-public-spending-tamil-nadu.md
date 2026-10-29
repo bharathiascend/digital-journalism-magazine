@@ -28,11 +28,3 @@ video: {
   "transcriptPlaceholder": "Visual walkthrough of state government tech budget announcements, university AI labs, and public delivery systems."
 }
 ---
-
-A mobile-first video explainer evaluating Tamil Nadu's recent budgetary push for artificial intelligence integration across state departments, school computer labs, and public healthcare diagnostics.
-
-## Key Focus Areas
-
-- **Public Sector Automation:** Where artificial intelligence models are deployed in state administration.
-- **Educational Tech:** AI literacy programs introduced across higher secondary government schools.
-- **Fiscal Scrutiny:** Balancing tech capital expenditure with core public services.

@@ -261,15 +261,14 @@ Validated 32 stories: 0 error(s), 0 warning(s).
 
 ## Issues Still Requiring Contributor Confirmation
 
-While all 8 reported editorial issues have been fixed and verified against source materials, the following non-blocking items are cataloged for faculty and student contributors:
+While all reported editorial issues have been fixed and verified against source materials, the following non-blocking items are cataloged for faculty and student contributors:
 
-1. **Kimi Antonelli Podcast Written Body:**
-   - The audio asset `kimi-antonelli-performance-review.mp3` is active, working, and has its duration correctly set to `03:39`.
-   - The original dossier contained only the audio file without an accompanying written article or interview transcript. The page displays the player card and notes cleanly. If the contributor intends to submit a synchronized transcript or written essay, it can be added in Pages CMS.
+1. **Podcasts and Video Explainers (Faculty Presentation Directive):**
+   - Following direct faculty instructions ("remove descriptions for both the podcast and video explainer, just the audio and video is enough"), all secondary textual descriptions, chapter bullet points, and synthetic notes were removed from both podcast and video explainer pages.
+   - For all 3 podcast dispatches (`kimi-antonelli`, `campus-discourse`, `pink-tax`) and all 3 video explainers (`asian-games-archery`, `ai-public-spending`, `private-university-expansion`), the single story routes now cleanly present solely the media player (native HTML5 audio or 9:16 vertical video player) alongside the headline and byline.
+   - All standard broadsheet articles, personal blogs, photo features, and empirical poll reports remain completely untouched with their full bodies and standfirsts intact.
 2. **Unsupplied Visual Feature Plates:**
    - In Photo Features (`reclaiming-space-against-patriarchy.md` and `anti-neet-student-mobilisation-chennai.md`), placeholder frames display editorial notices for plates not yet submitted by student photographers. The layout gracefully handles them using accessible `<PlaceholderArt>` components.
-3. **Asian Games Archery Video Transcript:**
-   - `asian-games-2026-archery-spotlight.md` renders the square video explainer cleanly; an extended transcript is flagged in frontmatter for future editorial review.
 
 ---
 *Report generated on branch `editorial-fixes`. Changes are staged for review and ready for merge into `master` upon faculty sign-off.*
