@@ -20,7 +20,7 @@ heroImage:
   variant: paper
   caption: Lando Norris navigates the tight, twisty Hungaroring circuit to secure
     a decisive victory.
-  credit: Motorsport Archive
+  credit: F1
 ---
 Lando Norris secured his and McLaren's first win of the 2026 season with a brilliant drive at the Hungarian Grand Prix, bouncing back from an early race scare to dominate the field.
 
