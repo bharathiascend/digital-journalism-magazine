@@ -23,6 +23,8 @@ heroImage: {
 }
 ---
 
+It's been a long time since I properly sat at my dusty desk and started to physically take a pen and write. I have been avoiding writing since months now, and it is clearly showing and manifesting in different ways, horrible to be specific.
+
 A few weeks ago, I connected with my childhood friend. It was just a casual small talk, but it made me realise how much we let down our true selves. The creative self. He was a good artist who used to write fictional stories, and the characters which he used to sketch were truly amazing to see.
 
 Unfortunately, I never got to know those characters. What are their stories? Were they a full-blown rebel who fought for their existence in their dystopian world filled with insanity? Did they fall in love with a woman, who they swore they would never marry, because they felt it was forbidden, or did they have a lame villain arc, which an uncultured man would agree to or something like that? I truly wish to know.

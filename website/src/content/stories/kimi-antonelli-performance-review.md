@@ -22,7 +22,7 @@ heroImage:
   credit: The Journal Motorsport Desk
 podcast:
   mediaUrl: /media/audio/kimi-antonelli-performance-review.mp3
-  duration: 18:12
+  duration: "03:39"
   episodeNotes: F1 trackside analysis examining telemetry traces, qualifying pace,
     and Sunday stint management.
 ---

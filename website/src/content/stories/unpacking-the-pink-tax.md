@@ -23,7 +23,7 @@ heroImage: {
 }
 podcast: {
   "mediaUrl": "/media/audio/pink-tax.mp3",
-  "duration": "21:50",
+  "duration": "06:34",
   "episodeNotes": "Investigative audio podcast exploring retail price audits and interviews with consumer policy advocates."
 }
 ---
