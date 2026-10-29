@@ -12,5 +12,17 @@
   "readingDeskLayout": "grid-3",
   "showEditionRibbon": true,
   "showCampusBanners": true,
-  "showAdPlacements": true
+  "showAdPlacements": true,
+  "sidebarAd": {
+    "label": "Student Commercial Partner",
+    "advertiser": "Borcelle Cafe",
+    "image": "/media/ads/ad-borcelle-cafe.png",
+    "tagline": "Artisanal Plant-Based Brews & Wholesome Vegan Dining · Student Haven"
+  },
+  "articleFooterAd": {
+    "label": "Student Promotional Showcase",
+    "advertiser": "Vetri CA Academy",
+    "image": "/media/ads/ad-vetri-ca.jpg",
+    "tagline": "Professional Academic Mentorship for Aspiring Civic Journalists & Analysts"
+  }
 }

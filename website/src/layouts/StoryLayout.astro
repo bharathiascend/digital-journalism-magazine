@@ -7,6 +7,8 @@ import VideoFormat from '../components/formats/VideoFormat.astro';
 import PodcastFormat from '../components/formats/PodcastFormat.astro';
 import PhotoFeatureFormat from '../components/formats/PhotoFeatureFormat.astro';
 import PollReportFormat from '../components/formats/PollReportFormat.astro';
+import EditorialSidebar from '../components/EditorialSidebar.astro';
+import AdPlacement from '../components/AdPlacement.astro';
 import { getSectionMeta, getFormatMeta, getPublishableStories, type StoryEntry } from '../utils/stories';
 
 interface Props {
@@ -19,7 +21,9 @@ const format = getFormatMeta(entry.data.format);
 
 // Fetch related stories (excluding current story)
 const allStories = await getPublishableStories();
-const relatedStories = allStories.filter((s) => s.id !== entry.id).slice(0, 2);
+const relatedStories = allStories
+  .filter((s) => s.id !== entry.id && s.data.status === 'approved' && !s.data.isDemo)
+  .slice(0, 2);
 
 const author = entry.data.authors?.[0];
 const monogram = author?.name
@@ -82,43 +86,70 @@ const monogram = author?.name
       </div>
     </header>
 
-    <!-- Format-specific layout body -->
-    <div class="story-content-region">
-      {entry.data.format === 'article' && (
-        <ArticleFormat entry={entry}>
-          <slot />
-        </ArticleFormat>
-      )}
+    <!-- Two-column responsive editorial grid (Phase 3 & 5) -->
+    <div class="story-layout-grid">
+      <div class="story-main-column">
+        <!-- Format-specific layout body -->
+        <div class="story-content-region">
+          {entry.data.format === 'article' && (
+            <ArticleFormat entry={entry}>
+              <slot />
+            </ArticleFormat>
+          )}
 
-      {entry.data.format === 'blog' && (
-        <ArticleFormat entry={entry}>
-          <slot />
-        </ArticleFormat>
-      )}
+          {entry.data.format === 'blog' && (
+            <ArticleFormat entry={entry}>
+              <slot />
+            </ArticleFormat>
+          )}
 
-      {entry.data.format === 'video' && (
-        <VideoFormat entry={entry}>
-          <slot />
-        </VideoFormat>
-      )}
+          {entry.data.format === 'video' && (
+            <VideoFormat entry={entry}>
+              <slot />
+            </VideoFormat>
+          )}
 
-      {entry.data.format === 'podcast' && (
-        <PodcastFormat entry={entry}>
-          <slot />
-        </PodcastFormat>
-      )}
+          {entry.data.format === 'podcast' && (
+            <PodcastFormat entry={entry}>
+              <slot />
+            </PodcastFormat>
+          )}
 
-      {entry.data.format === 'photo-feature' && (
-        <PhotoFeatureFormat entry={entry}>
-          <slot />
-        </PhotoFeatureFormat>
-      )}
+          {entry.data.format === 'photo-feature' && (
+            <PhotoFeatureFormat entry={entry}>
+              <slot />
+            </PhotoFeatureFormat>
+          )}
 
-      {entry.data.format === 'poll-report' && (
-        <PollReportFormat entry={entry}>
-          <slot />
-        </PollReportFormat>
-      )}
+          {entry.data.format === 'poll-report' && (
+            <PollReportFormat entry={entry}>
+              <slot />
+            </PollReportFormat>
+          )}
+        </div>
+
+        {/* Phase 4: Restrained commercial feature at the conclusion of long-form articles */}
+        {entry.data.format === 'article' && (
+          <div class="story-footer-ad">
+            <AdPlacement
+              label="Student Commercial Showcase"
+              advertiserName="Vetri CA Academy"
+              imageSrc="/media/ads/ad-vetri-ca.jpg"
+              imageAlt="Vetri CA Academy student training feature"
+              tagline="Professional Academic Mentorship for Aspiring Civic Journalists & Analysts"
+            />
+          </div>
+        )}
+      </div>
+
+      <!-- Phase 3: Editorial Sidebar with beat navigation, cross-beat exploration & ads -->
+      <aside class="story-sidebar-column">
+        <EditorialSidebar
+          currentSlug={entry.data.slug}
+          currentSection={entry.data.section}
+          showAd={true}
+        />
+      </aside>
     </div>
   </article>
 

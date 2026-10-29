@@ -2,45 +2,21 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import AdPlacement from '../../components/AdPlacement.astro';
+import EditorialSidebar from '../../components/EditorialSidebar.astro';
 import { SECTIONS, getPublishableStories, getFormatMeta, type SectionMeta, type StoryEntry } from '../../utils/stories';
 
 export async function getStaticPaths() {
   const allStories = await getPublishableStories();
 
-  // Strict editorial mapping: each subject section contains EXACTLY the 3 authentic reporting submissions
-  const sectionSlugs: Record<string, string[]> = {
-    national: [
-      'fast-for-justice-hunger-strikes',
-      'el-nino-india-climate-vulnerability',
-      'old-guard-new-noise',
-    ],
-    politics: [
-      'why-tamil-nadu-refuses-to-yield-on-neet',
-      'what-new-yorkers-think-zohran-mamdani',
-      'arasiyal-oru-sakkadai-genz-dmk',
-    ],
-    lifestyle: [
-      'striking-the-balance-pa-ranjith',
-      'dalit-vegan-food-culture',
-      'male-loneliness-epidemic',
-    ],
-    sports: [
-      'how-chennais-chess-culture-is-growing',
-      'hungarian-grand-prix-race-report',
-      'tamil-nadu-sports-budget-jump',
-    ],
-    analysis: [
-      'from-tn-fact-checking-unit-to-integrity-desk',
-      'one-neet-protest-two-media-narratives',
-      'when-the-cell-becomes-the-story',
-    ],
-  };
-
   return SECTIONS.map((section) => {
-    const slugs = sectionSlugs[section.id] || [];
-    const sectionStories = slugs
-      .map((slug) => allStories.find((s) => s.data.slug === slug))
-      .filter((s): s is StoryEntry => Boolean(s));
+    // Dynamic filtering by actual section field, sorted chronologically (newest first)
+    const sectionStories = allStories
+      .filter((s) => s.data.section === section.id && s.data.status === 'approved' && !s.data.isDemo)
+      .sort((a, b) => {
+        const dateA = a.data.publishedAt ? new Date(a.data.publishedAt).getTime() : 0;
+        const dateB = b.data.publishedAt ? new Date(b.data.publishedAt).getTime() : 0;
+        return dateB - dateA;
+      });
 
     return {
       params: { section: section.id },
@@ -113,51 +89,56 @@ const sectionAd = sectionAdMap[section.id];
     </header>
 
     <main class="archive-content">
-      {stories.length > 0 ? (
-        <section aria-labelledby="section-stories-title">
-          <h2 id="section-stories-title" class="sr-only">Stories published in {section.label}</h2>
-          <div class="three-column-grid">
-          {stories.map((story) => {
-            const format = getFormatMeta(story.data.format);
-            return (
-              <ArticleCard
-                title={story.data.title}
-                category={section.shortLabel}
-                format={format?.badgeLabel ?? story.data.format}
-                description={story.data.excerpt ?? story.data.subtitle}
-                href={`/stories/${story.data.slug}/`}
-                author={story.data.authors?.[0]?.name}
-                publishedAt={story.data.publishedAt}
-                dateLabel={story.data.dateLabel}
-                variant={story.data.heroImage?.variant ?? 'paper'}
-                imageSrc={story.data.heroImage?.src}
-                imageAlt={story.data.heroImage?.alt || story.data.title}
-              />
-            );
-          })}
-          </div>
-        </section>
-      ) : (
-        <div class="empty-archive-state reading-width">
-          <div class="empty-state-card">
-            <span class="status-dot" aria-hidden="true"></span>
-            <h2 class="empty-state-heading">No stories currently listed in {section.label}</h2>
-            <div class="empty-state-actions">
-              <a class="text-link" href="/">← Return to GLASNOST homepage</a>
+      <div class="archive-layout-grid">
+        <div class="archive-main-column">
+          {stories.length > 0 ? (
+            <section aria-labelledby="section-stories-title">
+              <h2 id="section-stories-title" class="sr-only">Stories published in {section.label}</h2>
+              <div class="two-column-grid">
+              {stories.map((story) => {
+                const format = getFormatMeta(story.data.format);
+                return (
+                  <ArticleCard
+                    title={story.data.title}
+                    category={section.shortLabel}
+                    format={format?.badgeLabel ?? story.data.format}
+                    description={story.data.excerpt ?? story.data.subtitle}
+                    href={`/stories/${story.data.slug}/`}
+                    author={story.data.authors?.[0]?.name}
+                    publishedAt={story.data.publishedAt}
+                    dateLabel={story.data.dateLabel}
+                    variant={story.data.heroImage?.variant ?? 'paper'}
+                    imageSrc={story.data.heroImage?.src}
+                    imageAlt={story.data.heroImage?.alt || story.data.title}
+                  />
+                );
+              })}
+              </div>
+            </section>
+          ) : (
+            <div class="empty-archive-state reading-width">
+              <div class="empty-state-card">
+                <span class="status-dot" aria-hidden="true"></span>
+                <h2 class="empty-state-heading">No stories currently listed in {section.label}</h2>
+                <div class="empty-state-actions">
+                  <a class="text-link" href="/">← Return to GLASNOST homepage</a>
+                </div>
+              </div>
             </div>
-          </div>
+          )}
         </div>
-      )}
 
-      {sectionAd && (
-        <AdPlacement
-          label={sectionAd.label}
-          advertiserName={sectionAd.advertiser}
-          imageSrc={sectionAd.src}
-          imageAlt={sectionAd.advertiser}
-          tagline={sectionAd.tagline}
-        />
-      )}
+        <aside class="archive-sidebar-column">
+          <EditorialSidebar
+            currentSection={section.id}
+            showAd={Boolean(sectionAd)}
+            adAdvertiser={sectionAd?.advertiser}
+            adImageSrc={sectionAd?.src}
+            adTagline={sectionAd?.tagline}
+            adLabel={sectionAd?.label}
+          />
+        </aside>
+      </div>
     </main>
   </div>
 </BaseLayout>

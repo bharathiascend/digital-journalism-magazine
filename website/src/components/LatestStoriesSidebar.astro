@@ -1,0 +1,106 @@
+---
+import { getPublishableStories, getSectionMeta, type StoryEntry } from '../utils/stories';
+
+interface Props {
+  limit?: number;
+  excludeSlug?: string;
+  heading?: string;
+  eyebrow?: string;
+  viewAllHref?: string;
+  viewAllLabel?: string;
+  class?: string;
+}
+
+const {
+  limit = 6,
+  excludeSlug,
+  heading = 'Latest News',
+  eyebrow = 'Chronological reporting index',
+  viewAllHref = '/formats/article/',
+  viewAllLabel = 'View all stories',
+  class: className,
+} = Astro.props;
+
+const allStories = await getPublishableStories();
+
+// Filter: strictly approved, non-demo stories; optionally exclude a specified slug (e.g. current article)
+const candidateStories = allStories.filter(
+  (story) => story.data.status === 'approved' && !story.data.isDemo && story.data.slug !== excludeSlug
+);
+
+// Sort dynamically: newest publication date first
+candidateStories.sort((a, b) => {
+  const dateA = a.data.publishedAt ? new Date(a.data.publishedAt).getTime() : 0;
+  const dateB = b.data.publishedAt ? new Date(b.data.publishedAt).getTime() : 0;
+  return dateB - dateA;
+});
+
+const latestStories = candidateStories.slice(0, Math.min(Math.max(limit, 5), 7));
+---
+
+<aside class:list={['latest-news-sidebar', className]} aria-labelledby="latest-news-heading">
+  <div class="sidebar-header-bar">
+    <div class="sidebar-title-group">
+      <span class="eyebrow sidebar-kicker">{eyebrow}</span>
+      <h2 id="latest-news-heading" class="sidebar-main-title">{heading}</h2>
+    </div>
+    <span class="sidebar-status-badge" title="Updated on publication release">Edition Dispatches</span>
+  </div>
+
+  <ol class="latest-news-list">
+    {latestStories.map((story, idx) => {
+      const section = getSectionMeta(story.data.section);
+      const categoryLabel = section?.shortLabel ?? story.data.section;
+      const storyHref = `/stories/${story.data.slug}/`;
+      const dateText = story.data.dateLabel || story.data.publishedAt || 'October 2026';
+      const orderNum = String(idx + 1).padStart(2, '0');
+
+      return (
+        <li class="latest-news-item">
+          <div class="item-order-col" aria-hidden="true">
+            <span class="order-digit">{orderNum}</span>
+          </div>
+          <div class="item-content-col">
+            <div class="item-meta-row">
+              <a href={`/sections/${story.data.section}/`} class="item-section-tag">
+                {categoryLabel}
+              </a>
+              <span class="item-meta-dot" aria-hidden="true">·</span>
+              <time datetime={story.data.publishedAt} class="item-date">
+                {dateText}
+              </time>
+            </div>
+            <h3 class="item-headline">
+              <a href={storyHref} class="item-headline-link">
+                {story.data.title}
+              </a>
+            </h3>
+          </div>
+          <div class="item-thumb-col">
+            <a href={storyHref} tabindex="-1" aria-hidden="true" class="item-thumb-link">
+              {story.data.heroImage?.src ? (
+                <img
+                  src={story.data.heroImage.src}
+                  alt={story.data.heroImage.alt || story.data.title}
+                  class="item-thumb-img"
+                  loading="lazy"
+                />
+              ) : (
+                <div class="item-thumb-fallback" aria-hidden="true">
+                  <span class="fallback-monogram">{categoryLabel.slice(0, 2).toUpperCase()}</span>
+                </div>
+              )}
+            </a>
+          </div>
+        </li>
+      );
+    })}
+  </ol>
+
+  <div class="sidebar-footer-bar">
+    <a href={viewAllHref} class="text-link sidebar-view-link">
+      <span>{viewAllLabel}</span>
+      <span aria-hidden="true">→</span>
+    </a>
+  </div>
+</aside>

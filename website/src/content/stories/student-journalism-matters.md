@@ -5,6 +5,7 @@ section: lifestyle
 format: blog
 status: approved
 isDemo: false
+subtitle: The importance of young voices in shaping conversations and exploring the world around us.
 publishedAt: 2026-10-08
 dateLabel: october 08,2026
 authors:
@@ -14,9 +15,6 @@ heroImage:
   src: /media/journalism.jpeg
   variant: paper
 ---
-# Why Student Journalism Matters
-
-**Subtitle:** The importance of young voices in shaping conversations and exploring the world around us.
 
 Journalism is more than reporting events. It is about observing society, asking meaningful questions, understanding different perspectives, and communicating ideas responsibly.
 

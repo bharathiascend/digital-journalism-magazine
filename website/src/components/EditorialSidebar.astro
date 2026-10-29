@@ -1,0 +1,190 @@
+---
+import { SECTIONS, getPublishableStories, getSectionMeta, getFormatMeta, type StoryEntry } from '../utils/stories';
+import AdPlacement from './AdPlacement.astro';
+
+interface Props {
+  currentSlug?: string;
+  currentSection?: string;
+  showAd?: boolean;
+  adAdvertiser?: string;
+  adImageSrc?: string;
+  adTagline?: string;
+  adLabel?: string;
+  class?: string;
+}
+
+const {
+  currentSlug,
+  currentSection,
+  showAd = true,
+  adAdvertiser = 'Borcelle Cafe',
+  adImageSrc = '/media/ads/ad-borcelle-cafe.png',
+  adTagline = 'Artisanal Plant-Based Brews & Wholesome Vegan Dining',
+  adLabel = 'Student Commercial Partner',
+  class: className,
+} = Astro.props;
+
+const allStories = await getPublishableStories();
+
+// Sort approved, non-demo stories by publication date (newest first)
+const sortedStories = allStories
+  .filter((s) => s.data.status === 'approved' && !s.data.isDemo)
+  .sort((a, b) => {
+    const dateA = a.data.publishedAt ? new Date(a.data.publishedAt).getTime() : 0;
+    const dateB = b.data.publishedAt ? new Date(b.data.publishedAt).getTime() : 0;
+    return dateB - dateA;
+  });
+
+// Deduplication registry: ensure zero repeated articles across groups
+const usedSlugs = new Set<string>();
+if (currentSlug) {
+  usedSlugs.add(currentSlug);
+}
+
+// Group 1: More From This Beat (up to 3 stories in current section)
+const beatStories: StoryEntry[] = currentSection
+  ? sortedStories
+      .filter((s) => s.data.section === currentSection && !usedSlugs.has(s.data.slug))
+      .slice(0, 3)
+  : [];
+beatStories.forEach((s) => usedSlugs.add(s.data.slug));
+
+// Group 2: Explore Other Beats (up to 3 stories across different sections)
+const crossBeatStories: StoryEntry[] = [];
+const otherSections = SECTIONS.filter((sec) => sec.id !== currentSection);
+for (const sec of otherSections) {
+  const match = sortedStories.find((s) => s.data.section === sec.id && !usedSlugs.has(s.data.slug));
+  if (match) {
+    crossBeatStories.push(match);
+    usedSlugs.add(match.data.slug);
+    if (crossBeatStories.length >= 3) break;
+  }
+}
+
+// Group 3: Latest Stories (up to 3 remaining recent dispatches)
+const remainingLatestStories = sortedStories
+  .filter((s) => !usedSlugs.has(s.data.slug))
+  .slice(0, 3);
+remainingLatestStories.forEach((s) => usedSlugs.add(s.data.slug));
+
+const currentSectionMeta = currentSection ? getSectionMeta(currentSection) : undefined;
+---
+
+<aside class:list={['editorial-sidebar', className]} aria-label="Editorial dispatches and navigation">
+  {/* Section 1: More From This Beat */}
+  {beatStories.length > 0 && (
+    <div class="sidebar-block beat-block">
+      <div class="sidebar-block-header">
+        <span class="eyebrow block-kicker">Reporting Desk</span>
+        <h2 class="block-title">More from {currentSectionMeta?.label ?? 'This Beat'}</h2>
+      </div>
+      <ul class="sidebar-story-list">
+        {beatStories.map((story) => {
+          const format = getFormatMeta(story.data.format);
+          return (
+            <li class="sidebar-story-item">
+              <span class="sidebar-format-tag">{format?.badgeLabel ?? story.data.format}</span>
+              <h3 class="sidebar-story-headline">
+                <a href={`/stories/${story.data.slug}/`} class="sidebar-headline-link">
+                  {story.data.title}
+                </a>
+              </h3>
+              <p class="sidebar-story-meta">
+                <span>By {story.data.authors?.[0]?.name ?? 'Editorial Desk'}</span>
+                {story.data.dateLabel && (
+                  <>
+                    <span aria-hidden="true">·</span>
+                    <time datetime={story.data.publishedAt}>{story.data.dateLabel}</time>
+                  </>
+                )}
+              </p>
+            </li>
+          );
+        })}
+      </ul>
+      {currentSection && (
+        <a href={`/sections/${currentSection}/`} class="text-link sidebar-section-link">
+          Explore all {currentSectionMeta?.label} stories <span aria-hidden="true">→</span>
+        </a>
+      )}
+    </div>
+  )}
+
+  {/* Section 2: Restrained Advertisement Placement */}
+  {showAd && adImageSrc && (
+    <div class="sidebar-ad-wrapper">
+      <AdPlacement
+        label={adLabel}
+        advertiserName={adAdvertiser}
+        imageSrc={adImageSrc}
+        imageAlt={`${adAdvertiser} promotional creative`}
+        tagline={adTagline}
+      />
+    </div>
+  )}
+
+  {/* Section 3: Explore Other Beats */}
+  {crossBeatStories.length > 0 && (
+    <div class="sidebar-block cross-beat-block">
+      <div class="sidebar-block-header">
+        <span class="eyebrow block-kicker">Cross-Desk Coverage</span>
+        <h2 class="block-title">Explore Other Beats</h2>
+      </div>
+      <ul class="sidebar-story-list">
+        {crossBeatStories.map((story) => {
+          const section = getSectionMeta(story.data.section);
+          return (
+            <li class="sidebar-story-item">
+              <div class="sidebar-item-header">
+                <a href={`/sections/${story.data.section}/`} class="sidebar-desk-pill">
+                  {section?.shortLabel ?? story.data.section}
+                </a>
+              </div>
+              <h3 class="sidebar-story-headline">
+                <a href={`/stories/${story.data.slug}/`} class="sidebar-headline-link">
+                  {story.data.title}
+                </a>
+              </h3>
+              <p class="sidebar-story-meta">
+                {story.data.dateLabel ? (
+                  <time datetime={story.data.publishedAt}>{story.data.dateLabel}</time>
+                ) : (
+                  <span>October 2026</span>
+                )}
+              </p>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  )}
+
+  {/* Section 4: Latest Stories */}
+  {remainingLatestStories.length > 0 && (
+    <div class="sidebar-block latest-compact-block">
+      <div class="sidebar-block-header">
+        <span class="eyebrow block-kicker">Chronological</span>
+        <h2 class="block-title">Latest Dispatches</h2>
+      </div>
+      <ul class="sidebar-story-list compact-list">
+        {remainingLatestStories.map((story) => {
+          const section = getSectionMeta(story.data.section);
+          return (
+            <li class="sidebar-compact-item">
+              <span class="compact-bullet" aria-hidden="true">■</span>
+              <div class="compact-body">
+                <h3 class="compact-headline">
+                  <a href={`/stories/${story.data.slug}/`}>{story.data.title}</a>
+                </h3>
+                <span class="compact-desk-label">{section?.shortLabel ?? story.data.section}</span>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+      <a href="/formats/article/" class="text-link sidebar-section-link">
+        Browse full journalism archive <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  )}
+</aside>

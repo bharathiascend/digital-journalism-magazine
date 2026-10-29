@@ -502,3 +502,47 @@ content:
         default: true
         description: Display student commercial advertising features (Borcelle Cafe, Rhythm Media, Vetri CA).
 
+      - name: sidebarAd
+        label: Sidebar Promotional Feature (Editorial Sidebars)
+        type: object
+        description: Commercial media exercise displayed in editorial sidebars across articles and beats.
+        fields:
+          - name: label
+            label: Placement Label
+            type: string
+            default: Student Commercial Partner
+          - name: advertiser
+            label: Advertiser / Brand Name
+            type: string
+            default: Borcelle Cafe
+          - name: image
+            label: Promotional Creative Asset
+            type: image
+            options:
+              path: ads
+          - name: tagline
+            label: Tagline & Editorial Copy
+            type: string
+
+      - name: articleFooterAd
+        label: Article Conclusion Promotional Feature
+        type: object
+        description: Commercial media exercise displayed at the end of long-form articles.
+        fields:
+          - name: label
+            label: Placement Label
+            type: string
+            default: Student Promotional Showcase
+          - name: advertiser
+            label: Advertiser / Brand Name
+            type: string
+            default: Vetri CA Academy
+          - name: image
+            label: Promotional Creative Asset
+            type: image
+            options:
+              path: ads
+          - name: tagline
+            label: Tagline & Editorial Copy
+            type: string
+

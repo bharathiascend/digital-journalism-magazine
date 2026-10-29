@@ -4,21 +4,29 @@ import ArticleCard from '../components/ArticleCard.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import AdPlacement from '../components/AdPlacement.astro';
 import PlaceholderArt from '../components/PlaceholderArt.astro';
+import LatestStoriesSidebar from '../components/LatestStoriesSidebar.astro';
 import { getPublishableStories, getSectionMeta, getFormatMeta, type StoryEntry } from '../utils/stories';
 import appearance from '../data/appearance.json';
 
 const stories = await getPublishableStories();
 const hasStories = stories.length > 0;
 
-// Lead story: flagship investigative piece
-const featuredStory = stories.find((s) => s.data.slug === 'why-tamil-nadu-refuses-to-yield-on-neet') ?? stories[0];
+// Chronologically sorted approved stories (newest first)
+const sortedStories = [...stories]
+  .filter((s) => s.data.status === 'approved' && !s.data.isDemo)
+  .sort((a, b) => {
+    const dateA = a.data.publishedAt ? new Date(a.data.publishedAt).getTime() : 0;
+    const dateB = b.data.publishedAt ? new Date(b.data.publishedAt).getTime() : 0;
+    return dateB - dateA;
+  });
 
-// The Reading Desk: top dispatches from contributors
-const latestStories = [
-  stories.find((s) => s.data.slug === 'fast-for-justice-hunger-strikes'),
-  stories.find((s) => s.data.slug === 'dalit-vegan-food-culture'),
-  stories.find((s) => s.data.slug === 'old-guard-new-noise'),
-].filter((s): s is StoryEntry => Boolean(s));
+// Lead story: flagship investigative piece
+const featuredStory = stories.find((s) => s.data.slug === 'why-tamil-nadu-refuses-to-yield-on-neet') ?? sortedStories[0];
+
+// The Reading Desk: top dispatches from contributors dynamically selected (excluding lead story)
+const latestStories = sortedStories
+  .filter((s) => s.data.slug !== featuredStory?.data.slug)
+  .slice(0, 3);
 
 // News Analysis investigations (all 3)
 const analysisStories = [
@@ -119,7 +127,7 @@ function storyAudioPoster(story: StoryEntry): string | undefined {
           </section>
         )}
 
-        {/* 2. Latest Stories (Reading Desk) */}
+        {/* 2. Latest Stories (Reading Desk) & Latest Dispatches Sidebar */}
         {latestStories.length > 0 && (
           <section class="section-block" id="latest" aria-labelledby="latest-title">
             <SectionHeading
@@ -129,26 +137,41 @@ function storyAudioPoster(story: StoryEntry): string | undefined {
               href="/formats/article/"
               linkLabel="View all articles"
             />
-            <div class:list={['three-column-grid', `layout-${appearance.readingDeskLayout}`]}>
-              {latestStories.map((story) => {
-                const section = getSectionMeta(story.data.section);
-                const format = getFormatMeta(story.data.format);
-                return (
-                  <ArticleCard
-                    title={story.data.title}
-                    category={section?.shortLabel ?? story.data.section}
-                    format={format?.badgeLabel ?? story.data.format}
-                    description={story.data.excerpt ?? story.data.subtitle}
-                    href={`/stories/${story.data.slug}/`}
-                    author={story.data.authors?.[0]?.name}
-                    publishedAt={story.data.publishedAt}
-                    dateLabel={story.data.dateLabel}
-                    imageSrc={story.data.heroImage?.src}
-                    imageAlt={story.data.heroImage?.alt || story.data.title}
-                    layout={appearance.readingDeskLayout === 'list' ? 'compact' : 'standard'}
-                  />
-                );
-              })}
+            <div class="homepage-reading-grid">
+              <div class="reading-desk-main">
+                <div class:list={['two-column-grid', `layout-${appearance.readingDeskLayout}`]}>
+                  {latestStories.map((story) => {
+                    const section = getSectionMeta(story.data.section);
+                    const format = getFormatMeta(story.data.format);
+                    return (
+                      <ArticleCard
+                        title={story.data.title}
+                        category={section?.shortLabel ?? story.data.section}
+                        format={format?.badgeLabel ?? story.data.format}
+                        description={story.data.excerpt ?? story.data.subtitle}
+                        href={`/stories/${story.data.slug}/`}
+                        author={story.data.authors?.[0]?.name}
+                        publishedAt={story.data.publishedAt}
+                        dateLabel={story.data.dateLabel}
+                        imageSrc={story.data.heroImage?.src}
+                        imageAlt={story.data.heroImage?.alt || story.data.title}
+                        layout={appearance.readingDeskLayout === 'list' ? 'compact' : 'standard'}
+                      />
+                    );
+                  })}
+                </div>
+              </div>
+
+              <aside class="homepage-sidebar-col">
+                <LatestStoriesSidebar
+                  limit={6}
+                  excludeSlug={featuredStory?.data.slug}
+                  heading="Latest News"
+                  eyebrow="Recent Dispatches"
+                  viewAllHref="/formats/article/"
+                  viewAllLabel="View all stories"
+                />
+              </aside>
             </div>
           </section>
         )}

@@ -19,35 +19,37 @@ const poll = entry.data.pollData;
       </div>
 
       <!-- Accessible Results Table -->
-      <div class="poll-table-wrapper" role="region" aria-label="Survey results table" tabindex="0">
-        <table class="poll-results-table">
-          <caption>Survey percentage distribution and respondent counts</caption>
-          <thead>
-            <tr>
-              <th scope="col" class="th-response">Response Category</th>
-              <th scope="col" class="th-percent">Share</th>
-              {poll.results.some((r) => r.count !== undefined) && <th scope="col" class="th-count">Count</th>}
-              <th scope="col" class="th-bar">Distribution</th>
-            </tr>
-          </thead>
-          <tbody>
-            {poll.results.map((item) => (
+      {poll.results && poll.results.length > 0 && (
+        <div class="poll-table-wrapper" role="region" aria-label="Survey results table" tabindex="0">
+          <table class="poll-results-table">
+            <caption>Survey percentage distribution and respondent counts</caption>
+            <thead>
               <tr>
-                <th scope="row" class="td-response">{item.label}</th>
-                <td class="td-percent"><strong>{item.percentage}%</strong></td>
-                {poll.results.some((r) => r.count !== undefined) && (
-                  <td class="td-count">{item.count !== undefined ? item.count : '—'}</td>
-                )}
-                <td class="td-bar">
-                  <div class="poll-bar-track" aria-hidden="true">
-                    <div class="poll-bar-fill" style={`width: ${item.percentage}%;`}></div>
-                  </div>
-                </td>
+                <th scope="col" class="th-response">Response Category</th>
+                <th scope="col" class="th-percent">Share</th>
+                {poll.results.some((r) => r.count !== undefined) && <th scope="col" class="th-count">Count</th>}
+                <th scope="col" class="th-bar">Distribution</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+            </thead>
+            <tbody>
+              {poll.results.map((item) => (
+                <tr>
+                  <th scope="row" class="td-response">{item.label}</th>
+                  <td class="td-percent"><strong>{item.percentage}%</strong></td>
+                  {poll.results.some((r) => r.count !== undefined) && (
+                    <td class="td-count">{item.count !== undefined ? item.count : '—'}</td>
+                  )}
+                  <td class="td-bar">
+                    <div class="poll-bar-track" aria-hidden="true">
+                      <div class="poll-bar-fill" style={`width: ${item.percentage}%;`}></div>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
 
       {poll.methodologyNote && (
         <div class="poll-methodology-note">
