@@ -424,8 +424,26 @@ figcaption { margin-top: .65rem; font: .7rem/1.6 var(--font-ui); color: var(--co
 }
 
 /* Editorial Review & Real Media Additions */
-.lead-hero-img { width: 100%; height: 100%; max-height: 480px; object-fit: cover; border: 1px solid var(--color-border); display: block; }
-.photo-feature-lead-img { width: 100%; height: 100%; min-height: 280px; max-height: 380px; object-fit: cover; border: 1px solid var(--color-border); display: block; }
+.lead-hero-img {
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  display: block;
+  margin-inline: auto;
+}
+.photo-feature-lead-img {
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: contain;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  display: block;
+  margin-inline: auto;
+}
 .article-hero-img {
   width: auto;
   max-width: 100%;
@@ -447,7 +465,17 @@ figcaption { margin-top: .65rem; font: .7rem/1.6 var(--font-ui); color: var(--co
     max-height: 65vh;
   }
 }
-.gallery-photo-img { width: 100%; height: auto; border: 1px solid var(--color-border); display: block; }
+.gallery-photo-img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 85vh;
+  object-fit: contain;
+  margin-inline: auto;
+  border: 1px solid var(--color-border);
+  display: block;
+  background: var(--color-surface);
+}
 .unsupplied-photo-box { background: var(--color-surface); border: 1px dashed var(--color-border); padding: 1.5rem; text-align: center; }
 .missing-photo-label { font-size: var(--text-xs); color: var(--color-accent); font-family: var(--font-ui); text-transform: uppercase; letter-spacing: .08em; margin-top: .6rem; }
 .photo-review-notice { font-size: var(--text-xs); color: #892f35; background: #fdf5f5; border-left: 3px solid #892f35; padding: .4rem .7rem; margin-top: .5rem; line-height: 1.5; }
@@ -470,7 +498,16 @@ figcaption { margin-top: .65rem; font: .7rem/1.6 var(--font-ui); color: var(--co
 
 .poll-charts-grid { display: flex; flex-direction: column; gap: 1.75rem; margin-top: 1.75rem; }
 .poll-chart-figure { margin: 0; background: #fff; border: 1px solid var(--color-border); padding: 1rem; border-radius: 2px; }
-.poll-chart-img { width: 100%; height: auto; display: block; border-radius: 2px; }
+.poll-chart-img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: contain;
+  display: block;
+  margin-inline: auto;
+  border-radius: 2px;
+}
 .poll-chart-caption { font-size: var(--text-xs); color: var(--color-secondary); margin-top: .6rem; text-align: center; line-height: 1.4; }
 
 /* Magazine Edition Ribbon & Layout Polish */
@@ -505,6 +542,16 @@ figcaption { margin-top: .65rem; font: .7rem/1.6 var(--font-ui); color: var(--co
   overflow: hidden;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-media-frame a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 .card-compact .card-media-frame {
   aspect-ratio: 4 / 3;
@@ -512,11 +559,13 @@ figcaption { margin-top: .65rem; font: .7rem/1.6 var(--font-ui); color: var(--co
 .card-media-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  background: var(--color-surface);
+  display: block;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .article-card:hover .card-media-img {
-  transform: scale(1.04);
+  transform: scale(1.02);
 }
 
 .analysis-section-block {
@@ -575,14 +624,17 @@ figcaption { margin-top: .65rem; font: .7rem/1.6 var(--font-ui); color: var(--co
 .banner-frame {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 2 / 1;
   background: #181818;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .banner-artwork-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 .banner-meta {
@@ -881,11 +933,11 @@ figcaption { margin-top: .65rem; font: .7rem/1.6 var(--font-ui); color: var(--co
 .item-thumb-img {
   width: 60px;
   height: 60px;
-  object-fit: cover;
+  object-fit: contain;
   border: 1px solid var(--color-border);
   border-radius: 2px;
   display: block;
-  background: var(--color-background);
+  background: var(--color-surface);
 }
 
 .item-thumb-fallback {

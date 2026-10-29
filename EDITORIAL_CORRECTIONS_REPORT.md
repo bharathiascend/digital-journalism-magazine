@@ -135,36 +135,34 @@ All 8 requested editorial correction items have been resolved with strict adhere
 
 ---
 
-### FIX 7 — Magazine-Wide Article Image Presentation & Aspect Ratio Preservation
+### FIX 7 — Magazine-Wide Image Presentation & Complete Visual Visibility
 * **Affected Files & Styles:**
-  - `website/src/styles/global.css` (`.article-hero`, `.article-hero-img`)
-  - `website/src/components/formats/ArticleFormat.astro`
+  - website/src/styles/global.css (.card-media-frame, .card-media-img, .lead-hero-img, .photo-feature-lead-img, .banner-frame, .banner-artwork-img, .item-thumb-img, .gallery-photo-img, .poll-chart-img, .article-hero-img)
+  - website/src/layouts/StoryLayout.astro (related stories media bindings)
 * **Root Cause:**
-  - `.article-hero-img` enforced `width: 100%`, `max-height: 520px`, and `object-fit: cover`. When articles contained portrait, square (e.g. 736×736), or tall document images, the top and bottom portions were clipped.
-* **Design System Enhancement:**
-  - Updated `.article-hero` to center artwork responsive to editorial measure.
-  - Refactored `.article-hero-img` to:
-    ```css
-    .article-hero-img {
-      width: auto;
-      max-width: 100%;
-      height: auto;
-      max-height: 78vh;
-      object-fit: contain;
-      margin-inline: auto;
-      border: 1px solid var(--color-border);
-      display: block;
-      background: var(--color-surface);
-    }
-    ```
-  - Preserved natural aspect ratios across:
-    - **Landscape images (16:9, 3:2):** Scale to full reading column width cleanly.
-    - **Square images (1:1):** Display uncropped at natural dimensions.
-    - **Portrait images (3:4, 9:16):** Constrained comfortably within viewport height without vertical overflow.
-    - **Document-like graphics & charts:** Legible with edge boundaries intact.
-  - Maintained compact cover card ratios (`.card-media-img`) on catalog indexes, ensuring full images display unclipped when opened.
+  - Multiple CSS rules used object-fit: cover with fixed aspect-ratio frames or constrained containers. Because editorial images have diverse authentic dimensions (e.g., 1:1 squares for podcasts, videos, and *Male Loneliness*; 0.74/0.80 tall portraits for *Custodial Deaths* and *Privilege*; 2:1 and 2.47:1 ultra-wides for event banners and *Old Guard*), object-fit: cover chopped off significant portions of imagery (heads, titles, dates, sponsor logos, and chart labels).
+  - Additionally, related story cards in StoryLayout.astro omitted imageSrc and imageAlt, displaying placeholder artwork instead of real published photography.
+* **Design System Enhancements Applied:**
+  1. **Story Cards (.card-media-frame & .card-media-img):**
+     - Converted .card-media-img to object-fit: contain; background: var(--color-surface);.
+     - Added flex centering to .card-media-frame and its anchor tag.
+     - Result: 100% of every article card image (landscape, square, or portrait) is visually complete with zero clipping.
+  2. **Lead Hero Image (.lead-hero-img):**
+     - Converted from fixed cover crop to object-fit: contain; max-height: 520px; margin-inline: auto; background: var(--color-surface);.
+  3. **Photo Feature Lead (.photo-feature-lead-img):**
+     - Converted from fixed height cover crop to object-fit: contain; max-height: 480px; align-items: center;.
+  4. **Campus Promotional Banners (.banner-frame & .banner-artwork-img):**
+     - Adjusted aspect ratio from 16:9 to match authentic 2:1 banner dimensions.
+     - Added object-fit: contain; and flex centering so all student event typography, artist names, and dates remain 100% visible.
+  5. **Sidebar Thumbnails (.item-thumb-img):**
+     - Converted to object-fit: contain; background: var(--color-surface); to prevent cropping in compact navigation listings.
+  6. **Photo Feature Galleries & Poll Charts (.gallery-photo-img, .poll-chart-img):**
+     - Constrained within viewport height (max-height: 85vh and 80vh) with object-fit: contain; so high-resolution portrait photos and wide survey charts fit cleanly on desktop and mobile screens.
+  7. **Related Stories in StoryLayout:**
+     - Connected imageSrc and imageAlt props so real authentic photographs appear in the continuation grid.
 * **Corrected Files:**
-  - `website/src/styles/global.css`
+  - website/src/styles/global.css
+  - website/src/layouts/StoryLayout.astro
 
 ---
 
@@ -247,7 +245,7 @@ Validated 32 stories: 0 error(s), 0 warning(s).
   ✓ [PASS] Zero fictional demonstration headlines or stories leaked into production pages.
 
 --- 4. Link Integrity & Anchor Crawl ---
-  ✓ [PASS] All 2355 links verified successfully with 100% link integrity.
+  ✓ [PASS] All 2417 links verified successfully with 100% link integrity.
 
 --- 5. Semantic Heading Hierarchy ---
   ✓ [PASS] All HTML pages contain exactly one <h1> and follow sequential heading hierarchy.
