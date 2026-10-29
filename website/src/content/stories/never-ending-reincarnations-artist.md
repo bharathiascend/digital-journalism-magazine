@@ -14,7 +14,9 @@ dateLabel: June 20, 2026
 authors:
   - name: Aradhana
 heroImage:
+  src: /media/download (2).jpg
   variant: paper
+  credit: Pinterest
 ---
    It's been a long time since I properly sat at my dusty desk and started to physically take a pen and write. I have been avoiding writing since months now, and it is clearly showing and manifesting in different ways, horrible to be specific.
 
