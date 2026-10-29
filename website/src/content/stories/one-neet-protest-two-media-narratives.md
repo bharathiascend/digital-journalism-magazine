@@ -1,27 +1,29 @@
 ---
-title: "One NEET Protest, Two Media Narratives"
-slug: "one-neet-protest-two-media-narratives"
-section: "analysis"
-format: "article"
-status: "approved"
+title: One NEET Protest, Two Media Narratives
+slug: one-neet-protest-two-media-narratives
+section: analysis
+format: article
+status: approved
 isDemo: false
-subtitle: "How Times of India, The Hindu, and regional dailies framed student unrest: spectacle vs institutional critique."
-excerpt: "A comparative analysis of media framing during the 2026 NEET controversy, exploring corporate journalism, visual soundbites, and systemic critique."
-authors: [
-  {
-    "name": "Aradhana",
-    "role": "Media & Investigative Analyst"
-  }
-]
-publishedAt: "2026-10-25"
-dateLabel: "October 25, 2026"
-heroImage: {
-  "src": "/media/photos/analysis-aradhana-neet-protest.jpg",
-  "alt": "Students and youth gathered at Jantar Mantar protesting examination irregularities",
-  "caption": "Jantar Mantar served as the national epicenter of dissent during the 2026 NEET controversies.",
-  "credit": "Press & Protest Documentation"
-}
+subtitle: "How Times of India, The Hindu, and regional dailies framed student
+  unrest: spectacle vs institutional critique."
+excerpt: A comparative analysis of media framing during the 2026 NEET
+  controversy, exploring corporate journalism, visual soundbites, and systemic
+  critique.
+publishedAt: 2026-08-15
+dateLabel: August 15, 2026
+authors:
+  - name: Aradhana
+heroImage:
+  src: /media/photos/analysis-aradhana-neet-protest.jpg
+  alt: " Students and youth gathered at Jantar Mantar protesting examination
+    irregularities"
+  variant: paper
+  caption: Jantar Mantar served as the national epicenter of dissent during the
+    2026 NEET controversies.
+  credit: "Credits: The Hindu"
 ---
+  The 2026 NEET controversy turned into not just an examination imbroglio, but a student movement, which saw Jantar Mantar as the epicentre of dissent, with protests erupting all over Hyderabad, Chennai and Prayagraj. The way different newspapers have chosen to cover this imbroglio is telling. While most Indian newspapers are now run by corporations, the way the NEET protests have been covered tells us how much journalism shapes the lens through which we view the action.
 
 A look at the various reports on TOI show that it has mostly taken an event-focused approach, with visuals being the most important part of the story. TOI seems to focus heavily on scale (how many students turned up to protest), the slogans and soundbites (what the students had to say), police and political reaction (how the authorities responded) and the happenings at the protest spot. One article spoke about the Jantar Mantar protests with words like langar, lassi, strewn slippers and suitcases. Such articles work well on Instagram as an image and a short caption can encapsulate the essence of a Jantar Mantar protest.
 
