@@ -7,21 +7,21 @@ status: approved
 isDemo: false
 subtitle: Navigating dietary politics, caste identity, and culinary heritage in
   urban contemporary India.
-excerpt: An inquiry into how food choices intersect with caste history, family
-  traditions, and ethical eating in modern India.
-publishedAt: 2026-10-24
-dateLabel: October 24, 2026
+publishedAt: 2026-06-30
+dateLabel: June 06, 2026
 authors:
   - name: Aradhana
-    role: reporter
 heroImage:
-  src: /media/photos/lifestyle-aradhana-dalit-vegan.jpg
-  alt: Traditional culinary spices, lentils, and cookware
+  src: /media/Ganesan-Funambulist-1-900x600.jpg
   variant: paper
-  caption: Regional cooking vessels and plant-based culinary traditions in
-    southern India.
-  credit: Culinary Documentation
+  caption: Buffalo has a significant place in Adijan (Dalit) and Indian Mythology,
+    as animals have a prominent place in all stories of Indigenous peoples.
+    Buffalo is considered as the ancestor of the Adijan people. For Adijan
+    (Dalit) people buffalo symbolizes their hard working nature.
+  credit: Caption and painting by Preetam Casimir (2014)
 ---
+    In India food is rarely just food. What sits on a plate can carry caste, religion, class, family, region and politics. Vegetarianism can be treated as a marker of purity while meat can become a marker of identity and resistance. In this relationship between food and social identity veganism is often placed into another category altogether; an expensive urban upper-caste lifestyle, sometimes dismissed as a Brahminical idea disguised as progress.
+
 For one Dalit vegan the decision to stop consuming animal products did not begin with caste, politics or activism. It began with something more ordinary: his health. "When I went vegan initially it was more for health reasons " he says. The ethical questions came later. Once he began thinking about animal exploitation however veganism became more than a choice. It became something he had to negotiate in his life which was including in spaces where he expected people to be more receptive to questions of exploitation and justice.
 
 His lifestyle itself does not resemble the caricature sometimes attached to veganism. His meals are remarkably familiar: roti, sabji, rice and dal. There is no reinvention of Indian food on his plate. While strength training he uses millet-based atta of regular wheat flour to increase his protein intake and make meeting his nutritional goals easier.
@@ -32,7 +32,11 @@ He finds the latter particularly difficult to reconcile. "There are supposedly p
 
 His frustration is not necessarily with people who have never thought about veganism. It is with people who refuse to think about it all. He used to participate in vegan activism both offline. Today he has stepped away from it partly because constantly defending his choices has become mentally exhausting. He rarely brings up veganism unless someone else starts the conversation and then he avoids debating.
 
-"Most of the times non-vegans are intellectually dishonest " he says. That sense of exhaustion appears in the repetitive encounters of everyday life. He does not necessarily face hostility when he eats with others. Instead there is the commentary that follows whenever he says he will not eat something. "Not exactly. The comments on my diet are endless." Sometimes it is banter. Sometimes it irritates him. Usually he lets it pass because as he puts it nine out of ten times the person making the argument is not looking for a conversation. There is a strange loneliness in that position. To everyone at a table a piece of meat may simply be food. To him it represents something he has consciously decided not to participate in. When everyone around him treats animals as objects he says, "you feel out of place." Yet veganism has not meant withdrawing from non-vegan people. One of his friends is not vegan.. The friend understands his perspective and supports his decision even without making the same choice himself. Their friendship has survived the difference in their diets. Perhaps more importantly, without turning that difference into a constant argument.
+"Most of the times non-vegans are intellectually dishonest " he says. That sense of exhaustion appears in the repetitive encounters of everyday life. He does not necessarily face hostility when he eats with others. Instead there is the commentary that follows whenever he says he will not eat something. "Not exactly. The comments on my diet are endless."
+
+Sometimes it is banter. Sometimes it irritates him. Usually he lets it pass because as he puts it nine out of ten times the person making the argument is not looking for a conversation. There is a strange loneliness in that position. To everyone at a table a piece of meat may simply be food. To him it represents something he has consciously decided not to participate in. When everyone around him treats animals as objects he says, "you feel out of place."
+
+Yet veganism has not meant withdrawing from non-vegan people. One of his friends is not vegan.. The friend understands his perspective and supports his decision even without making the same choice himself. Their friendship has survived the difference in their diets. Perhaps more importantly, without turning that difference into a constant argument.
 
 Recently the two went out to try vegan pizza. His friend enjoyed it much that the next time he took him back to the same place. And paid for it himself. It is a story but it captures something that arguments about veganism often miss. People do not necessarily have to agree with one another to understand each other. He hopes that one day his friend might make the decision to become vegan himself.. He does not seem interested in forcing that moment.
 
