@@ -9,8 +9,8 @@ subtitle: Analyzing Indian archery squad selections, training regimens, and
   medal contenders ahead of the 2026 Asian Games.
 excerpt: A vertical video explainer breaking down India's compound and recurve
   archery prospects ahead of international competition.
-publishedAt: 2026-10-24
-dateLabel: October 24, 2026
+publishedAt: 2026-10-08
+dateLabel: October 08, 2026
 authors:
   - name: Dhanushree
     role: reporter
