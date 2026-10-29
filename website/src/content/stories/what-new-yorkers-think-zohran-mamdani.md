@@ -9,7 +9,6 @@ publishedAt: 2026-07-31
 dateLabel: July 31, 2026
 authors:
   - name: Aradhana
-    role: International Politics Correspondent
 heroImage:
   src: /media/photos/political-aradhana-mamdani.jpg
   variant: paper
