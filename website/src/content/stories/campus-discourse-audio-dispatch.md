@@ -1,36 +1,18 @@
 ---
-title: "The Journal Audio Dispatch: On Campus Discourse and Student Expression"
-slug: campus-discourse-audio-dispatch
+title: "Wild Calves: A Love Letter To Women"
+slug: wild-calves-a-love-letter-to-women
 section: lifestyle
 format: podcast
 status: approved
 isDemo: false
-subtitle: A conversational audio dispatch examining the boundaries of
-  expression, assembly, and intellectual debate in universities.
-excerpt: An audio dispatch featuring campus voices, exploring whether modern
-  collegiate spaces still nurture dissenting discourse.
-publishedAt: 2026-10-24
-dateLabel: October 24, 2026
+publishedAt: 2026-09-15
+dateLabel: September 15, 2026
 authors:
   - name: Aradhana
-    role: Audio Producer & Host
 heroImage:
   src: /media/photos/podcast-aradhana-campus-discourse.jpg
-  alt: "The Journal Audio Dispatch: Campus Discourse cover artwork"
   variant: paper
-  caption: Campus discourse and academic freedom audio broadcast.
-  credit: The Journal Audio Desk
 podcast:
   mediaUrl: /media/audio/aradhana-podcast.mp3
-  duration: 14:45
-  episodeNotes: Recorded in Chennai with collegiate contributors discussing
-    student expression, campus administration, and public debates.
+  duration: 03:41
 ---
-In this edition of The Journal Audio Dispatch, host Aradhana brings together student editors, activists, and faculty to discuss the changing climate of campus speech and institutional oversight.
-
-## Episode Highlights
-
-- **00:00 - 04:30:** Introduction to contemporary campus assembly rules.
-- **04:31 - 09:15:** Voices from university societies: navigating administrative permissions.
-- **09:16 - 14:45:** The future of student independent publishing and digital discourse.
-
