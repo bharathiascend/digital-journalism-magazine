@@ -9,11 +9,12 @@ publishedAt: 2026-08-03
 dateLabel: August 03, 2026
 authors:
   - name: Aradhana
+    role: Writer
 heroImage:
   src: /media/photos/sports-aradhana-chess.jpeg
   variant: paper
   caption: Chess enthusiast, Revanth's priced possession
-  credit: Revanth
+  credit: "Credit: Revanth"
 ---
    There was a time when watching a chess game meant sitting across a wooden board, waiting for an opponent to move a piece. Today, a chessboard can fit inside a phone screen. A teenager can play someone from another country before breakfast, watch a Grandmaster analyse a position on YouTube by afternoon and, by evening, walk into a tournament hall to watch the same game unfold in front of them.
 
