@@ -7,10 +7,10 @@ status: approved
 isDemo: false
 subtitle: A deep-dive audio review evaluating Kimi Antonelli’s telemetry, tire
   management, and racecraft across the rookie campaign.
-excerpt: Formula 1 audio analysis reviewing the Italian prodigy's debut
-  performances, race craft, and telemetry data.
-publishedAt: 2026-10-24
-dateLabel: October 24, 2026
+excerpt: Formula 1 audio analysis reviewing the Italian drievr Kimi antonelli's
+  debut performances, race craft, and telemetry data.
+publishedAt: 2026-10-14
+dateLabel: October 14, 2026
 authors:
   - name: Dhanushree
     role: reporter
