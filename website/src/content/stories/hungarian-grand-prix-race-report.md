@@ -9,8 +9,8 @@ subtitle: Bouncing back from an early-race Turn 2 scare, Norris delivers
   McLaren’s first triumph of the season at the Hungaroring.
 excerpt: A tactical race report on how Lando Norris recovered from Oscar
   Piastri's early overtake to dominate the Hungarian Grand Prix.
-publishedAt: 2026-10-24
-dateLabel: October 24, 2026
+publishedAt: 2026-07-28
+dateLabel: july 28, 2026
 authors:
   - name: Dhanushree
     role: reporter
