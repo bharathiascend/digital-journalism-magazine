@@ -1,61 +1,47 @@
 ---
 title: "Exit Polls Before Results: What Young Urban Indians Think"
-slug: "exit-polls-young-urban-indians"
-section: "politics"
-format: "poll-report"
-status: "approved"
+slug: exit-polls-young-urban-indians
+section: politics
+format: poll-report
+status: approved
 isDemo: false
-subtitle: "Surveying trust, methodology skepticism, and news consumption habits among urban youth voters."
-excerpt: "A structured poll of 82 respondents evaluating youth skepticism toward televised election exit polls and polling firms."
-authors: [
-  {
-    "name": "Mithraa",
-    "role": "Polling & Data Analyst"
-  }
-]
-publishedAt: "2026-10-24"
-dateLabel: "October 24, 2026"
-heroImage: {
-  "src": "/media/photos/poll-mithraa-exit-polls.jpeg",
-  "alt": "Youth voters analyzing digital polling charts on smartphones",
-  "caption": "Young urban voters review broadcast polling trends and historical forecasting accuracy.",
-  "credit": "Electoral Survey Unit"
-}
-pollData: {
-  "question": "How credible do you consider television exit poll projections prior to official counting?",
-  "sampleSize": "82 urban youth survey respondents",
-  "methodologyNote": "Survey conducted across urban collegiate cohorts to measure credibility perception of pre-result polling forecasts.",
-  "results": [
-    {
-      "label": "Skeptical / Question Methodology",
-      "percentage": 52
-    },
-    {
-      "label": "Conditionally Reliable for General Trends",
-      "percentage": 34
-    },
-    {
-      "label": "Highly Trustworthy",
-      "percentage": 14
-    }
-  ],
-  "charts": [
-    {
-      "src": "/media/charts/poll-mithraa-chart-1.png",
-      "caption": "Figure 1: Age and demographic distribution of respondents."
-    },
-    {
-      "src": "/media/charts/poll-mithraa-chart-2.png",
-      "caption": "Figure 2: Primary news platforms consulted for electoral coverage."
-    },
-    {
-      "src": "/media/charts/poll-mithraa-chart-3.png",
-      "caption": "Figure 3: Perceived credibility index of televised exit polling."
-    }
-  ]
-}
+subtitle: Surveying trust, methodology skepticism, and news consumption habits
+  among urban youth voters.
+excerpt: A structured poll of 82 respondents evaluating youth skepticism toward
+  televised election exit polls and polling firms.
+publishedAt: 2026-08-15
+dateLabel: August 15, 2026
+authors:
+  - name: Mithraa
+    role: Polling & Data Analyst
+heroImage:
+  src: /media/photos/poll-mithraa-exit-polls.jpeg
+  alt: Youth voters analyzing digital polling charts on smartphones
+  variant: paper
+  caption: Young urban voters review broadcast polling trends and historical
+    forecasting accuracy.
+  credit: Electoral Survey Unit
+pollData:
+  question: How credible do you consider television exit poll projections prior to
+    official counting?
+  sampleSize: 82 urban youth survey respondents
+  methodologyNote: Survey conducted across urban collegiate cohorts to measure
+    credibility perception of pre-result polling forecasts.
+  results:
+    - label: Skeptical / Question Methodology
+      percentage: 52
+    - label: Conditionally Reliable for General Trends
+      percentage: 34
+    - label: Highly Trustworthy
+      percentage: 14
+  charts:
+    - src: /media/charts/poll-mithraa-chart-1.png
+      caption: "Figure 1: Age and demographic distribution of respondents."
+    - src: /media/charts/poll-mithraa-chart-2.png
+      caption: "Figure 2: Primary news platforms consulted for electoral coverage."
+    - src: /media/charts/poll-mithraa-chart-3.png
+      caption: "Figure 3: Perceived credibility index of televised exit polling."
 ---
-
 Every election season, television studios light up with exit poll projections hours before a single vote is officially counted. They shape conversations, headlines and, some say, markets. But how do ordinary people, especially young, urban and educated viewers, feel about the release of exit polls ahead of the actual results? An online opinion survey of 82 respondents set out to find out.
 
 ## Who Took the Survey?
