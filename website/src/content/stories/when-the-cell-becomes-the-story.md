@@ -1,28 +1,28 @@
 ---
-title: "When the Cell Becomes the Story"
-slug: "when-the-cell-becomes-the-story"
-section: "analysis"
-format: "article"
-status: "approved"
+title: When the Cell Becomes the Story
+slug: when-the-cell-becomes-the-story
+section: analysis
+format: article
+status: approved
 isDemo: false
-subtitle: "Tracing the institutional choreography of custodial deaths across AIADMK, DMK, and TVK regimes."
-excerpt: "A critical report examining how custodial violence in Tamil Nadu follows an unyielding pattern of political outrage, judicial intervention, and systemic inaction."
-authors: [
-  {
-    "name": "Mithraa",
-    "role": "Legal & Human Rights Reporter"
-  }
-]
-publishedAt: "2026-10-25"
-dateLabel: "October 25, 2026"
-heroImage: {
-  "src": "/media/photos/analysis-mithraa-custodial-deaths.jpeg",
-  "alt": "Courthouse steps and civil rights demonstration in Tamil Nadu",
-  "caption": "Judicial inquiries remain the primary accountability check as anti-torture legislation stalls.",
-  "credit": "Human Rights Documentation"
-}
+subtitle: Tracing the institutional choreography of custodial deaths across
+  AIADMK, DMK, and TVK regimes.
+excerpt: A critical report examining how custodial violence in Tamil Nadu
+  follows an unyielding pattern of political outrage, judicial intervention, and
+  systemic inaction.
+publishedAt: 2026-07-04
+dateLabel: July 04, 2026
+authors:
+  - name: Mithraa
+    role: Legal & Human Rights Reporter
+heroImage:
+  src: /media/photos/analysis-mithraa-custodial-deaths.jpeg
+  alt: Courthouse steps and civil rights demonstration in Tamil Nadu
+  variant: paper
+  caption: Judicial inquiries remain the primary accountability check as
+    anti-torture legislation stalls.
+  credit: Human Rights Documentation
 ---
-
 Tamil Nadu has developed, over three very different governments, an almost choreographed response to death in police custody. A person dies after being picked up for something trivial: a shop kept open past curfew, a theft complaint, a routine interrogation. Outrage builds within hours. Courts move faster than governments. And whichever party happens to be in power that week insists, almost identically to its predecessor, that action has already been taken.
 
 The template was set under AIADMK. In June 2020, shopkeepers P Jayaraj and his son J Bennix died in Sathankulam after being detained for a lockdown violation. The case drew national attention not just as a crime but as an indictment of provincial policing, judicial complicity, and medical negligence. The Madras High Court's Madurai Bench took suo motu cognisance within days, ordering the production of autopsy videos and detailed reports, and later initiated contempt proceedings against officers accused of obstructing the inquiry. Then Chief Minister Edappadi Palaniswami ordered a CBI transfer but publicly attributed the deaths to "breathing difficulty," a line the DMK would spend years attacking. It took nearly six years for the case to reach its conclusion: nine policemen sentenced to death in April 2026, a genuinely rare outcome in a country where custodial-death prosecutions rarely succeed.
