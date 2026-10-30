@@ -5,12 +5,11 @@ section: lifestyle
 format: article
 status: approved
 isDemo: false
-subtitle: Navigating dietary politics, caste identity, and culinary heritage in
-  urban contemporary India.
 publishedAt: 2026-06-30
 dateLabel: June 06, 2026
 authors:
   - name: Aradhana
+    role: Reporter
 heroImage:
   src: /media/Ganesan-Funambulist-1-900x600.jpg
   variant: paper
@@ -20,7 +19,9 @@ heroImage:
     (Dalit) people buffalo symbolizes their hard working nature.
   credit: Caption and painting by Preetam Casimir (2014)
 ---
-    In India food is rarely just food. What sits on a plate can carry caste, religion, class, family, region and politics. Vegetarianism can be treated as a marker of purity while meat can become a marker of identity and resistance. In this relationship between food and social identity veganism is often placed into another category altogether; an expensive urban upper-caste lifestyle, sometimes dismissed as a Brahminical idea disguised as progress.
+```
+In India food is rarely just food. What sits on a plate can carry caste, religion, class, family, region and politics. Vegetarianism can be treated as a marker of purity while meat can become a marker of identity and resistance. In this relationship between food and social identity veganism is often placed into another category altogether; an expensive urban upper-caste lifestyle, sometimes dismissed as a Brahminical idea disguised as progress.
+```
 
 For one Dalit vegan the decision to stop consuming animal products did not begin with caste, politics or activism. It began with something more ordinary: his health. "When I went vegan initially it was more for health reasons " he says. The ethical questions came later. Once he began thinking about animal exploitation however veganism became more than a choice. It became something he had to negotiate in his life which was including in spaces where he expected people to be more receptive to questions of exploitation and justice.
 
