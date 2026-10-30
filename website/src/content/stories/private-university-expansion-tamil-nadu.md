@@ -15,6 +15,5 @@ heroImage:
   variant: paper
 video:
   mediaUrl: /media/videos/aradhana-private-universities.mp4
-  poster: /media/videos/video-aradhana-private-universities.jpg
   duration: 2:44
 ---
