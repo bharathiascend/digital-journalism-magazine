@@ -22,7 +22,7 @@ heroImage:
     a decisive victory.
   credit: "photo credit : @f1"
 ---
-Lando Norris secured his and McLaren's first win of the 2026 season with a brilliant drive at the Hungarian Grand Prix, bouncing back from an early race scare to dominate the field.
+Lando Norris secured his and McLaren's first win of the 2026 season with a brilliant drive at the Hungarian Grand Prix, bouncing back from an early race scare to dominate the field. 
 
 Norris started on pole, but teammate Oscar Piastri snatched the lead with a clever cut-back move at Turn 2 on the opening lap. The two McLarens ran first and second for much of the first half, engaging in a tense intra-team battle while managing tire strategies.
 
