@@ -20,8 +20,9 @@ heroImage:
   src: /media/Untitled design (1).png
   alt: Digital fact checking and social media monitoring dashboard
   variant: paper
-  caption: Tamil Nadu's fact-checking unit machinery under the Information
-    Integrity Desk (IID).
+  caption: TVK Govt has renamed the Tamil Nadu Fact Check Unit as the Information
+    Integrity Desk (IID) under the Directorate of Information and Public
+    Relations (DIPR).
   credit: "photo credit : @tn_factcheck "
 ---
 Tamil Nadu’s government fact-checking machinery has changed its name, its structure and, increasingly, the political context of the claims appearing on its social media feed. On the surface, it may look like a simple change in name and administration. But when you look at what the unit was doing earlier and what the new desk is focusing on now, the difference becomes much harder to ignore. 
