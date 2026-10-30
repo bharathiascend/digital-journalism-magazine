@@ -11,7 +11,7 @@ authors:
   - name: Aradhana
     role: Reporter
 heroImage:
-  src: /media/photos/podcast-aradhana-campus-discourse.jpg
+  src: /media/download (4).jpg
   variant: paper
 podcast:
   mediaUrl: /media/audio/aradhana-podcast.mp3
