@@ -9,7 +9,7 @@ publishedAt: 2026-08-03
 dateLabel: August 03, 2026
 authors:
   - name: Aradhana
-    role: Writer
+    role: Reporter
 heroImage:
   src: /media/photos/sports-aradhana-chess.jpeg
   variant: paper
