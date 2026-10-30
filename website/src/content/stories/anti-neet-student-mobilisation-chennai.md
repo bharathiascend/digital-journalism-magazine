@@ -15,7 +15,7 @@ authors:
   - name: Dhanushree
     role: Photojournalist
 heroImage:
-  src: /media/photos/photo-feature-dhanushree-image1.png
+  src: /media/WhatsApp Image 2026-10-26 at 6.31.24 PM-1.jpeg
   alt: Student protest against the NEET exam at Rajarathinam Stadium Chennai
   variant: paper
   caption: "Amplifying the Voice Against NEET: S. Maniratnam, brother of the late
