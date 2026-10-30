@@ -41,13 +41,21 @@ if (currentSlug) {
   usedSlugs.add(currentSlug);
 }
 
-// Group 1: More From This Beat (up to 3 stories in current section)
+// Group 1: More From This Beat (written articles only — reading recommendations)
 const beatStories: StoryEntry[] = currentSection
   ? sortedStories
-      .filter((s) => s.data.section === currentSection && !usedSlugs.has(s.data.slug))
+      .filter((s) => s.data.section === currentSection && s.data.format === 'article' && !usedSlugs.has(s.data.slug))
       .slice(0, 3)
   : [];
 beatStories.forEach((s) => usedSlugs.add(s.data.slug));
+
+// Group 1b: Dedicated Beat Multimedia (podcasts, video, photo features, poll reports)
+const beatMultimedia: StoryEntry[] = currentSection
+  ? sortedStories
+      .filter((s) => s.data.section === currentSection && s.data.format !== 'article' && s.data.format !== 'blog' && !usedSlugs.has(s.data.slug))
+      .slice(0, 2)
+  : [];
+beatMultimedia.forEach((s) => usedSlugs.add(s.data.slug));
 
 // Group 2: Explore Other Beats (up to 3 stories across different sections)
 const crossBeatStories: StoryEntry[] = [];
@@ -104,9 +112,43 @@ const currentSectionMeta = currentSection ? getSectionMeta(currentSection) : und
       </ul>
       {currentSection && (
         <a href={`/sections/${currentSection}/`} class="text-link sidebar-section-link">
-          Explore all {currentSectionMeta?.label} stories <span aria-hidden="true">→</span>
+          Explore all {currentSectionMeta?.label} articles <span aria-hidden="true">→</span>
         </a>
       )}
+    </div>
+  )}
+
+  {/* Dedicated Beat Multimedia (clearly labelled broadcast & visuals) */}
+  {beatMultimedia.length > 0 && (
+    <div class="sidebar-block beat-multimedia-block">
+      <div class="sidebar-block-header">
+        <span class="eyebrow block-kicker">Broadcast & Visuals</span>
+        <h2 class="block-title">{currentSectionMeta?.shortLabel ?? currentSectionMeta?.label ?? 'Beat'} Multimedia</h2>
+      </div>
+      <ul class="sidebar-story-list">
+        {beatMultimedia.map((story) => {
+          const format = getFormatMeta(story.data.format);
+          return (
+            <li class="sidebar-story-item">
+              <span class="sidebar-format-tag">{format?.badgeLabel ?? story.data.format}</span>
+              <h3 class="sidebar-story-headline">
+                <a href={`/stories/${story.data.slug}/`} class="sidebar-headline-link">
+                  {story.data.title}
+                </a>
+              </h3>
+              <p class="sidebar-story-meta">
+                <span>By {story.data.authors?.[0]?.name ?? 'Editorial Desk'}</span>
+                {story.data.dateLabel && (
+                  <>
+                    <span aria-hidden="true">·</span>
+                    <time datetime={story.data.publishedAt}>{story.data.dateLabel}</time>
+                  </>
+                )}
+              </p>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   )}
 

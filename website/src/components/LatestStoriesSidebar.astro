@@ -14,8 +14,8 @@ interface Props {
 const {
   limit = 6,
   excludeSlug,
-  heading = 'Latest News',
-  eyebrow = 'Chronological reporting index',
+  heading = 'Latest from the Newsroom',
+  eyebrow = 'From Our Contributors',
   viewAllHref = '/formats/article/',
   viewAllLabel = 'View all stories',
   class: className,
@@ -35,7 +35,55 @@ candidateStories.sort((a, b) => {
   return dateB - dateA;
 });
 
-const latestStories = candidateStories.slice(0, Math.min(Math.max(limit, 5), 7));
+// Editorial balance algorithm: represent diverse contributors in top visible slots
+const selectedStories: StoryEntry[] = [];
+const usedSlugs = new Set<string>();
+
+// Step 1: Represent distinct active contributors within the top visible entries
+const seenAuthors = new Set<string>();
+for (const story of candidateStories) {
+  const authorName = story.data.authors?.[0]?.name?.trim();
+  if (authorName && authorName !== 'Staff Reporter' && !seenAuthors.has(authorName)) {
+    seenAuthors.add(authorName);
+    selectedStories.push(story);
+    usedSlugs.add(story.data.slug);
+    if (selectedStories.length >= 3) break;
+  }
+}
+
+// Preserve chronological order among the top diverse entries
+selectedStories.sort((a, b) => {
+  const dateA = a.data.publishedAt ? new Date(a.data.publishedAt).getTime() : 0;
+  const dateB = b.data.publishedAt ? new Date(b.data.publishedAt).getTime() : 0;
+  return dateB - dateA;
+});
+
+// Step 2: Fill remaining slots up to limit, avoiding consecutive author repeats
+const targetLimit = Math.min(Math.max(limit, 5), 7);
+while (selectedStories.length < targetLimit) {
+  const lastAuthor = selectedStories[selectedStories.length - 1]?.data.authors?.[0]?.name?.trim();
+
+  // Prefer next newest unused story from a different author
+  const diffAuthorMatch = candidateStories.find(
+    (s) => !usedSlugs.has(s.data.slug) && s.data.authors?.[0]?.name?.trim() !== lastAuthor
+  );
+
+  if (diffAuthorMatch) {
+    selectedStories.push(diffAuthorMatch);
+    usedSlugs.add(diffAuthorMatch.data.slug);
+  } else {
+    // Fallback: take next newest unused story
+    const anyMatch = candidateStories.find((s) => !usedSlugs.has(s.data.slug));
+    if (anyMatch) {
+      selectedStories.push(anyMatch);
+      usedSlugs.add(anyMatch.data.slug);
+    } else {
+      break;
+    }
+  }
+}
+
+const latestStories = selectedStories;
 ---
 
 <aside class:list={['latest-news-sidebar', className]} aria-labelledby="latest-news-heading">

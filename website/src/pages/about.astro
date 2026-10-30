@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import aboutData from '../data/about.json';
+import appearance from '../data/appearance.json';
+---
+
+<BaseLayout
+  title="About Us"
+  description={aboutData.tagline}
+>
+  <div class="shell about-page">
+    <header class="archive-header reading-width">
+      <nav class="breadcrumb-nav" aria-label="About breadcrumbs">
+        <a class="text-link breadcrumb" href="/">← Home</a>
+        <span class="breadcrumb-separator" aria-hidden="true">/</span>
+        <span class="breadcrumb-current">About</span>
+      </nav>
+      <p class="eyebrow archive-kicker">Digital Journalism Magazine <span aria-hidden="true">/</span> GLASNOST</p>
+      <h1 class="archive-title">{aboutData.title}</h1>
+      <p class="archive-deck">{aboutData.tagline}</p>
+    </header>
+
+    <main class="about-content reading-width">
+      <!-- 1. About GLASNOST & Editorial Mission -->
+      <section class="about-section" aria-labelledby="mission-heading">
+        <SectionHeading
+          id="mission-heading"
+          title={aboutData.mission.heading}
+          eyebrow="Purpose & Principles"
+        />
+        <div class="about-prose">
+          {aboutData.mission.paragraphs.map((p) => (
+            <p>{p}</p>
+          ))}
+        </div>
+      </section>
+
+      <!-- 2. Our Journalism -->
+      <section class="about-section" aria-labelledby="journalism-heading">
+        <SectionHeading
+          id="journalism-heading"
+          title={aboutData.journalism.heading}
+          eyebrow="Coverage & Formats"
+        />
+        <p class="about-intro">{aboutData.journalism.description}</p>
+
+        <div class="desks-overview-grid">
+          {aboutData.journalism.desks.map((desk) => (
+            <div class="desk-item-card">
+              <h3 class="desk-item-name">{desk.name}</h3>
+              <p class="desk-item-desc">{desk.description}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="formats-list-box">
+          <h3 class="formats-list-heading">Publishing Formats</h3>
+          <ul class="formats-tag-list">
+            {aboutData.journalism.formats.map((fmt) => (
+              <li class="format-tag-item">{fmt}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <!-- 3. Meet the Contributors -->
+      <section class="about-section" aria-labelledby="contributors-heading">
+        <SectionHeading
+          id="contributors-heading"
+          title={aboutData.contributors.heading}
+          eyebrow="Newsroom Team"
+        />
+        <p class="about-intro">{aboutData.contributors.intro}</p>
+
+        <div class="contributors-grid">
+          {aboutData.contributors.members.map((member) => {
+            const monogram = member.name.slice(0, 2).toUpperCase();
+            return (
+              <div class="contributor-card">
+                <div class="contributor-header">
+                  <span class="contributor-monogram" aria-hidden="true">{monogram}</span>
+                  <div class="contributor-title-group">
+                    <h3 class="contributor-name">{member.name}</h3>
+                    <p class="contributor-role">{member.role}</p>
+                  </div>
+                </div>
+                <p class="contributor-bio">{member.bio}</p>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      <!-- 4. Contact / Editorial Enquiries -->
+      <section class="about-section" aria-labelledby="contact-heading">
+        <SectionHeading
+          id="contact-heading"
+          title={aboutData.contact.heading}
+          eyebrow="Correspondence"
+        />
+        <div class="contact-box">
+          <p>{aboutData.contact.note}</p>
+          <p class="contact-domain">
+            Digital Publication: <a href={aboutData.contact.website} class="text-link">{aboutData.contact.website}</a>
+          </p>
+        </div>
+      </section>
+    </main>
+  </div>
+</BaseLayout>

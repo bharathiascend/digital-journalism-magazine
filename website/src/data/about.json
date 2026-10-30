@@ -1,0 +1,72 @@
+{
+  "title": "About GLASNOST",
+  "tagline": "An Independent Journal of Student Reporting, Civic Inquiry & Cultural Commentary",
+  "mission": {
+    "heading": "Our Editorial Mission",
+    "paragraphs": [
+      "GLASNOST is an independent, student-led digital journalism magazine founded to practice rigorous reporting, critical civic inquiry, and nuanced cultural analysis.",
+      "Rooted in authentic student voices, GLASNOST observes society, asks meaningful questions, interrogates structural realities, and communicates ideas with fairness, verification, and responsibility. We believe student journalism matters because learning to ask the right questions is as vital as communicating the answers."
+    ]
+  },
+  "journalism": {
+    "heading": "Our Journalism",
+    "description": "Our newsroom reports across five primary editorial desks, utilizing diverse narrative formats to deliver comprehensive public interest coverage:",
+    "desks": [
+      {
+        "name": "National",
+        "description": "Investigative coverage of federal policy, climate vulnerability, socio-political movements, and civic demonstrations across India."
+      },
+      {
+        "name": "Politics",
+        "description": "Critical analysis of state governance, youth political engagement, legislative debates, and institutional accountability."
+      },
+      {
+        "name": "News Analysis",
+        "description": "In-depth interrogation of institutional choreography, media narratives, custodial violence, and information integrity."
+      },
+      {
+        "name": "Lifestyle & Entertainment",
+        "description": "Cultural commentary exploring gender, identity politics, food systems, independent cinema, and public space reclamation."
+      },
+      {
+        "name": "Sports",
+        "description": "Athletics reporting, public sports budget analysis, grassroots sporting cultures, and international motorsport reviews."
+      }
+    ],
+    "formats": [
+      "Broadsheet Articles & Long-form Reporting",
+      "Personal Critical Student Blogs & Essays",
+      "Grounded Visual Photo Features",
+      "Broadcast Audio Podcasts",
+      "Mobile Vertical Video Explainers",
+      "Empirical Opinion Poll Reports"
+    ]
+  },
+  "contributors": {
+    "heading": "Meet the Contributors",
+    "intro": "The journalism published in GLASNOST is researched, reported, photographed, and produced by student contributors:",
+    "members": [
+      {
+        "name": "Aradhana",
+        "role": "Reporter & Media Analyst",
+        "bio": "Reports on national climate policy, youth politics, media narratives, and collegiate discourse across written, audio, and visual formats."
+      },
+      {
+        "name": "Dhanushree",
+        "role": "Reporter & Photojournalist",
+        "bio": "Reports on athletics, state sports spending, cinematic critique, and student demonstrations across written and photojournalism formats."
+      },
+      {
+        "name": "Mithraa",
+        "role": "Reporter & Society Analyst",
+        "bio": "Reports on public finance, gender discourse, custodial integrity, and public opinion surveys across investigative and audio formats."
+      }
+    ]
+  },
+  "contact": {
+    "heading": "Contact & Editorial Enquiries",
+    "note": "GLASNOST is published digitally under student editorial independence at glasnost.page. Editorial correspondence, manuscript submissions, and reader corrections can be directed to the editorial desk.",
+    "website": "https://glasnost.page"
+  }
+}
+

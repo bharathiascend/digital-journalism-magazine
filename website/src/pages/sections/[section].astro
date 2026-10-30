@@ -9,9 +9,9 @@ export async function getStaticPaths() {
   const allStories = await getPublishableStories();
 
   return SECTIONS.map((section) => {
-    // Dynamic filtering by actual section field, sorted chronologically (newest first)
+    // Dynamic filtering by section and written article format, sorted chronologically (newest first)
     const sectionStories = allStories
-      .filter((s) => s.data.section === section.id && s.data.status === 'approved' && !s.data.isDemo)
+      .filter((s) => s.data.section === section.id && s.data.format === 'article' && s.data.status === 'approved' && !s.data.isDemo)
       .sort((a, b) => {
         const dateA = a.data.publishedAt ? new Date(a.data.publishedAt).getTime() : 0;
         const dateB = b.data.publishedAt ? new Date(b.data.publishedAt).getTime() : 0;

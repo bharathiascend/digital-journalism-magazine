@@ -41,7 +41,10 @@ const monogram = author?.name
   description={entry.data.excerpt ?? entry.data.subtitle ?? 'A considered editorial story published by GLASNOST.'}
 >
   <article class="story-article shell" aria-labelledby="story-title">
-    <header class="story-header reading-width">
+        <!-- Two-column responsive editorial grid (Phase 3 & 5) -->
+    <div class="story-layout-grid">
+      <div class="story-main-column">
+        <header class="story-header reading-width">
       <nav class="breadcrumb-nav" aria-label="Story breadcrumbs">
         <a class="text-link breadcrumb" href="/">← Home</a>
         {section && (
@@ -88,9 +91,6 @@ const monogram = author?.name
       </div>
     </header>
 
-    <!-- Two-column responsive editorial grid (Phase 3 & 5) -->
-    <div class="story-layout-grid">
-      <div class="story-main-column">
         <!-- Format-specific layout body -->
         <div class="story-content-region">
           {entry.data.format === 'article' && (

@@ -546,3 +546,95 @@ content:
             label: Tagline & Editorial Copy
             type: string
 
+
+  # About Us & Editorial Team Details
+  - name: about
+    label: About & Contributors
+    type: file
+    path: website/src/data/about.json
+    format: json
+    fields:
+      - name: title
+        label: Page Title
+        type: string
+        default: About GLASNOST
+      - name: tagline
+        label: Publication Tagline
+        type: string
+      - name: mission
+        label: Editorial Mission Section
+        type: object
+        fields:
+          - name: heading
+            label: Section Heading
+            type: string
+            default: Our Editorial Mission
+          - name: paragraphs
+            label: Mission Paragraphs
+            type: list
+            field:
+              type: string
+      - name: journalism
+        label: Our Journalism Section
+        type: object
+        fields:
+          - name: heading
+            label: Section Heading
+            type: string
+            default: Our Journalism
+          - name: description
+            label: Overview Description
+            type: string
+          - name: desks
+            label: Primary Desks
+            type: list
+            fields:
+              - name: name
+                label: Desk Name
+                type: string
+              - name: description
+                label: Desk Coverage Scope
+                type: string
+          - name: formats
+            label: Publishing Formats
+            type: list
+            field:
+              type: string
+      - name: contributors
+        label: Contributors Section
+        type: object
+        fields:
+          - name: heading
+            label: Section Heading
+            type: string
+            default: Meet the Contributors
+          - name: intro
+            label: Section Intro
+            type: string
+          - name: members
+            label: Contributor Profiles
+            type: list
+            fields:
+              - name: name
+                label: Full Name
+                type: string
+              - name: role
+                label: Journalistic Role
+                type: string
+              - name: bio
+                label: Reporting Focus
+                type: string
+      - name: contact
+        label: Contact & Enquiries Section
+        type: object
+        fields:
+          - name: heading
+            label: Section Heading
+            type: string
+            default: Contact & Editorial Enquiries
+          - name: note
+            label: Editorial Note
+            type: string
+          - name: website
+            label: Live Publication URL
+            type: string
