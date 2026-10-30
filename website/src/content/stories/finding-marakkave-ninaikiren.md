@@ -6,10 +6,6 @@ section: lifestyle
 format: blog
 status: approved
 isDemo: false
-subtitle: A reflective reading of wartime trauma, displacement, and feminine
-  survival in Tamil literature.
-excerpt: An essay on 'Marakkave Ninaikiren', exploring how literature preserves
-  the visceral memories of war and personal resilience.
 publishedAt: 2026-06-24
 dateLabel: june 24, 2026
 authors:
