@@ -1,5 +1,5 @@
 ---
-title: Why Tamil Nadu Refuses to Yield on NEET
+title: Why Tamil Nadu refuses to yield on NEET?
 slug: why-tamil-nadu-refuses-to-yield-on-neet
 section: politics
 format: article
