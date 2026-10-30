@@ -13,6 +13,7 @@ publishedAt: 2026-10-08
 dateLabel: October 08, 2026
 authors:
   - name: Dhanushree
+    role: .
 heroImage:
   src: /media/videos/video-dhanushree-asian-games.jpg
   alt: Asian Games 2026 title graphic and archery coverage
