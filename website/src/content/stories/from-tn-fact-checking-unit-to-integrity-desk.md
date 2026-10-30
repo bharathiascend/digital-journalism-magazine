@@ -17,12 +17,12 @@ authors:
   - name: Dhanushree
     role: Reporter
 heroImage:
-  src: /media/photos/analysis-dhanushree-fact-check-unit.jpg
+  src: /media/Untitled design (1).png
   alt: Digital fact checking and social media monitoring dashboard
   variant: paper
-  caption: Tamil Nadu's revamped fact-checking machinery under the Information
+  caption: Tamil Nadu's fact-checking unit machinery under the Information
     Integrity Desk (IID).
-  credit: Digital Policy Archive
+  credit: "photo credit : @tn_factcheck "
 ---
 Tamil Nadu’s government fact-checking machinery has changed its name, its structure and, increasingly, the political context of the claims appearing on its social media feed. On the surface, it may look like a simple change in name and administration. But when you look at what the unit was doing earlier and what the new desk is focusing on now, the difference becomes much harder to ignore. 
 
@@ -52,4 +52,3 @@ The misinformation categories have not disappeared. Viral videos, political clai
 
 If the new desk continues to scrutinise claims about TVK with the same intensity with which the old TNFCU scrutinised the DMK, it can establish itself as a credible successor. If its fact-checking increasingly becomes a tool for defending the image of the government in power, the change from “Fact Checking Unit” to “Information Integrity Desk” will look like more than a rebranding.
 
-  
