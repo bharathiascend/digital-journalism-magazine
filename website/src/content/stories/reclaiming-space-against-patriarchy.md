@@ -1,34 +1,35 @@
 ---
-title: "Reclaiming the Night: On the Streets Against Silence and Patriarchy"
-slug: "reclaiming-space-against-patriarchy"
-section: "lifestyle"
-format: "photo-feature"
-status: "approved"
+title: Reclaiming the Night
+slug: reclaiming-the-night
+section: lifestyle
+format: photo-feature
+status: approved
 isDemo: false
-subtitle: "A visual dispatch capturing the intensity of women marching into public spaces after dark."
-excerpt: "Observational visual reporting from night marches demanding safe public spaces, institutional accountability, and women's autonomy."
-authors: [
-  {
-    "name": "Aradhana",
-    "role": "Visual Journalist"
-  }
-]
-publishedAt: "2026-10-24"
-dateLabel: "October 24, 2026"
-heroImage: {
-  "src": "/media/photos/photo-feature-aradhana-protest.jpg",
-  "alt": "Night march against patriarchal violence and street harassment",
-  "caption": "Marchers assemble in solidarity, carrying banners asserting women's right to safe nocturnal streets.",
-  "credit": "Visual Journalism Archive"
-}
-photoGallery: [
-  {
-    "src": "/media/photos/photo-feature-aradhana-protest.jpg",
-    "alt": "Marchers taking the streets in nighttime reclamation demonstration",
-    "caption": "We walked, we showed up, and we said it out loud: no culture is worth keeping if it’s built on silence. Reclaim the night, reclaim the street, reclaim every space that told women to stay inside.",
-    "credit": "Visual Dispatch by Aradhana"
-  }
-]
+publishedAt: 2026-10-03
+dateLabel: October 03, 2026
+authors:
+  - name: Aradhana
+heroImage:
+  src: /media/photos/photo-feature-aradhana-protest.jpg
+  variant: paper
+photoGallery:
+  - src: /media/photos/photo-feature-aradhana-protest.jpg
+    caption: Plate 1
+    credit: Visual Dispatch by Aradhana
+  - src: /media/1000179430.jpg
+    caption: Plate 2
+  - src: /media/1000179434.jpg
+    caption: Plate 3
+  - src: /media/1000179436.jpg
+    caption: Plate 4
+  - src: /media/1000179461.jpg
+    caption: Plate 5
+  - src: /media/1000179479.jpg
+    caption: Plate 6
+  - src: /media/1000179485.jpg
+    caption: Plate 7
+  - src: /media/1000179487.jpg
+    caption: Plate 8
+  - src: /media/1000179495.jpg
+    caption: Plate 9
 ---
-
-We walked, we showed up, and we said it out loud: no culture is worth keeping if it's built on patriarchy, misogyny, homophobia and transphobia. Choosing each other, loudly.
