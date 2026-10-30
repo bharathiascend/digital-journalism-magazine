@@ -9,6 +9,7 @@ publishedAt: 2026-10-03
 dateLabel: October 03, 2026
 authors:
   - name: Aradhana
+    role: Reporter
 heroImage:
   src: /media/photos/photo-feature-aradhana-protest.jpg
   variant: paper
