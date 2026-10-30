@@ -1,28 +1,26 @@
 ---
-title: "Is There Really a 'Male Loneliness Epidemic'?"
-slug: "male-loneliness-epidemic"
-section: "lifestyle"
-format: "article"
-status: "approved"
+title: Is There Really a 'Male Loneliness Epidemic'?
+slug: male-loneliness-epidemic
+section: lifestyle
+format: article
+status: approved
 isDemo: false
-subtitle: "Dissecting social media discourse, emotional isolation, and the structural realities of young men's relationships."
-excerpt: "Investigating whether modern male loneliness is an unprecedented sociological crisis or a reflection of changing social patterns."
-authors: [
-  {
-    "name": "Mithraa",
-    "role": "Society & Culture Reporter"
-  }
-]
-publishedAt: "2026-10-24"
-dateLabel: "October 24, 2026"
-heroImage: {
-  "src": "/media/photos/lifestyle-mithraa-male-loneliness.jpeg",
-  "alt": "Young adult sitting outdoors in thought",
-  "caption": "Urban isolation and relational disconnection among contemporary youth.",
-  "credit": "Society & Culture Desk"
-}
+subtitle: Dissecting social media discourse, emotional isolation, and the
+  structural realities of young men's relationships.
+excerpt: Investigating whether modern male loneliness is an unprecedented
+  sociological crisis or a reflection of changing social patterns.
+publishedAt: 2026-08-23
+dateLabel: July 23, 2026
+authors:
+  - name: Mithraa
+    role: Society & Culture Reporter
+heroImage:
+  src: /media/photos/lifestyle-mithraa-male-loneliness.jpeg
+  alt: Young adult sitting outdoors in thought
+  variant: paper
+  caption: Urban isolation and relational disconnection among contemporary youth.
+  credit: Society & Culture Desk
 ---
-
 The phrase "male loneliness epidemic" has become a fixture of think pieces, podcasts, and dating-advice content. But scratch beneath the headline and you find a genuine argument playing out not just about whether men are lonely, but about why, and who or what is to blame.
 
 Some experts push back on the framing itself. "Not an epidemic, because it hasn't spread; it's a phenomenon created as a political weapon to fuel the gender war," argues one psychologist, who spoke on condition of anonymity. "Research backs me up. Both genders feel lonely, but the world caters to them more. This agenda, or online spaces, doesn't help men either, and remains only as a justification for misogyny."
