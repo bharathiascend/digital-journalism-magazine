@@ -1,28 +1,26 @@
 ---
-title: "Is It a Privilege?"
-slug: "is-it-a-privilege"
-section: "lifestyle"
-format: "blog"
-status: "approved"
+title: Is It a Privilege?
+slug: is-it-a-privilege
+section: lifestyle
+format: blog
+status: approved
 isDemo: false
-subtitle: "Interrogating unexamined social capital, generational comfort, and everyday advantages in contemporary youth culture."
-excerpt: "A candid essay examining how privilege operates unnoticed until contrasted with systemic inequality."
-authors: [
-  {
-    "name": "Mithraa",
-    "role": "Student Essayist"
-  }
-]
-publishedAt: "2026-10-24"
-dateLabel: "October 24, 2026"
-heroImage: {
-  "src": "/media/photos/blog-mithraa-privilege.jpeg",
-  "alt": "Reflective visual on socioeconomic perspective and privilege",
-  "caption": "Reflections on social mobility, structural advantages, and perspective.",
-  "credit": "Society & Culture Desk"
-}
+subtitle: Interrogating unexamined social capital, generational comfort, and
+  everyday advantages in contemporary youth culture.
+excerpt: A candid essay examining how privilege operates unnoticed until
+  contrasted with systemic inequality.
+publishedAt: 2026-08-21
+dateLabel: August 21, 2026
+authors:
+  - name: Mithraa
+    role: Student Essayist
+heroImage:
+  src: /media/photos/blog-mithraa-privilege.jpeg
+  alt: Reflective visual on socioeconomic perspective and privilege
+  variant: paper
+  caption: Reflections on social mobility, structural advantages, and perspective.
+  credit: Society & Culture Desk
 ---
-
 When I was around 4, my mom taught me the concept of good girl, bad girl.  
 When I was around 10, she gave me a different context to these same words.  
 When I was 15, the meaning changed again.  
