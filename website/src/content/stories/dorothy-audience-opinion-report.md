@@ -14,7 +14,7 @@ heroImage:
   src: /media/photos/poll-dhanushree-dorothy-cinema.jpg
   alt: Dorothy
   variant: paper
-  credit: the wire
+  credit: "photo credit  : IMDb"
 ---
 Balakannika remembered the conversation on the cliff after Karthi throws the gun at Subbu. She felt that the scene captured the film's larger point about male ego and the pressure placed on men to behave a certain way. Of course, not everyone thought the film got everything right. Some respondents mentioned problems with the pacing and script, while a few felt certain parts were overdramatic. The ending was where opinions got complicated The climax was the part that divided people the most. 
 
