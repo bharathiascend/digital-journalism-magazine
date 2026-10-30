@@ -15,14 +15,14 @@ authors:
   - name: Dhanushree
     role: reporter
 heroImage:
-  src: /media/photos/podcast-dhanushree-kimi-antonelli.jpg
-  alt: Kimi Antonelli rookie telemetry review podcast artwork
+  src: /media/WhatsApp Image 2026-10-30 at 9.36.50 AM.jpeg
+  alt: Kimi Antonelli review podcast artwork
   variant: paper
-  caption: Formula 1 trackside analysis and rookie telemetry review.
-  credit: The Journal Motorsport Desk
+  caption: Formula 1 trackside analysis and rookie to remarkable review.
+  credit: "photo credit : F1"
 podcast:
   mediaUrl: /media/audio/kimi-antonelli-performance-review.mp3
-  duration: "03:39"
+  duration: 03:39
   episodeNotes: F1 trackside analysis examining telemetry traces, qualifying pace,
     and Sunday stint management.
 ---
