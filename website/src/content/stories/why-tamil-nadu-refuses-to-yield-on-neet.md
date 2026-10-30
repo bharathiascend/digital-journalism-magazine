@@ -21,7 +21,7 @@ heroImage:
   variant: paper
   caption: Student organizations rally across Tamil Nadu demanding abolition of
     centralized medical entrance examinations.
-  credit: Dhanushree
+  credit: "photo credit : Dhanushree"
 ---
 While national headlines focus on test security, paper leaks, and central administrative fixes for the National Eligibility cum Entrance Test (NEET), Tamil Nadu continues to wage a far more fundamental battle. The state is not asking to reform the exam; it is demanding its total abolition.
 
