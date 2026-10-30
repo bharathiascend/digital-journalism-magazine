@@ -9,9 +9,9 @@ publishedAt: 2026-10-05
 dateLabel: October 05, 2026
 authors:
   - name: Aradhana
+    role: Writer
 heroImage:
-  src: /media/videos/video-aradhana-private-universities.jpg
-  alt: Aradhana presenting news explainer on private universities in Tamil Nadu
+  src: /media/C68632A8-8C9B-409E-81B3-737CA2CD6493_4_5005_c.jpeg
   variant: paper
 video:
   mediaUrl: /media/videos/aradhana-private-universities.mp4
