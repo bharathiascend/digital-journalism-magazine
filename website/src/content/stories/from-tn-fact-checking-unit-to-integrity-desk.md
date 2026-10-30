@@ -11,14 +11,16 @@ subtitle: An examination of the transition from DMK’s fact check unit to the
 excerpt: Analyzing how government fact-checking machinery in Tamil Nadu has
   shifted its scope, leadership, and political focus following the 2026 regime
   change.
-publishedAt: 2026-09-15
-dateLabel: October 25, 2026
+publishedAt: 2026-08-28
+dateLabel: august 28 , 2026
 authors:
   - name: Dhanushree
     role: Reporter
 heroImage:
   src: /media/Untitled design (1).png
-  alt: Digital fact checking and social media monitoring dashboard
+  alt: TVK Govt has renamed the Tamil Nadu Fact Check Unit as the Information
+    Integrity Desk (IID) under the Directorate of Information and Public
+    Relations (DIPR).
   variant: paper
   caption: TVK Govt has renamed the Tamil Nadu Fact Check Unit as the Information
     Integrity Desk (IID) under the Directorate of Information and Public
