@@ -16,7 +16,7 @@ heroImage:
   src: /media/photos/national-dhanushree-sonam-wangchuk-1.jpg
   variant: paper
   caption: "sonam wangchuk at jantar mantar "
-  credit: "@peektv"
+  credit: "photo credit : @peektv"
 ---
 As the protest demanding the resignation of union minister continues Sonam Wangchuk joined in to amplify the request.The climate activist and educationist's decision to fast alongside the protesters did two things at once: it pulled a much bigger spotlight onto the education crisis, and it dragged Ladakh's long-ignored demands back into the national conversation, whether the government wanted that or not. As the health situation got worse, so did the political pressure. 
 
