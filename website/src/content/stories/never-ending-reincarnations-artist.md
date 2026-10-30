@@ -5,14 +5,13 @@ section: lifestyle
 format: blog
 status: approved
 isDemo: false
-subtitle: How continuous reinvention, vulnerability, and experimentation shape
-  the creative journey across an artist's lifetime.
 excerpt: A personal essay on the cycles of creative renewal, creative doubts,
   and the ongoing labor of artistic reinvention.
 publishedAt: 2026-06-20
 dateLabel: June 20, 2026
 authors:
   - name: Aradhana
+    role: Reporter
 heroImage:
   src: /media/download (2).jpg
   variant: paper
