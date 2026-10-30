@@ -21,7 +21,7 @@ heroImage:
   variant: paper
   caption: Pa. Ranjith's 'Natchathiram Nagargiradhu' blends theatrical performance
     with radical discussions on love and caste.
-  credit: Cinema Archive
+  credit: "photo credit : IMDb"
 ---
 Set in Puducherry, the film follows a diverse theatre troupe gathering to unpack the realities of romance, desire, and honor killings. The ensemble cast brings this vision to life with raw intensity. Dushara Vijayan anchors the screen as Rene, an Ambedkarite with razor-sharp, unapologetic conviction, while Kalidas Jayaram plays Iniyan with a quiet vulnerability, capturing the tension of a man trying to outgrow his own conditioning. Kalaiyarasan rounds it out as Arjun, whose initial casual toxicity acts as an uncomfortable mirror for the audience.
 
