@@ -1,6 +1,6 @@
 ---
-title: My Choice, Their Rules? Inside the Quiet Tug-of-War of Class 12
-slug: class-12-career-choice-tug-of-war
+title: "My Choice, Their Rules? "
+slug: my-choice-their-rules
 section: lifestyle
 format: poll-report
 status: approved
@@ -9,6 +9,7 @@ publishedAt: 2026-10-04
 dateLabel: October 04, 2026
 authors:
   - name: Aradhana
+    role: Writer
 heroImage:
   src: /media/photos/poll-aradhana-career-choice.jpg
   variant: paper
@@ -24,7 +25,7 @@ pollData:
     - label: Coaching Institute / External Counselor Guidance
       percentage: 20
 ---
-    Asking the Class 12 student who decides their future who makes that decision for them would get you the answer "it's my choice"- but they'd also contradict that. Somewhere between the syllabus and the coaching centre, the Class 12 student is expected to answer a question that adults take ages to figure out: what do you want to do with your life?
+   Asking the Class 12 student who decides their future who makes that decision for them would get you the answer "it's my choice"- but they'd also contradict that. Somewhere between the syllabus and the coaching centre, the Class 12 student is expected to answer a question that adults take ages to figure out: what do you want to do with your life?
 
 In a poll of CBSE Class 12 students, the first statement stood out as a confident answer. Asked what influenced their career choice the most, the largest group, 40%, said themselves, their interests and ambitions, followed by parents, then friends and classmates. Teachers and school came in last with only 10%. The institution designed to help them make career choices is the last one on their list.
 
