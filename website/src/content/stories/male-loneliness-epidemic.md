@@ -10,7 +10,7 @@ subtitle: Dissecting social media discourse, emotional isolation, and the
 excerpt: Investigating whether modern male loneliness is an unprecedented
   sociological crisis or a reflection of changing social patterns.
 publishedAt: 2026-08-23
-dateLabel: July 23, 2026
+dateLabel: August 23, 2026
 authors:
   - name: Mithraa
     role: Society & Culture Reporter
