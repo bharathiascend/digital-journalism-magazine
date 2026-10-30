@@ -9,6 +9,7 @@ publishedAt: 2026-09-15
 dateLabel: September 15, 2026
 authors:
   - name: Aradhana
+    role: Reporter
 heroImage:
   src: /media/photos/podcast-aradhana-campus-discourse.jpg
   variant: paper
