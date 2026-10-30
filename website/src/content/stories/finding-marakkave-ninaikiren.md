@@ -38,4 +38,3 @@ Can we really forget everything so easily just because we tell ourselves, "I wan
 
 This book carries that exact undying pulse. It is not just a narrative; it is a lived testament to survival. It reminds us that dignity is not something granted by others; it is something forged in the fires of our deepest struggles. This book doesn't just tell a story; it reshapes how you look at the world, leaving an indelible mark on your soul long after you turn the final page.
 
-  
