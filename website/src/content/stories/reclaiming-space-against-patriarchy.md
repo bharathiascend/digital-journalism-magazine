@@ -15,22 +15,25 @@ heroImage:
   variant: paper
 photoGallery:
   - src: /media/photos/photo-feature-aradhana-protest.jpg
-    caption: Plate 1
+    caption: >
+      No culture is worth keeping if it’s built on patriarchy, misogyny,
+      homophobia and transphobia. Choosing each other, loudly. 
     credit: Visual Dispatch by Aradhana
   - src: /media/1000179430.jpg
-    caption: Plate 2
+    caption: Pink streets, handmade posters, and one message in many handwritings
   - src: /media/1000179434.jpg
-    caption: Plate 3
+    caption: A woman’s place is everywhere. Not the kitchen, not the corner, not
+      “home before dark.” Everywhere.
   - src: /media/1000179436.jpg
-    caption: Plate 4
+    caption: One whole mindset to change.
   - src: /media/1000179461.jpg
-    caption: Plate 5
+    caption: Some signs say it all.
   - src: /media/1000179479.jpg
-    caption: Plate 6
+    caption: “No” is a complete sentence. It doesn’t mean “try harder.”
   - src: /media/1000179485.jpg
-    caption: Plate 7
+    caption: The message was loud and clear.
   - src: /media/1000179487.jpg
-    caption: Plate 8
+    caption: A woman is not some body.
   - src: /media/1000179495.jpg
-    caption: Plate 9
+    caption: Vive la révolution.
 ---
