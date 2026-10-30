@@ -1,28 +1,26 @@
 ---
-title: "Old Guard, New Noise"
-slug: "old-guard-new-noise"
-section: "national"
-format: "article"
-status: "approved"
+title: Old Guard, New Noise
+slug: old-guard-new-noise
+section: national
+format: article
+status: approved
 isDemo: false
-subtitle: "How student unions, campus mobilisations, and digital organizing challenge traditional political gatekeepers."
-excerpt: "A ground investigation into student activist networks re-energizing political discourse beyond party machines."
-authors: [
-  {
-    "name": "Mithraa",
-    "role": "Civic Affairs Reporter"
-  }
-]
-publishedAt: "2026-10-24"
-dateLabel: "October 24, 2026"
-heroImage: {
-  "src": "/media/photos/national-mithraa-old-guard.jpg",
-  "alt": "Youth demonstration and campus solidarity gathering",
-  "caption": "Student representatives organizing decentralized public demonstrations.",
-  "credit": "Civic Documentation"
-}
+subtitle: How student unions, campus mobilisations, and digital organizing
+  challenge traditional political gatekeepers.
+excerpt: A ground investigation into student activist networks re-energizing
+  political discourse beyond party machines.
+publishedAt: 2026-06-29
+dateLabel: June 29, 2026
+authors:
+  - name: Mithraa
+    role: Civic Affairs Reporter
+heroImage:
+  src: /media/photos/national-mithraa-old-guard.jpg
+  alt: Youth demonstration and campus solidarity gathering
+  variant: paper
+  caption: Student representatives organizing decentralized public demonstrations.
+  credit: Civic Documentation
 ---
-
 As the Cockroach Janta Party's sit-in protest at Jantar Mantar - Delhi stretches past two weeks, with climate activist Sonam Wangchuk's hunger strike drawing national headlines, a quieter question is being asked inside India's oldest Left student organisation SFI : why did it take a satirical meme account to give the anti-NEET movement this scale of urgency?
 
 The Students' Federation of India (SFI), the CPI(M)'s student wing, has campaigned against the National Eligibility-cum-Entrance Test since its introduction, opposing it as a barrier for rural and underprivileged students. Yet it was CJP, born out of a Supreme Court remark comparing unemployed youth to "cockroaches" that turned this year's paper-leak scandal into a movement drawing crowds and headlines at a speed SFI's own campaigns never matched.
