@@ -9,7 +9,7 @@ publishedAt: 2026-10-04
 dateLabel: October 04, 2026
 authors:
   - name: Aradhana
-    role: Writer
+    role: Reporter
 heroImage:
   src: /media/photos/poll-aradhana-career-choice.jpg
   variant: paper
