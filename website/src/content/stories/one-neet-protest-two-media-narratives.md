@@ -5,15 +5,11 @@ section: analysis
 format: article
 status: approved
 isDemo: false
-subtitle: "How Times of India, The Hindu, and regional dailies framed student
-  unrest: spectacle vs institutional critique."
-excerpt: A comparative analysis of media framing during the 2026 NEET
-  controversy, exploring corporate journalism, visual soundbites, and systemic
-  critique.
 publishedAt: 2026-08-15
 dateLabel: August 15, 2026
 authors:
   - name: Aradhana
+    role: Reporter
 heroImage:
   src: /media/photos/analysis-aradhana-neet-protest.jpg
   alt: " Students and youth gathered at Jantar Mantar protesting examination
