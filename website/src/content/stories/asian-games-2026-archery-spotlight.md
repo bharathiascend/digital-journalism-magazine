@@ -13,16 +13,14 @@ publishedAt: 2026-10-08
 dateLabel: October 08, 2026
 authors:
   - name: Dhanushree
-    role: reporter
 heroImage:
   src: /media/videos/video-dhanushree-asian-games.jpg
   alt: Asian Games 2026 title graphic and archery coverage
   variant: paper
-  caption: Vertical sports explainer breaking down India's archery medal contenders.
+  caption: Video explainer covering the highlights of the Asian Games 2026
 video:
   mediaUrl: /media/videos/dhanushree-asian-games-2026.mp4
   poster: /media/videos/video-dhanushree-asian-games.jpg
   duration: 1:35
-  transcriptPlaceholder: Vertical explainer covering archery medal records,
-    athlete profiles, and international training camps.
+  transcriptPlaceholder: Video explainer covering the highlights of the Asian Games 2026
 ---
