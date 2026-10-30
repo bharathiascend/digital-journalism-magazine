@@ -5,8 +5,8 @@ section: national
 format: photo-feature
 status: approved
 isDemo: false
-subtitle: A photographic chronicle of demonstrations at Rajarathinam Stadium,
-  Valluvar Kottam, and political headquarters.
+subtitle: A photographic chronicle of demonstrations at Rajarathinam Stadium and
+  Valluvar Kottam.
 excerpt: A multi-plate photo essay capturing student rallies, barricades, and
   speeches demanding social justice in medical education.
 publishedAt: 2026-07-29
